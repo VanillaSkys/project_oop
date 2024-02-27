@@ -5,6 +5,8 @@ import { createContext, useState } from "react"
 import Landing from "./pages/LandingPage"
 import MenuPage from "./pages/MenuPage"
 import SearchPage from "./pages/SearchPage"
+import LoginPage from "./pages/LoginPage"
+import RegistPage from "./pages/Register"
 const ThemeContext = createContext()
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "system")
@@ -18,6 +20,8 @@ function App() {
             <Route path="/menu" element={<MenuPage />}/>
             <Route path="/search" element={<SearchPage />}/>
             <Route path="*" element={<Home />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegistPage/>} />
         </Routes>
       </ThemeContext.Provider>
     </main>
