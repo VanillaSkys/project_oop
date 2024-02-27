@@ -1,20 +1,27 @@
 import { Route, Routes } from "react-router-dom"
-import Home from "./pages/Home"
-import Error_404 from "./pages/_error/Error_404"
-// import ErrorLayout from "./_error/ErrorLayout"
-// import { Error_404 } from "./_error/pages"
-
-
+import Home from "./pages/HomePage"
+// import Error_404 from "./pages/_error/Error_404"
+import { createContext, useState } from "react"
+import Landing from "./pages/LandingPage"
+import MenuPage from "./pages/MenuPage"
+import SearchPage from "./pages/SearchPage"
+const ThemeContext = createContext()
 function App() {
+  const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "system")
   return (
     <main>
-      <Routes>
-        {/* private routes */}
-          <Route index element={<Home />}/>
-          <Route path="*" element={<Error_404 />} />
-      </Routes>
+      <ThemeContext.Provider value={{theme, setTheme}}>
+        <Routes>
+          {/* public routes */}
+            <Route index element={<Landing />}/>
+            <Route path="/:category" element={<Home />}/>
+            <Route path="/menu" element={<MenuPage />}/>
+            <Route path="/search" element={<SearchPage />}/>
+            <Route path="*" element={<Home />} />
+        </Routes>
+      </ThemeContext.Provider>
     </main>
   )
 }
-
+export {ThemeContext}
 export default App

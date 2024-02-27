@@ -1,6 +1,8 @@
+
 function Error_404() {
   return (
-    <div>Error_404</div>
+    <div className="" >Error_404
+    </div>
   )
 }
 
