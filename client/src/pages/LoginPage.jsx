@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function LoginPage()
 {
 	return(
@@ -30,7 +32,7 @@ function LoginPage()
 				</div>
 				<div className="mt-5 text-center">
 					<label className="label">
-						<span className='text-2xl text-white label-text'>Don't have your account? </span><a href="/register" className="text-2xl text-white hover:text-red-500 label-text  ">Register Now </a>
+						<span className='text-2xl text-white label-text'>Dont have your account? </span><Link to="/register" className="text-2xl text-white hover:text-red-500 label-text  ">Register Now </Link>
 					</label>
 				</div>
 			</form>
