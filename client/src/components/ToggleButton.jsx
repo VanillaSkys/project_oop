@@ -3,28 +3,14 @@ import { ThemeContext } from "../App";
 
 function ToggleButton() {
   const { theme, setTheme } = useContext(ThemeContext);
-  const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
   const options = [
     {
       text: "light",
     },
     {
       text: "dark",
-    },
-    {
-      text: "system",
-    },
-  ];
-  function onWindowMatch() {
-    if (
-      localStorage.getItem("theme") === "dark" ||
-      (!("theme" in localStorage) && darkQuery.matches)
-    ) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
     }
-  }
+  ];
   useEffect(() => {
     switch (theme) {
       case "dark":
@@ -37,7 +23,6 @@ function ToggleButton() {
         break;
       default:
         localStorage.removeItem("theme");
-        onWindowMatch();
         break;
     }
   }, [theme]);
