@@ -3,11 +3,13 @@ import json
 import os
 
 class Guest(Account):
-    def __init__(self, username = None, password = None) -> None:
-        super().__init__(username, password)
+    def __init__(self) -> None:
+        super().__init__()
 
     async def register(self, username, password, account):
         for user in account:
-            if user['username'] == username:
+            if user.get_username() == username:
                 return "Username already exists"
-        return {"username":username,"password":password}
+        new_account = Account(username, password)
+        return new_account
+        # return {"username":username,"password":password, "status": False}

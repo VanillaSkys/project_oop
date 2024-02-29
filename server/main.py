@@ -8,7 +8,7 @@ from src.controller.CartoonManagementController import CartoonManagementControll
 # sys.path.append('/server/src')
 from src.service.Guest import Guest
 app = FastAPI()
-cartoon_controller = CartoonManagementController()
+cartoon_controller = CartoonManagementController(Guest())
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -22,6 +22,10 @@ app.mount("/public", StaticFiles(directory="public"), name="public")
 async def root():
     return {"message": "HELLO"}
 
+# @app.get("/logout")
+# async def delete_cookie_user():
+
+
 @app.post('/register')
 async def add_register(username, password):
     response = await cartoon_controller.register(username, password)
@@ -29,6 +33,21 @@ async def add_register(username, password):
         return {"message": "Register successful"}
     else:
         raise HTTPException(status_code=401, detail=response)
+    
+@app.post('/login')
+async def add_login(username, password):
+    response = await cartoon_controller.login(username, password)
+    if isinstance(response, dict)  :
+        return {"message": response}
+    else:
+        raise HTTPException(status_code=401, detail=response)
+@app.post('/logout')
+async def logout_user(username):
+    response = await cartoon_controller.logout(username)
+    if response == "Logout success":
+        return {"message": response}
+    else:
+        raise HTTPException(status_code=401, detail="Can't logout")
     
 def create_instance():
     pass

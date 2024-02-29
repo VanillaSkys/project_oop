@@ -1,28 +1,34 @@
 from src.service.Guest import Guest
-
 class CartoonManagementController:
-    def __init__(self) -> None:
-        self.__account = []
+    def __init__(self, guest) -> None:
+        self.__account_list = []
         self.__cartoon = []
         self.__category = []
         self.__author = []
-
+        self.__guest = guest
+    
     async def register(self, username, password):
-        guest = Guest()
-        data = await guest.register(username, password, self.__account)
-        if type(data) == dict:
-            self.__account.append(data)
-            return True
-        else:
+        data = await self.__guest.register(username, password, self.__account_list)
+        if isinstance(data, str):
             return "Username already exists"
+        else:
+            self.__account_list.append(data)
+            return True
 
-    def login(self, username, password):
-        # Implementation of user login
-        pass
+    async def login(self, username, password):
+        for account in self.__account_list:
+            data = account.login(username, password)
+            if isinstance(data, dict):
+                return data
+            return data
+        
 
-    def logout(self):
-        # Implementation of user logout
-        pass
+    def logout(self, username):
+        for account in self.__account_list:
+            data = account.logout(username)
+            if isinstance(data, dict):
+                return data
+            return data
 
     def post_cartoon(self, cartoon_data):
         # Implementation of posting a new cartoon
