@@ -70,5 +70,5 @@ class CartoonManagementController:
     def get_all_cartoon(self):
         response = []
         for cartoon in self.__cartoon:
-            response.append({"name": cartoon.get_name_cartoon(), "image": f"static/cartoon/{cartoon.get_name_cartoon()}"})
+            response.append({"name": cartoon.get_name_cartoon(), "image": f"static/cartoon/{cartoon.get_image_cartoon()}"})
         return response
