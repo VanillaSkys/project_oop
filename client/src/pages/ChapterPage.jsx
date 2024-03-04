@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 function ChapterPage()
 {
 	return(
-		<div className="bg-white w-full flex justify-center">
+		<div className="bg-white w-full flex flex-col items-center justify-center">
 			<div className="w-[630px]">
 				<img className="object-contain" src="https://ali.xn--s3cx7a.com/B/img/SoloLeveling-1_001.jpg" alt=""></img>
 				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-1.jpg" alt="" />
