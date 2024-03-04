@@ -53,5 +53,8 @@ def logout_user():
     else:
         abort(401, response)
     
+def create_instance():
+    pass
+
 if __name__ == '__main__':
     app.run(debug=True)
