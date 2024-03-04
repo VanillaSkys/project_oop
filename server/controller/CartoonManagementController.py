@@ -12,7 +12,7 @@ class CartoonManagementController:
             return "Username already exists"
         else:
             self.__account_list.append(data)
-            return True
+            return "Register successful"
 
     def login(self, username, password):
         for account in self.__account_list:

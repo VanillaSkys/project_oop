@@ -30,19 +30,19 @@ def home():
 def add_register():
     username, password = request.json.get('username'), request.json.get('password')
     response = cartoon_controller.register(username, password)
-    if response:
-        return jsonify({"message": "Register successful"})
+    if response == 'Register successful':
+        return jsonify({"message": "Register successful"}),200
     else:
-        abort(401, response)
+        return response, 401
     
 @app.post('/login')
 def add_login():
     username, password = request.json.get('username'), request.json.get('password')
     response = cartoon_controller.login(username, password)
     if isinstance(response, dict)  :
-        return {"message": response}
+        return response
     else:
-        abort(401, response)
+        return response, 401
 
 @app.post('/logout')
 def logout_user():

@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import ToggleButton from "../components/ToggleButton";
+import axios from "axios";
 
 function MenuPage() {
-  function logout() {
-    fetch('http://127.0.0.1:8000/logout')
-    .then((res) => {
-      return res.json()
-    })
-    .then((data) => {
-      console.log(data)
-    })
+  async function logout() {
+    try{
+      await axios.post('/api/logout', {username: localStorage.getItem('user')})
+      localStorage.removeItem('user')
+      location.reload(false)
+    } catch (error) {
+      console.log(error.response)
+    }
   }
   return (
     <div>
@@ -18,6 +19,7 @@ function MenuPage() {
           Back
         </Link>
         <div className="w-[630px] flex flex-col justify-center items-center gap-2">
+          <div>{localStorage.getItem('user')}</div>
           <div>
             {!localStorage.getItem("user") ? (
               null
@@ -38,7 +40,7 @@ function MenuPage() {
             {!localStorage.getItem("user") ? (
               <Link to="/login">Login</Link>
             ) : (
-              <button onClick={() => logout}>Logout</button>
+              <button onClick={() => logout()}>Logout</button>
             )}
           </div>
       </div>
