@@ -21,8 +21,10 @@ class Admin(Account):
 
         if file:
             mime = file.filename.split('.')[-1].lower()
-            filename = secure_filename(name_cartoon+'.'+mime)
-            file.save(os.path.join('public', 'cartoon', filename))
+            filename = secure_filename('main.'+mime)
+            path = os.path.join('public', 'cartoon', name_cartoon)
+            os.mkdir(path) 
+            file.save(os.path.join(path, filename))
             cartoon = Cartoon(uuid.uuid4, name_cartoon, filename, author)
             cartoon.add_category(category)
             return cartoon
