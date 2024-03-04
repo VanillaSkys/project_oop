@@ -15,18 +15,29 @@ class Admin(Account):
             return "invalid username or password"
         return 'Dont have user'
     
-    def post_cartoon(self, name_cartoon, author, category, file):
-        if file.filename == '':
+    def post_cartoon(self, name_cartoon, author, category, file_cartoon, file_main, file_bg):
+        if file_cartoon.filename == '':
             return {'error': 'No selected file'}
 
-        if file:
-            mime = file.filename.split('.')[-1].lower()
-            filename = secure_filename('main.'+mime)
+        if file_cartoon:
+            mime_cartoon = file_cartoon.filename.split('.')[-1].lower()
+            filename_cartoon = secure_filename('cartoon.'+mime_cartoon)
+
+            mime_main = file_main.filename.split('.')[-1].lower()
+            filename_main = secure_filename('main.'+mime_main)
+
+            mime_bg = file_bg.filename.split('.')[-1].lower()
+            filename_bg = secure_filename('background.'+mime_bg)
+
             path = os.path.join('public', 'cartoon', name_cartoon)
             os.mkdir(path) 
-            file.save(os.path.join(path, filename))
-            path_file = name_cartoon + "/" + filename
-            cartoon = Cartoon(uuid.uuid4(), name_cartoon, path_file, author)
+            file_cartoon.save(os.path.join(path, filename_cartoon))
+            file_main.save(os.path.join(path, filename_main))
+            file_bg.save(os.path.join(path, filename_bg))
+            path_file_cartoon = name_cartoon + "/" + filename_cartoon
+            path_file_main = name_cartoon + "/" + filename_main
+            path_file_bg = name_cartoon + "/" + filename_bg
+            cartoon = Cartoon(uuid.uuid4(), name_cartoon, path_file_cartoon, path_file_main, path_file_bg, author)
             cartoon.add_category(category)
             return cartoon
         else:

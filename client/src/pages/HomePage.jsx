@@ -34,7 +34,7 @@ function HomePage() {
             </div>
             {
               allCartoon.map((value, key) => {
-                return <div key={key} className="" ><Link to={`/cartoon/${value.name}`}><img src={`/api/${value.image}`} className="rounded-xl  object-cover h-full w-full" /></Link></div>
+                return <div key={key} className="" ><Link to={`/cartoon/${value.name}`}><img src={`/api/${value.image_main}`} className="rounded-xl  object-cover h-full w-full" /></Link></div>
               })
             }
           </div>

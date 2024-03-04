@@ -35,8 +35,8 @@ class CartoonManagementController:
                 return data
             return data
 
-    def post_cartoon(self, name_cartoon, author, category, file):
-        response = self.__admin.post_cartoon(name_cartoon, author, category, file)
+    def post_cartoon(self, name_cartoon, author, category, file_cartoon, file_main, file_bg):
+        response = self.__admin.post_cartoon(name_cartoon, author, category, file_cartoon, file_main, file_bg)
         if isinstance(response, dict):
             return response
         else:
@@ -70,11 +70,11 @@ class CartoonManagementController:
     def get_all_cartoon(self):
         response = []
         for cartoon in self.__cartoon:
-            response.append({"name": cartoon.get_name_cartoon(), "image": f"static/cartoon/{cartoon.get_image_cartoon()}"})
+            response.append({"name": cartoon.get_name_cartoon(), "image_main": f"static/cartoon/{cartoon.get_image_main()}"})
         return response
 
     def get_cartoon(self, name_cartoon):
         for cartoon in self.__cartoon:
             if cartoon.get_name_cartoon() == name_cartoon:
-                return {"id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image": f"static/cartoon/{cartoon.get_image_cartoon()}", "author": cartoon.get_author(), "category": cartoon.get_category(), "all_chapter": cartoon.get_all_chapter()}
+                return {"id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image_cartoon": f"static/cartoon/{cartoon.get_image_cartoon()}", "image_main": f"static/cartoon/{cartoon.get_image_main()}", "image_background": f"static/cartoon/{cartoon.get_image_background()}", "author": cartoon.get_author(), "category": cartoon.get_category(), "all_chapter": cartoon.get_all_chapter()}
         return {"error": "name_cartoon"}

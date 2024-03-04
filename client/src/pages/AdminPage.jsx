@@ -2,19 +2,26 @@ import axios from "axios";
 import { useState } from "react";
 
 function AdminPage() {
-  const [image, setImage] = useState(null);
+  const [nameCartoon, setNameCartoon] = useState("");
+  const [author, setAuthor] = useState("");
+  let category = [];
+  const [imageCartoon, setImageCartoon] = useState(null);
+  const [imageMain, setImageMain] = useState(null);
+  const [imageBG, setImageBG] = useState(null);
 
-  const handleFileChange = (e) => {
-    setImage(e.target.files[0]);
-  };
+//   const handleFileChange = (e) => {
+//     setImageCartoon(e.target.files[0]);
+//   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name_cartoon", "solo");
-    formData.append("author", "fill");
-    formData.append("category", "action");
-    formData.append("image", image);
+    formData.append("name_cartoon", nameCartoon);
+    formData.append("author", author);
+    formData.append("category", category);
+    formData.append("image_cartoon", imageCartoon);
+    formData.append("image_main", imageMain);
+    formData.append("image_background", imageBG);
 
     try {
       await axios.post("/api/post_cartoon", formData, {
@@ -37,6 +44,7 @@ function AdminPage() {
           <input
             type="text"
             placeholder="Enter Cartoon Name"
+            onChange={(e) => setNameCartoon(e.target.value)}
             className="rounded-md w-full mt-4 pl-5 input input-bordered h-12"
           />
         </div>
@@ -47,6 +55,7 @@ function AdminPage() {
           <input
             type="text"
             placeholder="Enter Author Name"
+            onChange={(e) => setAuthor(e.target.value)}
             className="rounded-md w-full mt-4 pl-5 input input-bordered h-12"
           />
         </div>
@@ -57,17 +66,37 @@ function AdminPage() {
           <input
             type="text"
             placeholder="catefory"
+            onChange={(e) => category.append(e.target.value)}
             className="rounded-md w-full mt-4 pl-5 input input-bordered h-12"
           />
         </div>
         <div className="mt-5">
           <label className="label">
-            <span className="text-1xl text-black label-text">Upload</span>
+            <span className="text-1xl text-black label-text">image cartoon</span>
           </label>
           <input
             className="w-full mt-4 pl-5 input h-12"
             type="file"
-            onChange={handleFileChange}
+            // onChange={handleFileChange}
+            onChange={(e) => setImageCartoon(e.target.files[0])}
+          />
+          <label className="label">
+            <span className="text-1xl text-black label-text">image main</span>
+          </label>
+          <input
+            className="w-full mt-4 pl-5 input h-12"
+            type="file"
+            // onChange={handleFileChange}
+            onChange={(e) => setImageMain(e.target.files[0])}
+          />
+          <label className="label">
+            <span className="text-1xl text-black label-text">image bg</span>
+          </label>
+          <input
+            className="w-full mt-4 pl-5 input h-12"
+            type="file"
+            // onChange={handleFileChange}
+            onChange={(e) => setImageBG(e.target.files[0])}
           />
           <button type="submit" className="mt-2">
             Upload

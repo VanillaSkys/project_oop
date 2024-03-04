@@ -1,8 +1,10 @@
 class Cartoon:
-    def __init__(self, id_cartoon, name_cartoon, image_cartoon, author) -> None:
+    def __init__(self, id_cartoon, name_cartoon, image_cartoon, image_main, image_background, author) -> None:
         self.__id_cartoon = id_cartoon
         self.__name_cartoon = name_cartoon
         self.__image_cartoon = image_cartoon
+        self.__image_main = image_main
+        self.__image_background = image_background
         self.__author = author
         self.__category = []
         self.__all_chapter = []
@@ -18,6 +20,12 @@ class Cartoon:
     
     def get_image_cartoon(self):
         return self.__image_cartoon
+    
+    def get_image_main(self):
+        return self.__image_main
+    
+    def get_image_background(self):
+        return self.__image_background
 
     def get_author(self):
         return self.__author

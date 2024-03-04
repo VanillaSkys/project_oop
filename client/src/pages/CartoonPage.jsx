@@ -20,7 +20,7 @@ function CartoonPage() {
   return (
     <div className="h-screen flex items-center justify-center">
       <img
-        src="https://th-a.kakaopagecdn.com/P/C/48/bg/2x/2d678b69-787d-4a80-a854-32ed5d4f630f.jpg"
+        src={`/api/${dataCartoon.image_background}`}
         alt=""
         width={"100%"}
       />
@@ -28,7 +28,7 @@ function CartoonPage() {
         <div className="w-[630px] flex flex-col justify-center items-center gap-2">
           <div className="w-[450px] ">
             <img
-              src={`/api/${dataCartoon.image}`}
+              src={`/api/${dataCartoon.image_cartoon}`}
               alt=""
               style={{ borderBottomWidth: "1px", borderBottomColor: "#5F009E" }}
               className="object-contain w-fit mx-auto"

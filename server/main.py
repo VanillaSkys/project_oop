@@ -33,12 +33,12 @@ cartoon_folder = 'public/cartoon'
 
 @app.post('/post_cartoon')
 def upload_image():
-    if 'image' not in request.files:
+    if 'image_cartoon' not in request.files:
         return jsonify({'error': 'No file part'})
     name_cartoon, author, category = request.form.get('name_cartoon'),request.form.get('author'),request.form.getlist('category')
     # print(name_cartoon, author, category)
-    file = request.files['image']
-    response = cartoon_controller.post_cartoon(name_cartoon, author, category, file)
+    file_cartoon, file_main, file_bg = request.files['image_cartoon'],request.files['image_main'], request.files['image_background']
+    response = cartoon_controller.post_cartoon(name_cartoon, author, category, file_cartoon, file_main, file_bg)
     
     if response == 'Success':
         return {"message": response}, 200
