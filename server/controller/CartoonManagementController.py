@@ -1,10 +1,12 @@
+
 class CartoonManagementController:
-    def __init__(self, guest) -> None:
+    def __init__(self, guest, admin) -> None:
         self.__account_list = []
         self.__cartoon = []
         self.__category = []
         self.__author = []
         self.__guest = guest
+        self.__admin = admin
     
     def register(self, username, password):
         data = self.__guest.register(username, password, self.__account_list)
@@ -15,12 +17,16 @@ class CartoonManagementController:
             return "Register successful"
 
     def login(self, username, password):
-        for account in self.__account_list:
-            data = account.login(username, password)
-            if isinstance(data, dict):
+        if username != 'admin':
+            for account in self.__account_list:
+                data = account.login(username, password)
+                if isinstance(data, dict):
+                    return data
                 return data
+        data = self.__admin.login(username, password)
+        if isinstance(data, dict):
             return data
-        
+        return data
 
     def logout(self, username):
         for account in self.__account_list:
@@ -29,9 +35,13 @@ class CartoonManagementController:
                 return data
             return data
 
-    def post_cartoon(self, cartoon_data):
-        # Implementation of posting a new cartoon
-        pass
+    def post_cartoon(self, name_cartoon, author, category, file):
+        response = self.__admin.post_cartoon(name_cartoon, author, category, file)
+        if isinstance(response, dict):
+            return response
+        else:
+            self.__cartoon.append(response)
+            return "Success"
 
     def put_cartoon(self, cartoon_id, updated_data):
         # Implementation of updating an existing cartoon
@@ -56,3 +66,9 @@ class CartoonManagementController:
     def show_transaction(self):
         # Implementation of show a transaction
         pass
+
+    def get_all_cartoon(self):
+        response = []
+        for cartoon in self.__cartoon:
+            response.append({"name": cartoon.get_name_cartoon(), "image": f"static/cartoon/{cartoon.get_name_cartoon()}"})
+        return response

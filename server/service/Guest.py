@@ -10,6 +10,8 @@ class Guest(Account):
         for user in account:
             if user.get_username() == username:
                 return "Username already exists"
-        new_account = Account(username, password)
-        return new_account
+        if username != 'admin':
+            new_account = Account(username, password)
+            return new_account
+        return 'Dont use it'
         # return {"username":username,"password":password, "status": False}

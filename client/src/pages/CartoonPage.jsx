@@ -1,17 +1,47 @@
+import { Link } from "react-router-dom";
 function CartoonPage()
 {
     return (
         <div className="h-screen flex items-center justify-center">
             <img src="https://th-a.kakaopagecdn.com/P/C/48/bg/2x/2d678b69-787d-4a80-a854-32ed5d4f630f.jpg" alt="" width={"100%"} />
-            <div className="grid grid-rows-7">
-				<div>Login</div>
-				<div>Websiter</div>
-				<div>03</div>
-				<div>04</div>
-				<div>05</div>
-				<div>06</div>
-				<div>07</div>
-			</div>
+            <div class="grid flex gap-4 place-content-evenly h-48 absolute">
+                <div>
+                    <img src="https://th-a.kakaopagecdn.com/P/C/48/c1/2x/12894781-3bf1-4744-9116-a672823c1db3.png" alt=""style={{borderBottomWidth:'1px', borderBottomColor:'#5F009E'}} className="object-contain mx-auto mt-9" />
+                </div>
+                <div className="mt-2">
+                   <h1 className="text-2xl font-semibold text-center text-white">Solo Leveling</h1>
+                   <p className="text-gray-500 text-center">h-goon 2018, DISCIPLES(REDICE STUDIO), Chugong</p>
+                </div>
+                <div className="mt-2">
+                    <button className="btn btn-block btn-sm mt-5 w-full rounded-md p-1" style={{backgroundColor:"#362863"}}>
+                        <span className="loading loading-spinner text-2xl text-white">
+                            อ่านต่อ
+                        </span>
+                    </button>
+                </div>
+                <div className="grid grid-flow-col flex gap-5">
+                    <div><Link to="/chapter">
+                        <img src="https://th-a.kakaopagecdn.com/P/EO/48/39571/tn/2x/a1013d70-cbbc-4d39-ac0e-c03a89babca2.jpg" className="object-cover rounded-md" />
+                        <p className="text-center text-white text-1xl mt-2">ตอนที่ 1</p></Link>
+                    </div>
+                    <div>
+                        <img src="https://th-a.kakaopagecdn.com/P/EO/48/36654/tn/2x/8f212de0-9bf7-43d0-94b2-0a72581d9ac2.jpg" className="object-cover rounded-md" />
+                        <p className="text-center text-white text-1xl mt-2">ตอนที่ 2</p>
+                    </div>
+                    <div>
+                        <img src="https://th-a.kakaopagecdn.com/P/EO/48/36653/tn/2x/c0fdaacf-4dfe-462e-acb2-113655fb8e7b.jpg" className="object-cover rounded-md" />
+                        <p className="text-center text-white text-1xl mt-2">ตอนที่ 3</p>
+                    </div>
+                    <div>
+                        <img src="https://th-a.kakaopagecdn.com/P/EO/48/36652/tn/2x/35907da9-d6e5-4006-8b4f-980045753ba4.jpg" className="object-cover rounded-md" />
+                        <p className="text-center text-white text-1xl mt-2">ตอนที่ 4</p>
+                    </div>
+                    <div>
+                        <img src="https://th-a.kakaopagecdn.com/P/EO/48/36651/tn/2x/c3cfdef9-0489-48ab-a274-3fa1b10ccc6a.jpg" className="object-cover rounded-md" />
+                        <p className="text-center text-white text-1xl mt-2">ตอนที่ 5</p>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
