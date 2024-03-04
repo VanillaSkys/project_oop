@@ -50,28 +50,28 @@ function CartoonPage() {
                 src="https://th-a.kakaopagecdn.com/P/EO/48/36654/tn/2x/8f212de0-9bf7-43d0-94b2-0a72581d9ac2.jpg"
                 className="object-cover rounded-md w-[118px]"
               />
-              <p className="text-center text-white text-1xl mt-2">ตอนที่ 2</p>
+              <p className="text-center text-white text-1xl">ตอนที่ 2</p>
             </div>
             <div>
               <img
                 src="https://th-a.kakaopagecdn.com/P/EO/48/36653/tn/2x/c0fdaacf-4dfe-462e-acb2-113655fb8e7b.jpg"
                 className="object-cover rounded-md w-[118px]"
               />
-              <p className="text-center text-white text-1xl mt-2">ตอนที่ 3</p>
+              <p className="text-center text-white text-1xl">ตอนที่ 3</p>
             </div>
             <div>
               <img
                 src="https://th-a.kakaopagecdn.com/P/EO/48/36652/tn/2x/35907da9-d6e5-4006-8b4f-980045753ba4.jpg"
                 className="object-cover rounded-md w-[118px]"
               />
-              <p className="text-center text-white text-1xl mt-2">ตอนที่ 4</p>
+              <p className="text-center text-white text-1xl">ตอนที่ 4</p>
             </div>
             <div>
               <img
                 src="https://th-a.kakaopagecdn.com/P/EO/48/36651/tn/2x/c3cfdef9-0489-48ab-a274-3fa1b10ccc6a.jpg"
                 className="object-cover rounded-md w-[118px]"
               />
-              <p className="text-center text-white text-1xl mt-2">ตอนที่ 5</p>
+              <p className="text-center text-white text-1xl">ตอนที่ 5</p>
             </div>
           </div>
         </div>

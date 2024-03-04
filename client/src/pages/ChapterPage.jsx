@@ -1,3 +1,5 @@
+import Footer from "../components/Footer";
+
 function ChapterPage()
 {
 	return(
@@ -19,6 +21,7 @@ function ChapterPage()
 				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-13.jpg" alt="" />
 				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-14.jpg" alt="" />
 			</div>
+			<Footer />
 		</div>
 	);
 }
