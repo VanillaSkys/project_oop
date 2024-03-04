@@ -1,5 +1,22 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 function CartoonPage() {
+  const { cartoon } = useParams();
+  const [dataCartoon, setDataCartoon] = useState({});
+  const [chapter, setChapter] = useState([])
+  async function GetData() {
+    const res = await axios.get(`/api/get_cartoon?cartoon=${cartoon}`);
+    const data = await res.data;
+    setDataCartoon(data);
+	if (data.all_chapter.length > 0) {
+		setChapter(data.all_chapter)
+	}
+  }
+  useEffect(() => {
+    GetData();
+  }, []);
+  console.log(dataCartoon);
   return (
     <div className="h-screen flex items-center justify-center">
       <img
@@ -11,19 +28,17 @@ function CartoonPage() {
         <div className="w-[630px] flex flex-col justify-center items-center gap-2">
           <div className="w-[450px] ">
             <img
-              src="https://th-a.kakaopagecdn.com/P/C/48/c1/2x/12894781-3bf1-4744-9116-a672823c1db3.png"
+              src={`/api/${dataCartoon.image}`}
               alt=""
               style={{ borderBottomWidth: "1px", borderBottomColor: "#5F009E" }}
-              className="object-contain"
+              className="object-contain w-fit mx-auto"
             />
           </div>
           <div>
             <h1 className="text-2xl font-semibold text-center text-white">
-              Solo Leveling
+              {dataCartoon.name_cartoon}
             </h1>
-            <p className="text-gray-500 text-center">
-              h-goon 2018, DISCIPLES(REDICE STUDIO), Chugong
-            </p>
+            <p className="text-gray-500 text-center">{dataCartoon.author}</p>
           </div>
           <div className="w-[608px]">
             <button
@@ -36,43 +51,22 @@ function CartoonPage() {
             </button>
           </div>
           <div className="grid grid-flow-col gap-1">
-            <div>
-              <Link to="/chapter">
-                <img
-                  src="https://th-a.kakaopagecdn.com/P/EO/48/39571/tn/2x/a1013d70-cbbc-4d39-ac0e-c03a89babca2.jpg"
-                  className="object-cover rounded-md w-[118px]"
-                />
-                <p className="text-center text-white text-1xl mt-2">ตอนที่ 1</p>
-              </Link>
-            </div>
-            <div>
-              <img
-                src="https://th-a.kakaopagecdn.com/P/EO/48/36654/tn/2x/8f212de0-9bf7-43d0-94b2-0a72581d9ac2.jpg"
-                className="object-cover rounded-md w-[118px]"
-              />
-              <p className="text-center text-white text-1xl">ตอนที่ 2</p>
-            </div>
-            <div>
-              <img
-                src="https://th-a.kakaopagecdn.com/P/EO/48/36653/tn/2x/c0fdaacf-4dfe-462e-acb2-113655fb8e7b.jpg"
-                className="object-cover rounded-md w-[118px]"
-              />
-              <p className="text-center text-white text-1xl">ตอนที่ 3</p>
-            </div>
-            <div>
-              <img
-                src="https://th-a.kakaopagecdn.com/P/EO/48/36652/tn/2x/35907da9-d6e5-4006-8b4f-980045753ba4.jpg"
-                className="object-cover rounded-md w-[118px]"
-              />
-              <p className="text-center text-white text-1xl">ตอนที่ 4</p>
-            </div>
-            <div>
-              <img
-                src="https://th-a.kakaopagecdn.com/P/EO/48/36651/tn/2x/c3cfdef9-0489-48ab-a274-3fa1b10ccc6a.jpg"
-                className="object-cover rounded-md w-[118px]"
-              />
-              <p className="text-center text-white text-1xl">ตอนที่ 5</p>
-            </div>
+            {
+			chapter.map((value, key) => {
+              return (
+                <div key={key}>
+                  <Link to="/chapter">
+                    <img
+                      src="https://th-a.kakaopagecdn.com/P/EO/48/39571/tn/2x/a1013d70-cbbc-4d39-ac0e-c03a89babca2.jpg"
+                      className="object-cover rounded-md w-[118px]"
+                    />
+                    <p className="text-center text-white text-1xl mt-2">
+                      ตอนที่ 1
+                    </p>
+                  </Link>
+                </div>
+			)})
+			} 
           </div>
         </div>
       </div>

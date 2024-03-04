@@ -76,6 +76,12 @@ def logout_user():
     else:
         abort(401, response)
     
+@app.get('/get_cartoon')
+def get_cartoon():
+    name_cartoon = request.args.get('cartoon')
+    response = cartoon_controller.get_cartoon(name_cartoon=name_cartoon)
+    return response, 200
+
 @app.get('/all_cartoon')
 def get_all_cartoon():
     response = cartoon_controller.get_all_cartoon()

@@ -32,14 +32,9 @@ function HomePage() {
             <div className="h-[444px] col-span-4">
               <img src="../../public/assets/image/Banner.PNG" className="rounded-xl object-cover h-full w-full" />
             </div>
-            {/* {
-              data.map((value, key) => {
-                return <div key={key} className="" ><Link to="/cartoon"><img src="../../public/assets/image/Cartoon.PNG" className="rounded-xl  object-cover h-full w-full" /></Link></div>
-              })
-            } */}
             {
               allCartoon.map((value, key) => {
-                return <div key={key} className="" ><Link to="/cartoon"><img src={`/api/${value.image}`} className="rounded-xl  object-cover h-full w-full" /></Link></div>
+                return <div key={key} className="" ><Link to={`/cartoon/${value.name}`}><img src={`/api/${value.image}`} className="rounded-xl  object-cover h-full w-full" /></Link></div>
               })
             }
           </div>

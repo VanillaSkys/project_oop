@@ -72,3 +72,9 @@ class CartoonManagementController:
         for cartoon in self.__cartoon:
             response.append({"name": cartoon.get_name_cartoon(), "image": f"static/cartoon/{cartoon.get_image_cartoon()}"})
         return response
+
+    def get_cartoon(self, name_cartoon):
+        for cartoon in self.__cartoon:
+            if cartoon.get_name_cartoon() == name_cartoon:
+                return {"id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image": f"static/cartoon/{cartoon.get_image_cartoon()}", "author": cartoon.get_author(), "category": cartoon.get_category(), "all_chapter": cartoon.get_all_chapter()}
+        return {"error": "name_cartoon"}

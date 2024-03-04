@@ -25,7 +25,8 @@ class Admin(Account):
             path = os.path.join('public', 'cartoon', name_cartoon)
             os.mkdir(path) 
             file.save(os.path.join(path, filename))
-            cartoon = Cartoon(uuid.uuid4, name_cartoon, filename, author)
+            path_file = name_cartoon + "/" + filename
+            cartoon = Cartoon(uuid.uuid4(), name_cartoon, path_file, author)
             cartoon.add_category(category)
             return cartoon
         else:
