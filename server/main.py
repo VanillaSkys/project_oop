@@ -1,57 +1,57 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.staticfiles import StaticFiles
-from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
-import json
-from src.controller.CartoonManagementController import CartoonManagementController
-# import sys
-# sys.path.append('/server/src')
-from src.service.Guest import Guest
-app = FastAPI()
-cartoon_controller = CartoonManagementController(Guest())
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+from flask import Flask, request, jsonify, abort
+from flask_cors import CORS
+from flask_swagger_ui import get_swaggerui_blueprint
+from controller.CartoonManagementController import CartoonManagementController
+from service.Guest import Guest
+
+app = Flask(__name__)
+CORS(app)
+
+SWAGGER_URL="/swagger"
+API_URL="/static/swagger.json"
+
+swagger_ui_blueprint = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': 'Access API'
+    }
 )
-app.mount("/public", StaticFiles(directory="public"), name="public")
-# Controller
-@app.get("/")
-async def root():
-    return {"message": "HELLO"}
+app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
-# @app.get("/logout")
-# async def delete_cookie_user():
 
+cartoon_controller = CartoonManagementController(Guest())
+
+@app.route('/')
+def home():
+    return "Hello My First Flask Project"
 
 @app.post('/register')
-async def add_register(username, password):
-    response = await cartoon_controller.register(username, password)
-    if response == True :
-        return {"message": "Register successful"}
+def add_register():
+    username, password = request.json.get('username'), request.json.get('password')
+    response = cartoon_controller.register(username, password)
+    if response:
+        return jsonify({"message": "Register successful"})
     else:
-        raise HTTPException(status_code=401, detail=response)
+        abort(401, response)
     
 @app.post('/login')
-async def add_login(username, password):
-    response = await cartoon_controller.login(username, password)
+def add_login():
+    username, password = request.json.get('username'), request.json.get('password')
+    response = cartoon_controller.login(username, password)
     if isinstance(response, dict)  :
         return {"message": response}
     else:
-        raise HTTPException(status_code=401, detail=response)
+        abort(401, response)
+
 @app.post('/logout')
-async def logout_user(username):
-    response = await cartoon_controller.logout(username)
+def logout_user():
+    username = request.json.get('username')
+    response = cartoon_controller.logout(username)
     if response == "Logout success":
         return {"message": response}
     else:
-        raise HTTPException(status_code=401, detail="Can't logout")
+        abort(401, response)
     
-def create_instance():
-    pass
-create_instance()
-
-if __name__ == "__main__":
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, log_level="info")
+if __name__ == '__main__':
+    app.run(debug=True)
