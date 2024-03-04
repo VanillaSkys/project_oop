@@ -1,4 +1,3 @@
-from src.service.Guest import Guest
 class CartoonManagementController:
     def __init__(self, guest) -> None:
         self.__account_list = []
@@ -7,15 +6,15 @@ class CartoonManagementController:
         self.__author = []
         self.__guest = guest
     
-    async def register(self, username, password):
-        data = await self.__guest.register(username, password, self.__account_list)
+    def register(self, username, password):
+        data = self.__guest.register(username, password, self.__account_list)
         if isinstance(data, str):
             return "Username already exists"
         else:
             self.__account_list.append(data)
             return True
 
-    async def login(self, username, password):
+    def login(self, username, password):
         for account in self.__account_list:
             data = account.login(username, password)
             if isinstance(data, dict):
