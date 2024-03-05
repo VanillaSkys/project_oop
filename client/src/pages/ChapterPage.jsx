@@ -1,7 +1,12 @@
+// import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 
-function ChapterPage()
-{
+function ChapterPage() {
+	// const { cartoon, chapter } = useParams();
+	const {state} = useLocation()
+	// const { chapter } = state;
+	console.log(state)
 	return(
 		<div className="bg-white w-full flex flex-col items-center justify-center">
 			<div className="w-[630px]">

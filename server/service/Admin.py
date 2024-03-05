@@ -41,7 +41,7 @@ class Admin(Account):
             path_file_main = f'cartoon/{name_cartoon}/{filename_main}'
             path_file_bg = f'cartoon/{name_cartoon}/{filename_bg}'
             cartoon = Cartoon(uuid.uuid4(), name_cartoon, path_file_cartoon, path_file_main, path_file_bg, author)
-            cartoon.add_category(category)
+            cartoon.set_category(category)
             return cartoon
         else:
             return {'error': 'Failed to upload image'}

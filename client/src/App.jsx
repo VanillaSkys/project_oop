@@ -27,7 +27,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegistPage/>} />
             <Route path="/cartoon/:cartoon" element={<CartoonPage/>}/>
-            <Route path="/chapter" element={<ChapterPage/>} />
+            <Route path="/cartoon/:cartoon/:chapter" element={<ChapterPage/>} />
 
           {/* private routes */}
           

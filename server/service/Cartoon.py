@@ -9,8 +9,8 @@ class Cartoon:
         self.__category = []
         self.__all_chapter = []
     
-    def add_category(self, category):
-        self.__category.append(category)
+    def set_category(self, category):
+        self.__category = category
 
     def get_id_cartoon(self):
         return self.__id_cartoon

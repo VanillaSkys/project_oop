@@ -8,6 +8,9 @@ class CartoonManagementController:
         self.__guest = guest
         self.__admin = admin
     
+    def set_category(self, category):
+        self.__category = category
+
     def register(self, username, password):
         data = self.__guest.register(username, password, self.__account_list)
         if isinstance(data, str):
@@ -35,8 +38,15 @@ class CartoonManagementController:
                 return data
             return data
 
-    def post_cartoon(self, name_cartoon, author, category, file_cartoon, file_main, file_bg):
-        response = self.__admin.post_cartoon(name_cartoon, author, category, file_cartoon, file_main, file_bg)
+    def post_cartoon(self, name_cartoon, author, categories, file_cartoon, file_main, file_bg):
+        response = self.__admin.post_cartoon(name_cartoon, author, categories, file_cartoon, file_main, file_bg)
+        category_list = []
+        for category_con in self.__category:
+            for category in categories:
+                if category_con.get_category_name() == category:
+                    category_con.add_cartoon_list(response)
+            category_list.append(category_con)
+        self.__category = category_list
         if isinstance(response, dict):
             return response
         else:

@@ -5,6 +5,8 @@ from controller.CartoonManagementController import CartoonManagementController
 from service.Guest import Guest
 from service.Admin import Admin
 from service.Cartoon import Cartoon
+from service.Category import Category
+from uuid import uuid4
 
 from werkzeug.utils import secure_filename
 import os
@@ -25,13 +27,15 @@ swagger_ui_blueprint = get_swaggerui_blueprint(
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 def create_instance():
+    category_type = ['action', 'romance']
     guest = Guest()
     admin = Admin()
-    return guest, admin
+    category_all = [Category(uuid4(), category)for category in category_type]
+    return guest, admin, category_all
 
-guest, admin = create_instance()
+guest, admin, category_all = create_instance()
 cartoon_controller = CartoonManagementController(guest, admin)
-    
+cartoon_controller.set_category(category_all)
 @app.route('/')
 def home():
     return "Hello My First Flask Project"
@@ -49,7 +53,7 @@ def add_register():
 def add_login():
     username, password = request.json.get('username'), request.json.get('password')
     response = cartoon_controller.login(username, password)
-    if isinstance(response, dict)  :
+    if isinstance(response, dict):
         return response
     else:
         return response, 401

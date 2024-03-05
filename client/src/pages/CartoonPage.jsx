@@ -55,7 +55,8 @@ function CartoonPage() {
 			chapter.map((value, key) => {
               return (
                 <div key={key}>
-                  <Link to="/chapter">
+                  {/* to={`/cartoon/${cartoon}/${value.number_chapter}`  */}
+                  <Link to={`/cartoon/${cartoon}/${value.number_chapter}`} state={{chapter: value}}>
                     <img
                       src={`/api/static/${value?.image_chapter[0]}`}
                       className="object-cover rounded-md w-[118px]"
