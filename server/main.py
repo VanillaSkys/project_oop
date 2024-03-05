@@ -5,6 +5,10 @@ from controller.CartoonManagementController import CartoonManagementController
 from service.Guest import Guest
 from service.Admin import Admin
 from service.Cartoon import Cartoon
+
+from werkzeug.utils import secure_filename
+import os
+
 app = Flask(__name__, static_url_path="/static", static_folder="public")
 CORS(app)
 
@@ -27,23 +31,6 @@ def create_instance():
 
 guest, admin = create_instance()
 cartoon_controller = CartoonManagementController(guest, admin)
-
-cartoon_folder = 'public/cartoon'
-# app.config['cartoon_folder'] = cartoon_folder
-
-@app.post('/post_cartoon')
-def upload_image():
-    if 'image_cartoon' not in request.files:
-        return jsonify({'error': 'No file part'})
-    name_cartoon, author, category = request.form.get('name_cartoon'),request.form.get('author'),request.form.getlist('category')
-    # print(name_cartoon, author, category)
-    file_cartoon, file_main, file_bg = request.files['image_cartoon'],request.files['image_main'], request.files['image_background']
-    response = cartoon_controller.post_cartoon(name_cartoon, author, category, file_cartoon, file_main, file_bg)
-    
-    if response == 'Success':
-        return {"message": response}, 200
-    else:
-        return response, 401
     
 @app.route('/')
 def home():
@@ -86,6 +73,33 @@ def get_cartoon():
 def get_all_cartoon():
     response = cartoon_controller.get_all_cartoon()
     return response, 200
+
+
+@app.post('/post_cartoon')
+def upload_image():
+    if 'image_cartoon' not in request.files:
+        return jsonify({'error': 'No file part'})
+    name_cartoon, author, category = request.form.get('name_cartoon'),request.form.get('author'),request.form.getlist('category')
+    # print(name_cartoon, author, category)
+    file_cartoon, file_main, file_bg = request.files['image_cartoon'],request.files['image_main'], request.files['image_background']
+    response = cartoon_controller.post_cartoon(name_cartoon, author, category, file_cartoon, file_main, file_bg)
+    
+    if response == 'Success':
+        return {"message": response}, 200
+    else:
+        return response, 401
+
+
+@app.post('/post_chapter')
+def upload_file():
+    if 'files[]' not in request.files:
+        return jsonify({'error': 'No file part'})
+
+    files = request.files.getlist('files[]')
+    name_cartoon, name_chapter,coin = request.form.get('name_cartoon'), request.form.get('name_chapter'),request.form.get('coin')
+    response = cartoon_controller.post_chapter(name_cartoon, name_chapter, coin, files)
+
+    return jsonify({'message': 'Files uploaded successfully'})
 
 if __name__ == '__main__':
     app.run(debug=True)

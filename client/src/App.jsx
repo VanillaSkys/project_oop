@@ -10,6 +10,7 @@ import RegistPage from "./pages/Register"
 import CartoonPage from "./pages/CartoonPage"
 import AdminPage from "./pages/AdminPage"
 import ChapterPage from "./pages/ChapterPage"
+import AdminChapterPage from "./pages/AdminChapterPage"
 const ThemeContext = createContext()
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "system")
@@ -26,8 +27,12 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegistPage/>} />
             <Route path="/cartoon/:cartoon" element={<CartoonPage/>}/>
-            <Route path="/admin" element={<AdminPage/>} />
             <Route path="/chapter" element={<ChapterPage/>} />
+
+          {/* private routes */}
+          
+            <Route path="/admin" element={<AdminPage/>} />
+            <Route path="/admin/cartoon/:cartoon" element={<AdminChapterPage />} />
         </Routes>
       </ThemeContext.Provider>
     </main>

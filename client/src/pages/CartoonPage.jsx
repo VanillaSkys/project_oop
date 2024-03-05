@@ -20,7 +20,7 @@ function CartoonPage() {
   return (
     <div className="h-screen flex items-center justify-center">
       <img
-        src={`/api/${dataCartoon.image_background}`}
+        src={`/api/static/${dataCartoon?.image_background}`}
         alt=""
         width={"100%"}
       />
@@ -28,7 +28,7 @@ function CartoonPage() {
         <div className="w-[630px] flex flex-col justify-center items-center gap-2">
           <div className="w-[450px] ">
             <img
-              src={`/api/${dataCartoon.image_cartoon}`}
+              src={`/api/static/${dataCartoon?.image_cartoon}`}
               alt=""
               style={{ borderBottomWidth: "1px", borderBottomColor: "#5F009E" }}
               className="object-contain w-fit mx-auto"
@@ -36,9 +36,9 @@ function CartoonPage() {
           </div>
           <div>
             <h1 className="text-2xl font-semibold text-center text-white">
-              {dataCartoon.name_cartoon}
+              {dataCartoon?.name_cartoon}
             </h1>
-            <p className="text-gray-500 text-center">{dataCartoon.author}</p>
+            <p className="text-gray-500 text-center">{dataCartoon?.author}</p>
           </div>
           <div className="w-[608px]">
             <button
@@ -57,7 +57,7 @@ function CartoonPage() {
                 <div key={key}>
                   <Link to="/chapter">
                     <img
-                      src="https://th-a.kakaopagecdn.com/P/EO/48/39571/tn/2x/a1013d70-cbbc-4d39-ac0e-c03a89babca2.jpg"
+                      src={`/api/static/${value?.image_chapter[0]}`}
                       className="object-cover rounded-md w-[118px]"
                     />
                     <p className="text-center text-white text-1xl mt-2">

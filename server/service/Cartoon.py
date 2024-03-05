@@ -35,3 +35,6 @@ class Cartoon:
     
     def get_all_chapter(self):
         return self.__all_chapter
+    
+    def add_all_chapter(self, chapter):
+        self.__all_chapter.append(chapter)
