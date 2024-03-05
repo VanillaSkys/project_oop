@@ -5,14 +5,18 @@ import Footer from "../components/Footer";
 function ChapterPage() {
 	// const { cartoon, chapter } = useParams();
 	const {state} = useLocation()
-	// const { chapter } = state;
-	console.log(state)
+	const { chapter } = state;
 	return(
 		<div className="bg-white w-full flex flex-col items-center justify-center">
 			<div className="w-[630px]">
-				<img className="object-contain" src="https://ali.xn--s3cx7a.com/B/img/SoloLeveling-1_001.jpg" alt=""></img>
-				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-1.jpg" alt="" />
-				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-2.jpg" alt="" />
+				{
+					chapter.image_chapter.map((value, key) => {
+						return <img className="object-contain" src={`/api/static/${value}`} key={key} alt="" />
+					})
+				}
+				{/* <img className="object-contain" src="https://ali.xn--s3cx7a.com/B/img/SoloLeveling-1_001.jpg" alt=""></img> */}
+				{/* <img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-1.jpg" alt="" /> */}
+				{/* <img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-2.jpg" alt="" />
 				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-3.jpg" alt="" />
 				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-4.jpg" alt="" />
 				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-5.jpg" alt="" />
@@ -24,7 +28,7 @@ function ChapterPage() {
 				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-11.jpg" alt="" />
 				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-12.jpg" alt="" />
 				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-13.jpg" alt="" />
-				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-14.jpg" alt="" />
+				<img className="object-contain" src="https://www.up-manga.com/wp-content/uploads/2024/01/Solo-Leveling-ep1-14.jpg" alt="" /> */}
 			</div>
 			<Footer />
 		</div>

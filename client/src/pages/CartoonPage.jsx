@@ -59,7 +59,7 @@ function CartoonPage() {
                   <Link to={`/cartoon/${cartoon}/${value.number_chapter}`} state={{chapter: value}}>
                     <img
                       src={`/api/static/${value?.image_chapter[0]}`}
-                      className="object-cover rounded-md w-[118px]"
+                      className="object-cover rounded-md w-[118px] h-20"
                     />
                     <p className="text-center text-white text-1xl mt-2">
                       ตอนที่ 1
