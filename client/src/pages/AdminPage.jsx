@@ -12,16 +12,15 @@ function AdminPage() {
 //   const handleFileChange = (e) => {
 //     setImageCartoon(e.target.files[0]);
 //   };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("name_cartoon", nameCartoon);
-    formData.append("author", author);
-    formData.append("category", category);
-    formData.append("image_cartoon", imageCartoon);
-    formData.append("image_main", imageMain);
-    formData.append("image_background", imageBG);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append("name_cartoon", nameCartoon);
+  formData.append("author", author);
+  formData.append("category", category);
+  formData.append("image_cartoon", imageCartoon);
+  formData.append("image_main", imageMain);
+  formData.append("image_background", imageBG);
 
     try {
       await axios.post("/api/post_cartoon", formData, {
@@ -63,12 +62,12 @@ function AdminPage() {
           <label className="label">
             <span className="text-1xl text-black label-text">Category</span>
           </label>
-          <input
-            type="text"
+          <button
+            type="button"
             placeholder="catefory"
-            onChange={(e) => category.append(e.target.value)}
+            onClick={() => category.push('action')}
             className="rounded-md w-full mt-4 pl-5 input input-bordered h-12"
-          />
+          >action</button>
         </div>
         <div className="mt-5">
           <label className="label">

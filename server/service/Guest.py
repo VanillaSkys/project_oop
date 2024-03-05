@@ -1,4 +1,5 @@
 from service.Account import Account
+from service.User import User
 import json
 import os
 
@@ -11,7 +12,7 @@ class Guest(Account):
             if user.get_username() == username:
                 return "Username already exists"
         if username != 'admin':
-            new_account = Account(username, password)
+            new_account = User(username, password)
             return new_account
         return 'Dont use it'
         # return {"username":username,"password":password, "status": False}

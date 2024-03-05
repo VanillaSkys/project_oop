@@ -8,6 +8,12 @@ class CartoonManagementController:
         self.__guest = guest
         self.__admin = admin
     
+    def map_category(self):
+        res = []
+        for category in self.__category:
+            res.append({"id": category.get_category_id(), "name":category.get_category_name(), "cartoon": [cartoon.get_name_cartoon() for cartoon in category.get_cartoon_list()]})
+        return res
+
     def set_category(self, category):
         self.__category = category
 

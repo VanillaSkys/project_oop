@@ -12,7 +12,7 @@ function HomePage() {
   const [allCartoon, setAllCartoon] = useState([]);
   // const {theme} = useContext(ThemeContext)
   const theme = localStorage.getItem("theme")
-
+  
   async function getAllCartoon() {
     const res = await axios.get('/api/all_cartoon')
     const data = await res.data

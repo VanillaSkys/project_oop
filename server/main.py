@@ -105,5 +105,10 @@ def upload_file():
 
     return jsonify({'message': 'Files uploaded successfully'})
 
+@app.get('/get_category')
+def get_category():
+    response = cartoon_controller.map_category()
+    return response
+
 if __name__ == '__main__':
     app.run(debug=True)
