@@ -17,7 +17,7 @@ function AdminChapterPage() {
             formData.append('files[]', file);
             formData.append('name_cartoon', cartoon);
             formData.append('name_chapter', 'jong');
-            formData.append('coin', 0);
+            formData.append('coin', 1);
         });
 
         try {

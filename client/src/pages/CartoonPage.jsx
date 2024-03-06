@@ -16,7 +16,7 @@ function CartoonPage() {
   useEffect(() => {
     GetData();
   }, []);
-  console.log(dataCartoon);
+  console.log(chapter)
   return (
     <div className="h-screen flex items-center justify-center">
       <img
@@ -55,16 +55,30 @@ function CartoonPage() {
 			chapter.map((value, key) => {
               return (
                 <div key={key}>
-                  {/* to={`/cartoon/${cartoon}/${value.number_chapter}`  */}
-                  <Link to={`/cartoon/${cartoon}/${value.number_chapter}`} state={{chapter: value}}>
+                  {
+                    value.coin === '0' ?
+                  <Link to={`/cartoon/${cartoon}/${value.number_chapter}_${chapter.length}`}>
                     <img
                       src={`/api/static/${value?.image_chapter[0]}`}
                       className="object-cover rounded-md w-[118px] h-20"
                     />
                     <p className="text-center text-white text-1xl mt-2">
                       ตอนที่ {value?.number_chapter}
+                      
                     </p>
                   </Link>
+                  : 
+                  <Link to={`/cartoon/${cartoon}/${value.number_chapter}_${chapter.length}`}>
+                    <img
+                      src={`/api/static/${value?.image_chapter[0]}`}
+                      className="object-cover rounded-md w-[118px] h-20"
+                    />
+                    <p className="text-center text-white text-1xl mt-2">
+                      ตอนที่ {value?.number_chapter} lock
+                      
+                    </p>
+                  </Link>
+                  }
                 </div>
 			)})
 			} 

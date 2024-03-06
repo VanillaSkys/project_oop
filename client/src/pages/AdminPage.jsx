@@ -17,8 +17,8 @@ const handleSubmit = async (e) => {
   const formData = new FormData();
   formData.append("name_cartoon", nameCartoon);
   formData.append("author", author);
-  formData.append("category", category);
-  // formData.append("category", ['action']);
+  // formData.append("category", category);
+  formData.append("category", ['action']);
   formData.append("image_cartoon", imageCartoon);
   formData.append("image_main", imageMain);
   formData.append("image_background", imageBG);
