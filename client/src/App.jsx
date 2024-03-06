@@ -11,6 +11,8 @@ import CartoonPage from "./pages/CartoonPage"
 import AdminPage from "./pages/AdminPage"
 import ChapterPage from "./pages/ChapterPage"
 import AdminChapterPage from "./pages/AdminChapterPage"
+import PaymentPage from "./pages/PaymentPage"
+
 const ThemeContext = createContext()
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "system")
@@ -26,6 +28,7 @@ function App() {
             <Route path="*" element={<Home />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegistPage/>} />
+            <Route path="/payment" element={<PaymentPage/>} />
             <Route path="/cartoon/:cartoon" element={<CartoonPage/>}/>
             <Route path="/cartoon/:cartoon/:chapter" element={<ChapterPage/>} />
 
