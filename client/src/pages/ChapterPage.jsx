@@ -1,16 +1,29 @@
 // import { useParams } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function ChapterPage() {
-	// const { cartoon, chapter } = useParams();
-	const {state} = useLocation()
-	const { chapter } = state;
+	const { cartoon, chapter } = useParams();
+	// const {state} = useLocation()
+	// const { chapter } = state;
+	const [dataChapter, setDataChapter] = useState([])
+	async function GetData() {
+		const res = await axios.get(`/api/get_chapter?cartoon=${cartoon}&chapter=${chapter}`);
+		const data = await res.data;
+		const chapterImage = await data.image_chapter
+		setDataChapter(chapterImage);
+	}
+	useEffect(() => {
+		window.scrollTo(0, 0);
+		GetData();
+	}, [chapter]);
 	return(
 		<div className="bg-white w-full flex flex-col items-center justify-center">
 			<div className="w-[630px]">
 				{
-					chapter.image_chapter.map((value, key) => {
+					dataChapter?.map((value, key) => {
 						return <img className="object-contain" src={`/api/static/${value}`} key={key} alt="" />
 					})
 				}

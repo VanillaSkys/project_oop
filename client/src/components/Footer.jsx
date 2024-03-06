@@ -1,20 +1,23 @@
+import { Link, useParams } from 'react-router-dom';
+
 function Footer()
 {
+	const {chapter, cartoon} = useParams()
 	return (
 		<div className="w-full">
 			<div className="bg-gray-100	p-2 flex justify-center gap-4">
 				<div>
-					<button className="rounded-full drop-shadow-md active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 bg-white hover:bg-grat-700">
+					<Link className="rounded-full drop-shadow-md active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 bg-white hover:bg-grat-700">
 						<img className="w-[50px] mb-1 mr-1" src="../../public/assets/image/back.png" alt="" />
-					</button>
+					</Link>
 				</div>
 				<div className="relative w-32">
-					<p className="text-center text-2xl mt-2"> ตอนที่ 1 </p>
+					<p className="text-center text-2xl mt-2"> ตอนที่ {chapter} </p>
 				</div>
 				<div>
-					<button className="rounded-full drop-shadow-md active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 bg-white hover:bg-grat-700">
+					<Link to={`/cartoon/${cartoon}/${Number(chapter) + 1}`} className="rounded-full drop-shadow-md active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 bg-white hover:bg-grat-700">
 						<img className="w-[51px] ml-1" src="../../public/assets/image/next.png" alt="" />
-					</button>
+					</Link>
 				</div>
 			</div>
 		</div>
@@ -22,3 +25,11 @@ function Footer()
 }
 
 export default Footer
+
+// Footer.propTypes = {
+// 	value: PropTypes.shape({
+// 		number_chapter: PropTypes.number.isRequired,
+// 		// Other properties of chapter object can be defined here if needed
+// 		cartoon: PropTypes.number.isRequired,
+// 	}).isRequired,
+//   };

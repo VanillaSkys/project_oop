@@ -121,5 +121,11 @@ def get_category():
     response = cartoon_controller.map_category()
     return response
 
+@app.get('/get_chapter')
+def get_chapter():
+    name_cartoon, chapter = request.args.get('cartoon'),request.args.get('chapter')
+    response = cartoon_controller.get_chapter(name_cartoon, chapter)
+    return response, 200
+
 if __name__ == '__main__':
     app.run(debug=True)
