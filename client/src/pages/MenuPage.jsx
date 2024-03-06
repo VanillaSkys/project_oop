@@ -57,13 +57,13 @@ function MenuPage() {
 							<p className="text-3xl">Term Coin </p>
 						</div>
 						<div className="w-full flex justify-center items-center">
-							<div className="w-full text-center p-1 bg-white rounded">
+							<button className="w-full text-center p-1 bg-white rounded">
 									<p className="text-xl text-black">เติมแคช</p>
-							</div>
+							</button>
 						</div>
 						<div className="w-full flex justify-between gap-2 items-center">
-							<div className="w-full text-center bg-white rounded"><p className=" text-black">History Coin</p></div>
-							<div className="w-full text-center bg-white rounded"><p className=" text-black">History Chapter</p></div>
+							<button className="w-full text-center bg-white rounded"><p className=" text-black">History Coin</p></button>
+							<button className="w-full text-center bg-white rounded"><p className=" text-black">History Chapter</p></button>
 						</div>
 						<ToggleButton />
 				</div>
