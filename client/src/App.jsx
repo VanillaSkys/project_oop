@@ -12,7 +12,7 @@ import AdminPage from "./pages/AdminPage"
 import ChapterPage from "./pages/ChapterPage"
 import AdminChapterPage from "./pages/AdminChapterPage"
 import PaymentPage from "./pages/PaymentPage"
-
+import HistoryPages from "./pages/HistoryPage"
 const ThemeContext = createContext()
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "system")
@@ -31,7 +31,7 @@ function App() {
             <Route path="/payment" element={<PaymentPage/>} />
             <Route path="/cartoon/:cartoon" element={<CartoonPage/>}/>
             <Route path="/cartoon/:cartoon/:chapter" element={<ChapterPage/>} />
-
+            <Route path="/history" element={<HistoryPages/>} />
           {/* private routes */}
           
             <Route path="/admin" element={<AdminPage/>} />
