@@ -73,9 +73,20 @@ def get_cartoon():
     response = cartoon_controller.get_cartoon(name_cartoon=name_cartoon)
     return response, 200
 
+# @app.get('/all_cartoon')
+# def get_all_cartoon():
+#     name_category = request.args.get('category')
+#     response = cartoon_controller.get_all_cartoon(name_category)
+#     return response, 200
 @app.get('/all_cartoon')
 def get_all_cartoon():
     response = cartoon_controller.get_all_cartoon()
+    return response, 200
+
+@app.get('/all_cartoon_category')
+def get_all_cartoon_category():
+    name_category = request.args.get('category')
+    response = cartoon_controller.get_all_cartoon_category(name_category)
     return response, 200
 
 

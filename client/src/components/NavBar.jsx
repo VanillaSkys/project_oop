@@ -26,9 +26,9 @@ function NavBar() {
             <div className=""  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>Logo</div>
             <div className="w-full h-0.5 opacity-50" style={{backgroundColor: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}></div>
             <ul className="flex justify-around w-full">
-            <Link to={`/Latest`} style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>Latest</Link>
+            <button ><Link to={`/Latest`}  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>Latest</Link></button>
               {allCategory.map((value) => {
-                return( category === value.name ? <Link to={`/${value.name}`} key={value}  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>{value.name}</Link> :<Link to={`/${value.name}`} key={value.name} className="opacity-50 hover:opacity-90 transition duration-200" style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>{value.name}</Link>)
+                return( category === value.name ? <button ><Link to={`/${value.name}`} key={value}  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>{value.name}</Link></button> :<button ><Link to={`/${value.name}`} key={value.name} className="opacity-50 hover:opacity-90 transition duration-200" style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>{value.name}</Link></button>)
               })}
             </ul>
         </div>

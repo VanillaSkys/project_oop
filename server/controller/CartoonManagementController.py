@@ -86,10 +86,31 @@ class CartoonManagementController:
         # Implementation of show a transaction
         pass
 
+    # def get_all_cartoon(self, name_category):
+    #     response = []
+    #     if name_category == None:
+    #         for cartoon in self.__cartoon:
+    #             response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
+    #     else:
+    #         for category in self.__category:
+    #             if category.get_category_name() == name_category:
+    #                 print(category.get_cartoon_list())
+    #                 for cartoon in category.get_cartoon_list():
+    #                     response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
+    #     return response
     def get_all_cartoon(self):
         response = []
         for cartoon in self.__cartoon:
             response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
+        return response
+    
+    def get_all_cartoon_category(self, name_category):
+        response = []
+        for category in self.__category:
+            if category.get_category_name() == name_category:
+                print(category.get_cartoon_list())
+                for cartoon in category.get_cartoon_list():
+                    response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
         return response
 
     def get_cartoon(self, name_cartoon):
