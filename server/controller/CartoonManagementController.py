@@ -121,3 +121,10 @@ class CartoonManagementController:
                     all.append({"id_cartoon": chapter.get_id_cartoon(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "coin": chapter.get_coin(), "image_chapter": chapter.get_image_chapter()})
                 return {"id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image_cartoon": cartoon.get_image_cartoon(), "image_main": cartoon.get_image_main(), "image_background": cartoon.get_image_background(), "author": cartoon.get_author(), "category": cartoon.get_category(), "all_chapter": all}
         return {"error": "name_cartoon"}
+    def get_chapter(self, name_cartoon, number_chapter):
+        for cartoon in self.__cartoon:
+            if cartoon.get_name_cartoon() == name_cartoon:
+                for chapter in cartoon.get_all_chapter():
+                    if chapter.get_number_chapter() == number_chapter:
+                        return {"id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter()}
+        return {"error": "name_cartoon"}

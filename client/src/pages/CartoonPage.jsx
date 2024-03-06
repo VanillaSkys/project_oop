@@ -62,7 +62,7 @@ function CartoonPage() {
                       className="object-cover rounded-md w-[118px] h-20"
                     />
                     <p className="text-center text-white text-1xl mt-2">
-                      ตอนที่ 1
+                      ตอนที่ {value?.number_chapter}
                     </p>
                   </Link>
                 </div>
