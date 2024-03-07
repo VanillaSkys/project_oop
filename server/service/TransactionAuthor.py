@@ -1,15 +1,15 @@
 from uuid import uuid4
 from datetime import datetime
 
-class TransactionChapter:
-    def __init__(self, chapter_id, cartoon_name, chapter_number, chapter_coin) -> None:
+class TransactionAuthor:
+    def __init__(self, chapter_id, cartoon_name, chapter_number, total_coin) -> None:
         self.__transaction_chapter_id = str(uuid4())
         self.__chapter_id = chapter_id
         self.__time = datetime.now()
         self.__cartoon_name = cartoon_name
         self.__chapter_number = chapter_number
-        self.__chapter_coin = chapter_coin
-        
+        self.__total_coin = total_coin
+
     def get_transaction_chapter_id(self):
         return self.__transaction_chapter_id
 
@@ -34,8 +34,6 @@ class TransactionChapter:
     def set_chapter_number(self, chapter_number):
         self.__chapter_number = chapter_number
 
-    def get_chapter_coin(self):
-        return self.__chapter_coin
+    def get_total_coin(self):
+        return self.__total_coin
 
-    def set_chapter_coin(self, chapter_coin):
-        self.__chapter_coin = chapter_coin

@@ -28,13 +28,14 @@ def create_instance():
     author_name = ['fill', 'boat']
     guest = Guest()
     admin = Admin()
-    category_all = [Category(uuid4(), category)for category in category_type]
-    author_all = [Author(uuid4(), author)for author in author_name]
+    category_all = [Category(category)for category in category_type]
+    author_all = [Author(author)for author in author_name]
     return guest, admin, category_all, author_all
 
 guest, admin, category_all, author_all = create_instance()
 cartoon_controller = CartoonManagementController(guest, admin)
 cartoon_controller.set_category(category_all)
+cartoon_controller.set_author(author_all)
 @app.route('/')
 def home():
     return "Hello My First Flask Project"
@@ -70,6 +71,7 @@ def logout_user():
 def get_cartoon():
     name_cartoon = request.args.get('cartoon')
     response = cartoon_controller.get_cartoon(name_cartoon=name_cartoon)
+    print(response)
     return response, 200
 
 # @app.get('/all_cartoon')
@@ -141,7 +143,16 @@ def buy_coin():
         return response
     else:
         return send_file(response, mimetype='image/png')
-    # return "success"
+    
+@app.post('/buy_chapter')
+def buy_chapter():
+    username, cartoon_id, chapter_id = request.json.get('username'), request.json.get('cartoon_id'), request.json.get('chapter_id')
+    response = cartoon_controller.buy_chapter(username, cartoon_id, chapter_id)
+    # Return the QR code image to the client
+    if isinstance(response, dict):
+        return response
+    else:
+        return response
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -3,7 +3,7 @@ from uuid import uuid4
 
 class TransactionCoin:
     def __init__(self, total_coin = 0, amount = 0.00) -> None:
-        self.__transaction_coin_id = uuid4()
+        self.__transaction_coin_id = str(uuid4())
         self.__time = datetime.now()
         self.__total_coin = total_coin
         self.__amount = amount

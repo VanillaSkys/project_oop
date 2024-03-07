@@ -40,14 +40,14 @@ class Admin(Account):
             path_file_cartoon = f'cartoon/{name_cartoon}/{filename_cartoon}'
             path_file_main = f'cartoon/{name_cartoon}/{filename_main}'
             path_file_bg = f'cartoon/{name_cartoon}/{filename_bg}'
-            cartoon = Cartoon(uuid.uuid4(), name_cartoon, path_file_cartoon, path_file_main, path_file_bg, author)
+            cartoon = Cartoon(name_cartoon, path_file_cartoon, path_file_main, path_file_bg, author)
             cartoon.set_category(category)
             return cartoon
         else:
             return {'error': 'Failed to upload image'}
         
     def post_chapter(self, number_chapter, name_cartoon, name_chapter, coin, files):
-        chapter = Chapter(uuid.uuid4(), number_chapter, name_chapter, coin)
+        chapter = Chapter(number_chapter, name_chapter, coin)
         for index, file in enumerate(files):
             if file:
                 path = os.path.join('public', 'cartoon', name_cartoon, 'chapter', number_chapter)

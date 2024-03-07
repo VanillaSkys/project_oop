@@ -1,6 +1,8 @@
+from uuid import uuid4
+
 class Author:
-    def __init__(self, author_id, author_name) -> None:
-        self.__author_id = author_id
+    def __init__(self, author_name) -> None:
+        self.__author_id = str(uuid4())
         self.__author_name = author_name
         self.__cartoon_list = []
         self.__transaction_author = []
@@ -19,3 +21,6 @@ class Author:
     
     def get_transaction_author(self):
         return self.__transaction_author
+    
+    def add_transaction_author(self, transaction):
+        self.__transaction_author.append(transaction)

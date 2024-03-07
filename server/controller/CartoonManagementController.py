@@ -1,4 +1,5 @@
 from service.BuyCoin import BuyCoin
+from service.BuyChapter import BuyChapter
 class CartoonManagementController:
     def __init__(self, guest, admin) -> None:
         self.__account_list = []
@@ -16,6 +17,9 @@ class CartoonManagementController:
 
     def set_category(self, category):
         self.__category = category
+        
+    def set_author(self, author):
+        self.__author = author
 
     def register(self, username, password):
         data = self.__guest.register(username, password, self.__account_list)
@@ -46,8 +50,6 @@ class CartoonManagementController:
 
     def post_cartoon(self, name_cartoon, author, categories, file_cartoon, file_main, file_bg):
         response = self.__admin.post_cartoon(name_cartoon, author, categories, file_cartoon, file_main, file_bg)
-        category_list = []
-        author_list = []
         for author_con in self.__author:
             if author_con.get_author_name() == author:
                 author_con.add_cartoon_list(response)
@@ -77,7 +79,7 @@ class CartoonManagementController:
     def post_chapter(self, name_cartoon, name_chapter, coin, files):
         for cartoon in self.__cartoon:
             if cartoon.get_name_cartoon() == name_cartoon:
-                response = self.__admin.post_chapter(str(len(cartoon.get_all_chapter()) + 1), name_cartoon, name_chapter, coin,files)
+                response = self.__admin.post_chapter(str(len(cartoon.get_all_chapter()) + 1), name_cartoon, name_chapter, int(coin),files)
                 cartoon.add_all_chapter(response)
                 return "Success"
 
@@ -124,8 +126,8 @@ class CartoonManagementController:
         for cartoon in self.__cartoon:
             if cartoon.get_name_cartoon() == name_cartoon:
                 for chapter in cartoon.get_all_chapter():
-                    all.append({"id_chapter": chapter.get_id_cartoon(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "coin": chapter.get_coin(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()})
-                return {"id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image_cartoon": cartoon.get_image_cartoon(), "image_main": cartoon.get_image_main(), "image_background": cartoon.get_image_background(), "author": cartoon.get_author(), "category": cartoon.get_category(), "all_chapter": all}
+                    all.append({"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "coin": chapter.get_coin(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()})
+                return {"cartoon_id": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_cartoon": cartoon.get_image_cartoon(), "image_main": cartoon.get_image_main(), "image_background": cartoon.get_image_background(), "author": cartoon.get_author(), "category": cartoon.get_category(), "all_chapter": all}
         return {"error": "name_cartoon"}
     
     def get_chapter(self, name_cartoon, number_chapter):
@@ -133,7 +135,7 @@ class CartoonManagementController:
             if cartoon.get_name_cartoon() == name_cartoon:
                 for chapter in cartoon.get_all_chapter():
                     if chapter.get_number_chapter() == number_chapter:
-                        return {"id_chapter": chapter.get_id_chapter(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()}
+                        return {"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "id_cartoon": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()}
         return {"error": "name_cartoon"}
     
     def get_user(self, username):
@@ -150,4 +152,24 @@ class CartoonManagementController:
                 user.add_all_transaction_coin(transaction)
                 user.add_coin(total_coin)
                 return qr_image_buffer
+        return {'error': "error"}   
+         
+    def buy_chapter(self, username, cartoon_id, chapter_id):
+        for user in self.__account_list:
+            if user.get_username() == username:
+                for cartoon in self.__cartoon:
+                    if str(cartoon.get_cartoon_id()) == cartoon_id:
+                        for chapter in cartoon.get_all_chapter():
+                            coin = chapter.get_coin()
+                            if (str(chapter.get_chapter_id()) == chapter_id):
+                                if user.get_coin() >= coin:
+                                    buy_chapter = BuyChapter()
+                                    transaction, transaction_author = buy_chapter.buy_chapter(chapter, cartoon.get_name_cartoon())
+                                    user.sub_coin(coin)
+                                    user.add_all_transaction_chapter(transaction)
+                                    for author in self.__author:
+                                        if cartoon.get_author() == author.get_author_name():
+                                            author.add_transaction_author(transaction_author)
+                                            return 'success'
+                                return 'More coin'
         return {'error': "error"}        
