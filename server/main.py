@@ -5,6 +5,12 @@ from controller.CartoonManagementController import CartoonManagementController
 from service.Guest import Guest
 from service.Admin import Admin
 from service.Cartoon import Cartoon
+from service.Category import Category
+from uuid import uuid4
+
+from werkzeug.utils import secure_filename
+import os
+
 app = Flask(__name__, static_url_path="/static", static_folder="public")
 CORS(app)
 
@@ -21,30 +27,15 @@ swagger_ui_blueprint = get_swaggerui_blueprint(
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 def create_instance():
+    category_type = ['action', 'romance']
     guest = Guest()
     admin = Admin()
-    return guest, admin
+    category_all = [Category(uuid4(), category)for category in category_type]
+    return guest, admin, category_all
 
-guest, admin = create_instance()
+guest, admin, category_all = create_instance()
 cartoon_controller = CartoonManagementController(guest, admin)
-
-cartoon_folder = 'public/cartoon'
-# app.config['cartoon_folder'] = cartoon_folder
-
-@app.post('/post_cartoon')
-def upload_image():
-    if 'image' not in request.files:
-        return jsonify({'error': 'No file part'})
-    name_cartoon, author, category = request.form.get('name_cartoon'),request.form.get('author'),request.form.getlist('category')
-    # print(name_cartoon, author, category)
-    file = request.files['image']
-    response = cartoon_controller.post_cartoon(name_cartoon, author, category, file)
-    
-    if response == 'Success':
-        return {"message": response}, 200
-    else:
-        return response, 401
-    
+cartoon_controller.set_category(category_all)
 @app.route('/')
 def home():
     return "Hello My First Flask Project"
@@ -62,7 +53,7 @@ def add_register():
 def add_login():
     username, password = request.json.get('username'), request.json.get('password')
     response = cartoon_controller.login(username, password)
-    if isinstance(response, dict)  :
+    if isinstance(response, dict):
         return response
     else:
         return response, 401
@@ -76,9 +67,64 @@ def logout_user():
     else:
         abort(401, response)
     
+@app.get('/get_cartoon')
+def get_cartoon():
+    name_cartoon = request.args.get('cartoon')
+    response = cartoon_controller.get_cartoon(name_cartoon=name_cartoon)
+    return response, 200
+
+# @app.get('/all_cartoon')
+# def get_all_cartoon():
+#     name_category = request.args.get('category')
+#     response = cartoon_controller.get_all_cartoon(name_category)
+#     return response, 200
 @app.get('/all_cartoon')
 def get_all_cartoon():
     response = cartoon_controller.get_all_cartoon()
+    return response, 200
+
+@app.get('/all_cartoon_category')
+def get_all_cartoon_category():
+    name_category = request.args.get('category')
+    response = cartoon_controller.get_all_cartoon_category(name_category)
+    return response, 200
+
+
+@app.post('/post_cartoon')
+def upload_image():
+    if 'image_cartoon' not in request.files:
+        return jsonify({'error': 'No file part'})
+    name_cartoon, author, category = request.form.get('name_cartoon'),request.form.get('author'),request.form.getlist('category')
+    # print(name_cartoon, author, category)
+    file_cartoon, file_main, file_bg = request.files['image_cartoon'],request.files['image_main'], request.files['image_background']
+    response = cartoon_controller.post_cartoon(name_cartoon, author, category, file_cartoon, file_main, file_bg)
+    
+    if response == 'Success':
+        return {"message": response}, 200
+    else:
+        return response, 401
+
+
+@app.post('/post_chapter')
+def upload_file():
+    if 'files[]' not in request.files:
+        return jsonify({'error': 'No file part'})
+
+    files = request.files.getlist('files[]')
+    name_cartoon, name_chapter,coin = request.form.get('name_cartoon'), request.form.get('name_chapter'),request.form.get('coin')
+    response = cartoon_controller.post_chapter(name_cartoon, name_chapter, coin, files)
+
+    return jsonify({'message': 'Files uploaded successfully'})
+
+@app.get('/get_category')
+def get_category():
+    response = cartoon_controller.map_category()
+    return response
+
+@app.get('/get_chapter')
+def get_chapter():
+    name_cartoon, chapter = request.args.get('cartoon'),request.args.get('chapter')
+    response = cartoon_controller.get_chapter(name_cartoon, chapter)
     return response, 200
 
 if __name__ == '__main__':

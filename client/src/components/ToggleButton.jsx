@@ -32,7 +32,7 @@ function ToggleButton() {
       {options.map((opt) => {
         return theme === opt.text ? (
           <button
-            className="w-full bg-indigo-500"
+            className="w-full rounded bg-indigo-500"
             key={opt.text}
             onClick={() => setTheme(opt.text)}
           >
@@ -40,7 +40,7 @@ function ToggleButton() {
           </button>
         ) : (
           <button
-            className="w-full "
+            className="w-full rounded bg-white"
             key={opt.text}
             onClick={() => setTheme(opt.text)}
           >
