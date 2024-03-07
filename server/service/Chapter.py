@@ -5,17 +5,28 @@ class Chapter:
         self.__name_chapter = name_chapter
         self.__coin = coin
         self.__image_chapter = []
+        self.__status = (True if coin == 0 else False)
 
     def add_image_chapter(self, image):
         self.__image_chapter.append(image)
 
     def get_id_cartoon(self):
         return self.__id_cartoon
+    
     def get_number_chapter(self):
         return self.__number_chapter
+    
     def get_name_chapter(self):
         return self.__name_chapter
+    
     def get_coin(self):
         return self.__coin
+    
     def get_image_chapter(self):
         return self.__image_chapter
+    
+    def get_status(self):
+        return self.__status
+    
+    def set_status(self, status):
+        self.__status = status

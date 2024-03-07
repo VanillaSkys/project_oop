@@ -126,12 +126,17 @@ def get_chapter():
     response = cartoon_controller.get_chapter(name_cartoon, chapter)
     return response, 200
 
+@app.get('/get_user')
+def get_user():
+    username = request.args.get('username')
+    response = cartoon_controller.get_user(username)
+    return response, 200
+
 @app.post('/buy_coin')
 def buy_coin():
     username, total_coin, amount = request.json.get('username'), request.json.get('total_coin'), request.json.get('amount')
     response = cartoon_controller.buy_coin(username, total_coin, amount)
     # Return the QR code image to the client
-    cartoon_controller.get_account()
     if isinstance(response, dict):
         return response
     else:

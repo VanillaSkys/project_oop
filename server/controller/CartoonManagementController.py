@@ -124,16 +124,23 @@ class CartoonManagementController:
         for cartoon in self.__cartoon:
             if cartoon.get_name_cartoon() == name_cartoon:
                 for chapter in cartoon.get_all_chapter():
-                    all.append({"id_cartoon": chapter.get_id_cartoon(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "coin": chapter.get_coin(), "image_chapter": chapter.get_image_chapter()})
+                    all.append({"id_chapter": chapter.get_id_cartoon(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "coin": chapter.get_coin(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()})
                 return {"id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image_cartoon": cartoon.get_image_cartoon(), "image_main": cartoon.get_image_main(), "image_background": cartoon.get_image_background(), "author": cartoon.get_author(), "category": cartoon.get_category(), "all_chapter": all}
         return {"error": "name_cartoon"}
+    
     def get_chapter(self, name_cartoon, number_chapter):
         for cartoon in self.__cartoon:
             if cartoon.get_name_cartoon() == name_cartoon:
                 for chapter in cartoon.get_all_chapter():
                     if chapter.get_number_chapter() == number_chapter:
-                        return {"id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter()}
+                        return {"id_chapter": chapter.get_id_chapter(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()}
         return {"error": "name_cartoon"}
+    
+    def get_user(self, username):
+        for user in self.__account_list:
+            if user.get_username() == username:
+                return {"username": user.get_username(), "coin": user.get_coin(), "transaction_coin": user.show_transaction_coin(), "transaction_chapter": user.show_transaction_chapter()}
+        return {'error': 'error'}
     
     def buy_coin(self, username, total_coin, amount):
         for user in self.__account_list:
@@ -141,5 +148,6 @@ class CartoonManagementController:
                 buy_coin = BuyCoin()
                 qr_image_buffer, transaction = buy_coin.buy_coin(total_coin, amount)
                 user.add_all_transaction_coin(transaction)
+                user.add_coin(total_coin)
                 return qr_image_buffer
         return {'error': "error"}        
