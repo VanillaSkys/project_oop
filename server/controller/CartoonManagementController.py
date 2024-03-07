@@ -1,4 +1,4 @@
-
+from service.BuyCoin import BuyCoin
 class CartoonManagementController:
     def __init__(self, guest, admin) -> None:
         self.__account_list = []
@@ -47,12 +47,19 @@ class CartoonManagementController:
     def post_cartoon(self, name_cartoon, author, categories, file_cartoon, file_main, file_bg):
         response = self.__admin.post_cartoon(name_cartoon, author, categories, file_cartoon, file_main, file_bg)
         category_list = []
+        author_list = []
+        for author_con in self.__author:
+            if author_con.get_author_name() == author:
+                author_con.add_cartoon_list(response)
+        #     author_list.append(author_con)
+        # self.__author = author_list
+        
         for category_con in self.__category:
             for category in categories:
                 if category_con.get_category_name() == category:
                     category_con.add_cartoon_list(response)
-            category_list.append(category_con)
-        self.__category = category_list
+        #     category_list.append(category_con)
+        # self.__category = category_list
         if isinstance(response, dict):
             return response
         else:
@@ -108,7 +115,6 @@ class CartoonManagementController:
         response = []
         for category in self.__category:
             if category.get_category_name() == name_category:
-                print(category.get_cartoon_list())
                 for cartoon in category.get_cartoon_list():
                     response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
         return response
@@ -128,3 +134,12 @@ class CartoonManagementController:
                     if chapter.get_number_chapter() == number_chapter:
                         return {"id_cartoon": cartoon.get_id_cartoon(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter()}
         return {"error": "name_cartoon"}
+    
+    def buy_coin(self, username, total_coin, amount):
+        for user in self.__account_list:
+            if user.get_username() == username:
+                buy_coin = BuyCoin()
+                qr_image_buffer, transaction = buy_coin.buy_coin(total_coin, amount)
+                user.add_all_transaction_coin(transaction)
+                return qr_image_buffer
+        return {'error': "error"}        

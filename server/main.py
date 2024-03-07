@@ -1,15 +1,12 @@
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify, abort, send_file
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
 from controller.CartoonManagementController import CartoonManagementController
 from service.Guest import Guest
 from service.Admin import Admin
-from service.Cartoon import Cartoon
 from service.Category import Category
+from service.Author import Author
 from uuid import uuid4
-
-from werkzeug.utils import secure_filename
-import os
 
 app = Flask(__name__, static_url_path="/static", static_folder="public")
 CORS(app)
@@ -28,12 +25,14 @@ app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 def create_instance():
     category_type = ['action', 'romance']
+    author_name = ['fill', 'boat']
     guest = Guest()
     admin = Admin()
     category_all = [Category(uuid4(), category)for category in category_type]
-    return guest, admin, category_all
+    author_all = [Author(uuid4(), author)for author in author_name]
+    return guest, admin, category_all, author_all
 
-guest, admin, category_all = create_instance()
+guest, admin, category_all, author_all = create_instance()
 cartoon_controller = CartoonManagementController(guest, admin)
 cartoon_controller.set_category(category_all)
 @app.route('/')
@@ -126,6 +125,18 @@ def get_chapter():
     name_cartoon, chapter = request.args.get('cartoon'),request.args.get('chapter')
     response = cartoon_controller.get_chapter(name_cartoon, chapter)
     return response, 200
+
+@app.post('/buy_coin')
+def buy_coin():
+    username, total_coin, amount = request.json.get('username'), request.json.get('total_coin'), request.json.get('amount')
+    response = cartoon_controller.buy_coin(username, total_coin, amount)
+    # Return the QR code image to the client
+    cartoon_controller.get_account()
+    if isinstance(response, dict):
+        return response
+    else:
+        return send_file(response, mimetype='image/png')
+    # return "success"
 
 if __name__ == '__main__':
     app.run(debug=True)
