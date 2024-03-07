@@ -5,6 +5,7 @@ import NavBar from "../components/NavBar";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 function HomePage() {
   const { category } = useParams()

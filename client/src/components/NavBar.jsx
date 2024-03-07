@@ -3,7 +3,7 @@ import Menu from "./Menu"
 import Search from "./Search"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
-
+import {motion} from 'framer-motion'
 function NavBar() {
   const theme = localStorage.getItem("theme")
   const { category } = useParams()
@@ -26,9 +26,30 @@ function NavBar() {
             <div className=""  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>Logo</div>
             <div className="w-full h-0.5 opacity-50" style={{backgroundColor: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}></div>
             <ul className="flex justify-around w-full">
-            <button ><Link to={`/Latest`}  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>Latest</Link></button>
-              {allCategory.map((value) => {
-                return( category === value.name ? <button ><Link to={`/${value.name}`} key={value}  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>{value.name}</Link></button> :<button ><Link to={`/${value.name}`} key={value.name} className="opacity-50 hover:opacity-90 transition duration-200" style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>{value.name}</Link></button>)
+              <motion.button 
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}  
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay:0.1 }}>
+              <Link to={`/Latest`}  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>Latest</Link>
+              </motion.button>
+                {allCategory.map((value) => {
+                return( category === value.name ? 
+                <motion.button 
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}  
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay:0.1}}>
+                  <Link to={`/${value.name}`} key={value}  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>{value.name}</Link></motion.button> :
+                  <motion.button 
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}  
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.1 }} >
+                    <Link to={`/${value.name}`} key={value.name} className="opacity-50 hover:opacity-90 transition duration-200" style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>{value.name}</Link></motion.button>)
               })}
             </ul>
         </div>
@@ -37,3 +58,4 @@ function NavBar() {
 }
 
 export default NavBar
+
