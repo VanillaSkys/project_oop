@@ -3,8 +3,6 @@ import 'swiper/css'
 import {motion, useMotionValue, useSpring, useTransform} from 'framer-motion'
 import React, { useRef, useState, useEffect } from "react";
 import { FiMousePointer } from 'react-icons/fi';
-import { Link } from 'react-router-dom'
-import SpotlightButto from '../components/SportLightButton';
 import DrawOutlineButton from '../components/DrawOutlineButton';
 
 function handleClick() {
@@ -55,8 +53,8 @@ function LandingPage() {
 					<div style={{backgroundColor:'#020617'}} className=' w-full text-center rounded-l-lg drop-shadow-2xl shadow-lg shadow-violet-500'>
 						<DrawOutlineButton onClick={handleClick}>Web site</DrawOutlineButton>
 					</div>
-					<div className='text-center w-[550px] -space-x-14 object-cover rounded-r-lg bg-cover bg-center '>
-						<motion.div className="relative w-[550px] -space-x-14 drop-shadow-2xl shadow-lg shadow-violet-500 rounded-r-xl" ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} style={{backgroundImage:'url(../../public/assets/image/bg-2.jpg)', transformStyle: "preserve-3d",  height:'550px'}} animate={{ rotateX, rotateY, }}>
+					<div className='text-center w-[550px] object-cover rounded-r-lg bg-cover bg-center '>
+						<motion.div className="relative w-[550px] drop-shadow-2xl shadow-lg shadow-violet-500 rounded-r-xl" ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} style={{backgroundImage:'url(../../public/assets/image/bg-2.jpg)', transformStyle: "preserve-3d",  height:'550px'}} animate={{ rotateX, rotateY, }}>
 							<div style={{ transform: "translateZ(75px)", transformStyle: "preserve-3d",}}>
 								<img src="https://th-a.kakaopagecdn.com/P/C/353/t2/2x/cc4fa235-5cd8-4a43-ae83-7d930e188713.png" className='absolute' alt="" />
 								<video style={{width:'650px', height:'608px'}} className='absolute ml-16 inset-4 grid place-content-center'  autoPlay muted loop>
