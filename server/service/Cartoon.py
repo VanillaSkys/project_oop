@@ -40,3 +40,6 @@ class Cartoon:
     
     def add_all_chapter(self, chapter):
         self.__all_chapter.append(chapter)
+
+    def show_all_chapter(self):
+        return [{"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "coin": chapter.get_coin(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()} for chapter in self.__all_chapter]

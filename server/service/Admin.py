@@ -1,8 +1,8 @@
 from werkzeug.utils import secure_filename
 import os
-from flask_uuid import uuid
 from service.Account import Account
 from service.Cartoon import Cartoon
+from service.Author import Author
 from service.Chapter import Chapter
 
 class Admin(Account):
@@ -15,6 +15,10 @@ class Admin(Account):
         elif self.__username == username and self.__password != password: 
             return "invalid username or password"
         return 'Dont have user'
+    
+    def create_author_account(self, author_name, username, password):
+        author = Author(author_name, username, password)
+        return author
     
     def post_cartoon(self, name_cartoon, author, category, file_cartoon, file_main, file_bg):
         if file_cartoon.filename == '':

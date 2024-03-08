@@ -1,6 +1,6 @@
-import qrcode
 from io import BytesIO
-
+import os
+from PIL import Image
 class PromptPay:
     def __init__(self, number) -> None:
         self.__number = number
@@ -12,18 +12,15 @@ class PromptPay:
         self.__number = number
         
     def generate_qrcode(self, amount):
-
-        qr = qrcode.QRCode(
-            version=1,
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=10,
-            border=4,
-        )
-
-        qr.add_data(amount)
-        qr.make(fit=True)
-        img = qr.make_image(fill_color="black", back_color="white")
-        qr_image_buffer = BytesIO()
-        img.save(qr_image_buffer)
-        qr_image_buffer.seek(0)
-        return qr_image_buffer
+        imgs_path = os.path.join('public', 'qrcode')
+        imgs_path = os.listdir(imgs_path)
+        for img_path in imgs_path:
+            mime = img_path.split('.')[-1].lower()
+            if img_path == f'{amount}.{mime}':
+                img_file = open(os.path.join('public', 'qrcode', img_path), 'rb')
+                img = Image.open(img_file)
+                qr_image_buffer = BytesIO()
+                img.save(qr_image_buffer, format='PNG')
+                qr_image_buffer.seek(0)
+                img_file.close()
+                return qr_image_buffer

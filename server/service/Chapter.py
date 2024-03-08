@@ -32,3 +32,5 @@ class Chapter:
     
     def set_status(self, status):
         self.__status = status
+        
+        

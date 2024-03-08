@@ -24,17 +24,16 @@ app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 def create_instance():
     category_type = ['action', 'romance']
-    author_name = ['fill', 'boat']
+    # author_name = ['fill', 'boat']
     guest = Guest()
     admin = Admin()
     category_all = [Category(category)for category in category_type]
-    author_all = [Author(author)for author in author_name]
-    return guest, admin, category_all, author_all
+    # author_all = [Author(author)for author in author_name]
+    return guest, admin, category_all
 
-guest, admin, category_all, author_all = create_instance()
+guest, admin, category_all = create_instance()
 cartoon_controller = CartoonManagementController(guest, admin)
 cartoon_controller.set_category(category_all)
-cartoon_controller.set_author(author_all)
 @app.route('/')
 def home():
     return "Hello My First Flask Project"
@@ -43,6 +42,15 @@ def home():
 def add_register():
     username, password = request.json.get('username'), request.json.get('password')
     response = cartoon_controller.register(username, password)
+    if response == 'Register successful':
+        return jsonify({"message": "Register successful"}),200
+    else:
+        return response, 401
+    
+@app.post('/register_author')
+def add_register_author():
+    author_name, username, password = request.json.get('author_name'), request.json.get('username'), request.json.get('password')
+    response = cartoon_controller.register_author(author_name, username, password)
     if response == 'Register successful':
         return jsonify({"message": "Register successful"}),200
     else:
@@ -131,6 +139,12 @@ def get_chapter():
 def get_user():
     username = request.args.get('username')
     response = cartoon_controller.get_user(username)
+    return response, 200
+
+@app.get('/get_author')
+def get_author():
+    username = request.args.get('username')
+    response = cartoon_controller.get_author(username)
     return response, 200
 
 @app.post('/buy_coin')
