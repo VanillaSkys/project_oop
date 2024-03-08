@@ -5,6 +5,7 @@ function CartoonPage() {
   const { cartoon } = useParams();
   const [dataCartoon, setDataCartoon] = useState({});
   const [chapter, setChapter] = useState([])
+  const [userData, setUserData] = useState([])
   async function GetData() {
     const res = await axios.get(`/api/get_cartoon?cartoon=${cartoon}`);
     const data = await res.data;
@@ -13,10 +14,18 @@ function CartoonPage() {
 		setChapter(data.all_chapter)
 	}
   }
+
+  const fetchUserData = async() => {
+		const res = await axios.get(`/api/get_user?username=${localStorage.getItem('user')}`)
+		setUserData(res.data)
+	}
   useEffect(() => {
     GetData();
+    if (localStorage.getItem('user')) {
+			fetchUserData()
+		}
   }, []);
-  console.log(chapter)
+  // console.log(chapter)
   return (
     <div className="h-screen flex items-center justify-center">
       <img
@@ -52,11 +61,11 @@ function CartoonPage() {
           </div>
           <div className="grid grid-flow-col gap-1">
             {
-			chapter.map((value, key) => {
+			chapter?.map((value, key) => {
               return (
                 <div key={key}>
                   {
-                    value.coin === '0' ?
+                    value.coin === 0 ?
                   <Link to={`/cartoon/${cartoon}/${value.number_chapter}_${chapter.length}`}>
                     <img
                       src={`/api/static/${value?.image_chapter[0]}`}
@@ -68,7 +77,30 @@ function CartoonPage() {
                     </p>
                   </Link>
                   : 
+                  ( !localStorage.getItem('user') ?
+                    <Link to={`/login`}>
+                    <img
+                      src={`/api/static/${value?.image_chapter[0]}`}
+                      className="object-cover rounded-md w-[118px] h-20"
+                    />
+                    <p className="text-center text-white text-1xl mt-2">
+                      ตอนที่ {value?.number_chapter} LOCK
+                      
+                    </p>
+                  </Link> :
+                  userData?.transaction_chapter[key]?.chapter_number === value.number_chapter ?
                   <Link to={`/cartoon/${cartoon}/${value.number_chapter}_${chapter.length}`}>
+                  <img
+                    src={`/api/static/${value?.image_chapter[0]}`}
+                    className="object-cover rounded-md w-[118px] h-20"
+                  />
+                  <p className="text-center text-white text-1xl mt-2">
+                    ตอนที่ {value?.number_chapter} UNLOCK
+                    
+                  </p>
+                </Link>
+                  : 
+                  <Link to='/payment' >
                     <img
                       src={`/api/static/${value?.image_chapter[0]}`}
                       className="object-cover rounded-md w-[118px] h-20"
@@ -78,6 +110,7 @@ function CartoonPage() {
                       
                     </p>
                   </Link>
+                  )
                   }
                 </div>
 			)})

@@ -31,7 +31,7 @@ function App() {
             <Route path="/payment" element={<PaymentPage/>} />
             <Route path="/cartoon/:cartoon" element={<CartoonPage/>}/>
             <Route path="/cartoon/:cartoon/:chapter" element={<ChapterPage/>} />
-            <Route path="/history" element={<HistoryPages/>} />
+            <Route path="/history/:history" element={<HistoryPages/>} />
           {/* private routes */}
           
             <Route path="/admin" element={<AdminPage/>} />

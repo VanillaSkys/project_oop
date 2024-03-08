@@ -160,7 +160,7 @@ class CartoonManagementController:
             if cartoon.get_name_cartoon() == name_cartoon:
                 for chapter in cartoon.get_all_chapter():
                     if chapter.get_number_chapter() == number_chapter:
-                        return {"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "id_cartoon": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()}
+                        return {"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "id_cartoon": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter()}
         return {"error": "name_cartoon"}
     
     def get_user(self, username):
@@ -187,7 +187,7 @@ class CartoonManagementController:
          
     def buy_chapter(self, username, cartoon_id, chapter_id):
         for user in self.__account_list:
-            if user.get_username() == username:
+            if user.get_username() == username and not(any(chapter_id in t.values() for t in user.show_transaction_chapter())):
                 for cartoon in self.__cartoon:
                     if str(cartoon.get_cartoon_id()) == cartoon_id:
                         for chapter in cartoon.get_all_chapter():
