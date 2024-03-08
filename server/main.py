@@ -6,7 +6,6 @@ from service.Guest import Guest
 from service.Admin import Admin
 from service.Category import Category
 from service.Author import Author
-from uuid import uuid4
 
 app = Flask(__name__, static_url_path="/static", static_folder="public")
 CORS(app)
