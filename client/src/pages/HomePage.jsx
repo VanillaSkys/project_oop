@@ -39,19 +39,18 @@ function HomePage() {
   });
   
   return (
-    <div className="w-full h-screen" style={{backgroundColor: theme === "dark" ? "#020617" : "#F8FAFC"}}>
+    <div className="w-full h-full" style={{backgroundColor: theme === "dark" ? "#020617" : "#F8FAFC"}}>
       <NavBar/>
         <div>
           <div className="w-[630px] mx-auto pt-24 px-2 grid grid-cols-4 gap-1" >
           {/* <img src="../../public/assets/image/timeerverse.png" className="absolute object-top" style={{opacity:'1'}} alt="" /> */}
           {/* <p className="absolute text-3xl" style={{ fontFamily: 'Charmonman, cursive' }}>ย้อนกลับมาร้าย</p> */}
-            <div className="h-[380px] flex items-center justify-center col-span-4">
-              
-              <video className='absolute' style={{width:'450px'}} autoPlay muted loop>
-                <source style={{background:'none'}} src="https://th-a.kakaopagecdn.com/P/C/769/c1a/b7b52d87-e241-4172-8e64-0e2f90c54abb.webm" className="" type="video/webm" />
-              </video>
-             
-              <img src="../../public/assets/image/bg-re.jpg" className="rounded-xl h-full w-full "/>
+            <div className=" h-[380px] mt-2 flex items-center justify-center col-span-4">
+              <div className="rounded-xl h-full w-full bg-contain" style={{background:'url(../../public/assets/image/bg-re.jpg)'}}>
+                <video className='mx-auto' style={{width:'450px'}} autoPlay muted loop>
+                  <source style={{background:'none'}} src="https://th-a.kakaopagecdn.com/P/C/769/c1a/b7b52d87-e241-4172-8e64-0e2f90c54abb.webm" className="" type="video/webm" />
+                </video>
+              </div>
             </div>
             {
               allCartoon.map((value, key) => {
