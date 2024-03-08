@@ -1,6 +1,8 @@
+from uuid import uuid4
+
 class Category:
-    def __init__(self, category_id, category_name) -> None:
-        self.__category_id = category_id
+    def __init__(self, category_name) -> None:
+        self.__category_id = str(uuid4())
         self.__category_name = category_name
         self.__cartoon_list = []
 

@@ -1,15 +1,11 @@
-from flask import Flask, request, jsonify, abort
+from flask import Flask, request, jsonify, abort, send_file
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
 from controller.CartoonManagementController import CartoonManagementController
 from service.Guest import Guest
 from service.Admin import Admin
-from service.Cartoon import Cartoon
 from service.Category import Category
-from uuid import uuid4
-
-from werkzeug.utils import secure_filename
-import os
+from service.Author import Author
 
 app = Flask(__name__, static_url_path="/static", static_folder="public")
 CORS(app)
@@ -28,14 +24,17 @@ app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 def create_instance():
     category_type = ['action', 'romance']
+    author_name = ['fill', 'boat']
     guest = Guest()
     admin = Admin()
-    category_all = [Category(uuid4(), category)for category in category_type]
-    return guest, admin, category_all
+    category_all = [Category(category)for category in category_type]
+    author_all = [Author(author)for author in author_name]
+    return guest, admin, category_all, author_all
 
-guest, admin, category_all = create_instance()
+guest, admin, category_all, author_all = create_instance()
 cartoon_controller = CartoonManagementController(guest, admin)
 cartoon_controller.set_category(category_all)
+cartoon_controller.set_author(author_all)
 @app.route('/')
 def home():
     return "Hello My First Flask Project"
@@ -71,6 +70,7 @@ def logout_user():
 def get_cartoon():
     name_cartoon = request.args.get('cartoon')
     response = cartoon_controller.get_cartoon(name_cartoon=name_cartoon)
+    print(response)
     return response, 200
 
 # @app.get('/all_cartoon')
@@ -126,6 +126,32 @@ def get_chapter():
     name_cartoon, chapter = request.args.get('cartoon'),request.args.get('chapter')
     response = cartoon_controller.get_chapter(name_cartoon, chapter)
     return response, 200
+
+@app.get('/get_user')
+def get_user():
+    username = request.args.get('username')
+    response = cartoon_controller.get_user(username)
+    return response, 200
+
+@app.post('/buy_coin')
+def buy_coin():
+    username, total_coin, amount = request.json.get('username'), request.json.get('total_coin'), request.json.get('amount')
+    response = cartoon_controller.buy_coin(username, total_coin, amount)
+    # Return the QR code image to the client
+    if isinstance(response, dict):
+        return response
+    else:
+        return send_file(response, mimetype='image/png')
+    
+@app.post('/buy_chapter')
+def buy_chapter():
+    username, cartoon_id, chapter_id = request.json.get('username'), request.json.get('cartoon_id'), request.json.get('chapter_id')
+    response = cartoon_controller.buy_chapter(username, cartoon_id, chapter_id)
+    # Return the QR code image to the client
+    if isinstance(response, dict):
+        return response
+    else:
+        return response
 
 if __name__ == '__main__':
     app.run(debug=True)

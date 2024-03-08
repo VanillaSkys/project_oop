@@ -1,0 +1,6 @@
+#RUN SERVER
+- python main.py
+#SAVE ALL ENV LIBRALY
+- pip freeze > requirements.txt
+#LOAD ALL ENV LIBRALY
+- pip install -r requirements.txt
