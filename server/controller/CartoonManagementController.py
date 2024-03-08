@@ -111,6 +111,7 @@ class CartoonManagementController:
         response = []
         for cartoon in self.__cartoon:
             response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
+            print(response)
         return response
     
     def get_all_cartoon_category(self, name_category):
@@ -119,6 +120,7 @@ class CartoonManagementController:
             if category.get_category_name() == name_category:
                 for cartoon in category.get_cartoon_list():
                     response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
+                    print(response)
         return response
 
     def get_cartoon(self, name_cartoon):

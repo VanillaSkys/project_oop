@@ -1,4 +1,3 @@
-from promptpay import qrcode as qr_code
 import qrcode
 from io import BytesIO
 
@@ -13,7 +12,6 @@ class PromptPay:
         self.__number = number
         
     def generate_qrcode(self, amount):
-        payload_with_amount = qr_code.generate_payload(self.__number, amount)
 
         qr = qrcode.QRCode(
             version=1,
@@ -22,7 +20,7 @@ class PromptPay:
             border=4,
         )
 
-        qr.add_data(payload_with_amount)
+        qr.add_data(amount)
         qr.make(fit=True)
         img = qr.make_image(fill_color="black", back_color="white")
         qr_image_buffer = BytesIO()

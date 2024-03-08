@@ -1,8 +1,5 @@
 from service.TransactionCoin import TransactionCoin
 from service.PromptPay import PromptPay
-from promptpay import qrcode as qr_code
-import qrcode
-from io import BytesIO
 
 class BuyCoin:
     def __init__(self) -> None:
