@@ -1,6 +1,7 @@
 from io import BytesIO
 import os
-from PIL import Image
+# from PIL import Image
+import base64
 class PromptPay:
     def __init__(self, number) -> None:
         self.__number = number
@@ -17,10 +18,6 @@ class PromptPay:
         for img_path in imgs_path:
             mime = img_path.split('.')[-1].lower()
             if img_path == f'{amount}.{mime}':
-                img_file = open(os.path.join('public', 'qrcode', img_path), 'rb')
-                img = Image.open(img_file)
-                qr_image_buffer = BytesIO()
-                img.save(qr_image_buffer, format='PNG')
-                qr_image_buffer.seek(0)
-                img_file.close()
-                return qr_image_buffer
+                qrcode_path = os.path.join('public', 'qrcode', f'{img_path}')
+                encoded_image = base64.b64encode(open(qrcode_path, 'rb').read()).decode('utf-8')
+                return encoded_image

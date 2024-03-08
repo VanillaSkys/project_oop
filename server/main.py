@@ -7,6 +7,7 @@ from service.Admin import Admin
 from service.Category import Category
 from service.Author import Author
 
+import base64
 app = Flask(__name__, static_url_path="/static", static_folder="public")
 CORS(app)
 
@@ -155,7 +156,8 @@ def buy_coin():
     if isinstance(response, dict):
         return response
     else:
-        return send_file(response, mimetype='image/png')
+        return {'image': response}
+        # return send_file(response, mimetype='image/png')
     
 @app.post('/buy_chapter')
 def buy_chapter():
