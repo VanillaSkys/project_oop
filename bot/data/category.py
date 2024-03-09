@@ -3,6 +3,6 @@
     "Romance Fantasy",
     "Romance",
     "Darma",
-    "thriller",
+    "Thriller",
     "Y"
 ]
