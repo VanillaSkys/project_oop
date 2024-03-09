@@ -12,12 +12,18 @@ function HistoryPage() {
 		const data = await res.data
 		setDataChapter(data.transaction_chapter)
 		setDataCoin(data.transaction_coin)
-		setAllMoney(data.transaction_coin.reduce((sum , num) => {
-			return sum.amount + num.amount
-		}))
-		setAllCoin(data.transaction_coin.reduce((sum , num) => {
-			return sum.total_coin + num.total_coin
-		}))
+		if (data.transaction_coin.length > 0){
+			setAllMoney(data.transaction_coin.reduce((sum , num) => {
+				return (data.transaction_coin.length > 1 ? sum.amount + num.amount : sum.amount)
+			}))
+			
+		}
+		if (data.transaction_coin.length > 0){
+			setAllCoin(data.transaction_coin.reduce((sum , num) => {
+				return (data.transaction_coin.length > 1 ? sum.total_coin + num.total_coin : sum.total_coin)
+			}))
+			
+		}
 	}
 	useEffect(() => {
 		fetchUserData()
