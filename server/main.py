@@ -5,9 +5,7 @@ from controller.CartoonManagementController import CartoonManagementController
 from service.Guest import Guest
 from service.Admin import Admin
 from service.Category import Category
-from service.Author import Author
 
-import base64
 app = Flask(__name__, static_url_path="/static", static_folder="public")
 CORS(app)
 
@@ -157,13 +155,11 @@ def buy_coin():
         return response
     else:
         return {'image': response}
-        # return send_file(response, mimetype='image/png')
     
 @app.post('/buy_chapter')
 def buy_chapter():
     username, cartoon_id, chapter_id = request.json.get('username'), request.json.get('cartoon_id'), request.json.get('chapter_id')
     response = cartoon_controller.buy_chapter(username, cartoon_id, chapter_id)
-    # Return the QR code image to the client
     if isinstance(response, dict):
         return response
     else:
