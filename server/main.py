@@ -22,7 +22,7 @@ swagger_ui_blueprint = get_swaggerui_blueprint(
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 def create_instance():
-    category_type = ["Action","Romance Fantasy","Romance","Drama","Thriller","ํY"]
+    category_type = ["Action","Romance Fantasy","Romance","Drama","Thriller","Y"]
     # author_name = ['fill', 'boat']
     guest = Guest()
     admin = Admin()
