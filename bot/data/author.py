@@ -4,5 +4,10 @@ athor_adta = [
         "username": "chugong",
         "password": "chugong"
     },
+    {
+        "name": "Jiwoo han",
+        "username": "jiwoohan",
+        "password": "jiwoohan"   
+    }
     
 ]
