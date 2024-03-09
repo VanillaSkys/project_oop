@@ -2,16 +2,13 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import DrawOutlineButton from "../components/DrawOutlineButton";
 
-function handleClick() {
-  // document.body.button.zoom = "500%";
 
-  window.location.href = "/Latest";
-}
 
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
 
 function LandingPage() {
+  const [isScaled, setIsScaled] = useState(false);
   // window.location.href = "/Latest"
   const ref = useRef(null);
 
@@ -42,10 +39,32 @@ function LandingPage() {
     setRotateY(0);
   };
 
+
+  function handleClick() {
+    // document.body.button.zoom = "500%";
+    setIsScaled(!isScaled)
+    if (!isScaled) {
+      setTimeout(() => {
+        window.location.href = "/Latest";
+      }, 250)
+    }
+  }
+  const variants = {
+    zoom: { opacity: 0, x: "-60%", scale: 3 },
+    normal: { opacity: 1, x: 0 },
+  }
   return (
     <div className="h-screen bg-gray-200">
       <div className="w-[950px] mx-auto pt-24 px-2 grid grid-cols-4 gap-1">
-        <div className="h-[550px] flex items-between justify-between col-span-4">
+        <motion.div className={`h-[550px] flex items-between justify-between col-span-4 `} 
+        // style={{
+        //   scale: isScaled ? 1.5 : 1,
+        //   transition: { duration: 0.5 }
+        // }}
+        variants={variants}
+        animate={isScaled ? "zoom" : "normal"}
+        transition={{ duration: 0.25 }}
+        >
           <div
             style={{ backgroundColor: "#020617" }}
             className=" w-full text-center rounded-l-lg drop-shadow-2xl shadow-lg shadow-violet-500"
@@ -94,7 +113,7 @@ function LandingPage() {
               </div>
             </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
