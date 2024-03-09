@@ -16,9 +16,9 @@ url = "http://localhost:5000"
 # # Close the browser
 # driver.quit()
 
-# register_author = Author(f'{url}/register_author')
-# register_author.add()
-# cartoon = Cartoon(f'{url}/post_cartoon')
-# cartoon.add()
+register_author = Author(f'{url}/register_author')
+register_author.add()
+cartoon = Cartoon(f'{url}/post_cartoon')
+cartoon.add()
 chapter = Chapter(f'{url}/post_chapter')
 chapter.add()
