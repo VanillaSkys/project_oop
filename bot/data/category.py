@@ -1,8 +1,8 @@
 [
-    "Action",
-    "Romance Fantasy",
-    "Romance",
-    "Darma",
+    "action",
+    "romance fantasy",
+    "romance",
+    "darma",
     "thriller",
-    "Y"
+    "y"
 ]
