@@ -5,10 +5,11 @@ import NavBar from "../components/NavBar";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import {motion} from "framer-motion"
 function HomePage() {
   const { category } = useParams()
   const [allCartoon, setAllCartoon] = useState([]);
+  // const [isOpen, setIsOpen] = useState(false)
   const dataBanner = [{
                         category: "Romance",
                         background: 'url(../../public/assets/image/bg-re.jpg)', 
@@ -67,6 +68,7 @@ function HomePage() {
   }, [category]); // Depends on category to fetch data for the correct category
 
   useEffect(() => {
+    // setIsOpen(true)
     if (category === "Latest") {
       getAllCartoon();
     } else {
@@ -78,13 +80,22 @@ function HomePage() {
     const video = document.getElementById("myVideo");
     video.removeAttribute("controls");
   });
-  
+  // const variants = {
+  //   open: { opacity: 1, x: 0 },
+  //   closed: { opacity: 0, x: "-100%" },
+  // }
   return (
     <div className="w-full pb-20" style={{backgroundColor: theme === "dark" ? "#020617" : "#F8FAFC"}}>
       <NavBar/>
         <div>
-          <div className="w-[630px] mx-auto pt-24 px-2 grid grid-cols-4 gap-1" >
-            <div className=" h-[380px] mt-5 mb-2 flex items-center justify-center col-span-4">
+          <motion.div className="w-[630px] mx-auto pt-24 px-2 grid grid-cols-4 gap-1" 
+          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: "-10%" }}
+          transition={{duration:0.25}}
+          // animate={isOpen ? "open" : "closed"}
+          // variants={variants}
+          >
+            <div className=" h-[380px] mt-8 mb-2 flex items-center justify-center col-span-4">
               {
                 dataBanner
                 .map((value, key) => {
@@ -92,7 +103,7 @@ function HomePage() {
                     value.category === category ?
                     <div key={key} className="h-[394px] w-full flex items-end">
                       <div className="rounded-xl h-[380px]  w-full bg-contain flex items-end " style={{background: value?.background}}>
-                        <video className='mx-auto h-[394px] hover:scale-105 hover:duration-500' autoPlay muted loop>
+                        <video className='mx-auto h-[394px] hover:scale-105 hover:mb-2 duration-500' autoPlay muted loop>
                           <source style={{background:'none'}} src={value?.video} className="" type={value?.type} />
                         </video>
                       </div>
@@ -109,11 +120,14 @@ function HomePage() {
               </div> */}
             </div>
             {
-              allCartoon.map((value, key) => {
-                return <Link key={key} to={`/cartoon/${value.name}`}><img src={`/api/static/${value.image_main}`} className="rounded-xl object-cover h-full w-full" /></Link>
+              allCartoon
+              .slice()
+              .reverse()
+              .map((value, key) => {
+                return <button key={key}><Link   to={`/cartoon/${value.name}`}><img src={`/api/static/${value.image_main}`} className="rounded-xl object-cover h-full w-full" /></Link></button>
               })
             }
-          </div>
+          </motion.div>
       </div>
     </div>
   );

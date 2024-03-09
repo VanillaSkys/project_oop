@@ -69,7 +69,10 @@ function CartoonPage() {
           </div>
           <div className="grid grid-cols-5 gap-1">
             {
-			chapter?.map((value, key) => {
+			chapter
+      ?.slice()
+      .reverse()
+      .map((value, key) => {
               return (
                 <div key={key}>
                   {

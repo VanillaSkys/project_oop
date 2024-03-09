@@ -50,7 +50,7 @@ function LandingPage() {
     }
   }
   const variants = {
-    zoom: { opacity: 0, x: "-60%", scale: 3 },
+    zoom: { opacity: 0, x: "60%" },
     normal: { opacity: 1, x: 0 },
   }
   return (
