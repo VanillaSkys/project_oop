@@ -1,11 +1,11 @@
-body{
+/* body{
     margin: 0;
     padding: 0;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     font-family: 'Jost', sans-serif;
-}
+} */
 
 .main{
     width: 350px;
@@ -28,7 +28,7 @@ body{
     height: 100%;
 }
 
-label{
+.label1{
     color:#fff;
     font-size: 2.3em;
     justify-content: center;
@@ -39,7 +39,7 @@ label{
     transition: .5s ease-in-out;
 }
 
-input{
+.input1{
     width: 60%;
     height: 20px;
     background: #e0dede;
@@ -52,7 +52,7 @@ input{
     border-radius: 5px;
 }
 
-button{
+.button1{
     width: 60%;
     height: 40px;
     margin: 10px auto;
