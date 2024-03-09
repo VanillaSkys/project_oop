@@ -1,4 +1,4 @@
-[
+chapter_data = [
     {
         "name_cartoon": "Solo Leveling",
         "name_chapters" : "0",   

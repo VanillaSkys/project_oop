@@ -1,4 +1,4 @@
-[
+cartoon_data = [
     {
         "name" : "Solo Leveling",
         "author" : "Chugong",
