@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import SpringModal from "../components/BuyChapter";
+
 function CartoonPage() {
   const { cartoon } = useParams();
   const [dataCartoon, setDataCartoon] = useState({});
@@ -26,6 +28,12 @@ function CartoonPage() {
 		}
   }, []);
   // console.log(chapter)
+  const [isOpen, setIsOpen] = useState(false);
+
+  function check(chapter_number){
+    return userData?.transaction_chapter?.some(val => val?.chapter_number === chapter_number)
+  }
+
   return (
     <div className="h-screen flex items-center justify-center">
       <img
@@ -73,13 +81,13 @@ function CartoonPage() {
                     />
                     <p className="text-center text-white text-1xl mt-2">
                       ตอนที่ {value?.number_chapter}
-                      
                     </p>
                   </Link>
                   : 
                   ( !localStorage.getItem('user') ?
                     <Link to={`/login`}>
                     <img
+                    onCl
                       src={`/api/static/${value?.image_chapter[0]}`}
                       className="object-cover rounded-md w-[118px] h-20"
                     />
@@ -87,29 +95,34 @@ function CartoonPage() {
                       ตอนที่ {value?.number_chapter} LOCK
                       
                     </p>
-                  </Link> :
-                  userData?.transaction_chapter[key]?.chapter_number === value.number_chapter ?
+                  </Link> 
+                 : check(value?.number_chapter) ?
+                //  : userData?.transaction_chapter[key]?.chapter_number === value?.number_chapter ?
                   <Link to={`/cartoon/${cartoon}/${value.number_chapter}_${chapter.length}`}>
                   <img
                     src={`/api/static/${value?.image_chapter[0]}`}
                     className="object-cover rounded-md w-[118px] h-20"
                   />
                   <p className="text-center text-white text-1xl mt-2">
-                    ตอนที่ {value?.number_chapter} UNLOCK
+                    ตอนที่ {value?.number_chapter} 
                     
                   </p>
                 </Link>
                   : 
-                  <Link to='/payment' >
-                    <img
-                      src={`/api/static/${value?.image_chapter[0]}`}
-                      className="object-cover rounded-md w-[118px] h-20"
-                    />
-                    <p className="text-center text-white text-1xl mt-2">
-                      ตอนที่ {value?.number_chapter} lock
-                      
-                    </p>
-                  </Link>
+                    
+                    <div>
+                       <button  onClick={() => setIsOpen(true)}>
+                        <div className="bg-white opacity-50 w-[118px] absolute rounded-md h-[80px]">
+                          <img src="../../public/assets/image/lock.png" className="absolute overflow-hidden rounded-md text-center ml-7 mt-2" height={"50%"}  width={"50%"}/>
+                        </div>
+                        <img src={`/api/static/${value?.image_chapter[0]}`} className="object-cover rounded-md w-[118px] h-20"/>
+                        <p className="text-center text-white text-1xl mt-2">
+                          ตอนที่ {value?.number_chapter}
+                        </p>
+                      </button>
+                      <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
+                    </div>
+                  
                   )
                   }
                 </div>
