@@ -86,13 +86,18 @@ function HomePage() {
           <div className="w-[630px] mx-auto pt-24 px-2 grid grid-cols-4 gap-1" >
             <div className=" h-[380px] mt-2 flex items-center justify-center col-span-4">
               {
-                dataBanner.filter(data => data.category === category).map((value, key) => {
+                dataBanner
+                .map((value, key) => {
                   return (
-                    <div key={key} className="rounded-xl h-full w-full bg-contain" style={{background: value.background}}>
+                    value.category === category ?
+                    <div key={key} className="rounded-xl h-full w-full bg-contain" style={{background: value?.background}}>
                       <video className='mx-auto' style={{width:'450px'}} autoPlay muted loop>
-                        <source style={{background:'none'}} src={value.video} className="" type={value.type} />
+                        {console.log(value)}
+                        <source style={{background:'none'}} src={value?.video} className="" type={value?.type} />
                       </video>
                     </div>
+                    :
+                    null
                   )
                 })
               }

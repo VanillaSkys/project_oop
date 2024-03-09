@@ -67,7 +67,7 @@ function CartoonPage() {
               </p>
             </button>
           </div>
-          <div className="grid grid-flow-col gap-1">
+          <div className="grid grid-cols-5 gap-1">
             {
 			chapter?.map((value, key) => {
               return (
@@ -87,7 +87,7 @@ function CartoonPage() {
                   ( !localStorage.getItem('user') ?
                     <Link to={`/login`}>
                     <img
-                    onCl
+                    // onCl
                       src={`/api/static/${value?.image_chapter[0]}`}
                       className="object-cover rounded-md w-[118px] h-20"
                     />
