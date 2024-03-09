@@ -1,11 +1,11 @@
 athor_adta = [
     {
-        "name": "Chugong",
+        "author_name": "Chugong",
         "username": "chugong",
         "password": "chugong"
     },
     {
-        "name": "Jiwoo han",
+        "author_name": "Jiwoo han",
         "username": "jiwoohan",
         "password": "jiwoohan"   
     }
