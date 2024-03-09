@@ -17,13 +17,13 @@ function NavBar() {
     getAllCategory()
   }, [])
   return (
-    <div className="fixed w-full" >
+    <div className="z-50 fixed w-full" >
         <div className="flex">
             <Search />
             <Menu />
         </div>
         <div className="relative flex flex-col content-center items-center w-[630px] py-2 mx-auto gap-3"  style={{backgroundColor: theme === "dark" ? "#020617" : "#F8FAFC"}}>
-            <div className=""  style={{color: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}>Logo</div>
+            <Link to="/Latest"><img src="../../public/assets/icons/infinity.png" className="w-[40px]" /></Link>
             <div className="w-full h-0.5 opacity-50" style={{backgroundColor: theme === 'dark' ? "#c7d2fe" : "#4F46E5"}}></div>
             <ul className="flex justify-around w-full">
               <motion.button 
