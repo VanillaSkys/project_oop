@@ -52,12 +52,12 @@ function LoginPage() {
 
 				<div className="Signup">
 					<form action="">
-						<label for="chk" aria-hidden="true">Sign up</label>
-						<input type="text" height={"20px"} width={"60%"} className="p-5 mx-auto mt-2" name="username" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
-						<input type="password" height={"20px"} width={"60%"} className="p-5 mx-auto mt-2" name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-						<input type="password" height={"20px"} width={"60%"} className="p-5 mx-auto mt-2" name="confirmPassword" placeholder="Confirm Password" onChange={(e) => setConfirmPassword(e.target.value)} required />
+						<label for="chk" className="label1" aria-hidden="true">Sign up</label>
+						<input type="text" height={"20px"} width={"60%"} className="p-5 mx-auto mt-2 input1" name="username" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
+						<input type="password" height={"20px"} width={"60%"} className="p-5 mx-auto mt-2 input1" name="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+						<input type="password" height={"20px"} width={"60%"} className="p-5 mx-auto mt-2 input1" name="confirmPassword" placeholder="Confirm Password" onChange={(e) => setConfirmPassword(e.target.value)} required />
 						
-						<button disabled={isSubmitDisabled} onClick={(e) => RegisterSubmit(e)} className="px-6 mx-auto mt-3 py-2 font-medium bg-indigo-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]">
+						<button disabled={isSubmitDisabled} onClick={(e) => RegisterSubmit(e)} className="px-6 button1 mx-auto mt-3 py-2 font-medium bg-indigo-500 text-white w-fit transition-all shadow-[3px_3px_0px_black] hover:shadow-none hover:translate-x-[3px] hover:translate-y-[3px]">
 							Sign Up
 						</button>
 					</form>
@@ -65,10 +65,10 @@ function LoginPage() {
 
 				<div className="login">
 					<form action="">
-						<label for="chk" aria-hidden="true" className="">Login</label>
-							<input type="text" name="username" height={"20px"} width={"60%"} className="p-5 mx-auto mt-2" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
-							<input type="password" name="password" height={"20px"} width={"60%"} className="p-5 mx-auto mt-2" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-							<button onClick={(e) => LoginSubmit(e)} className="mx-auto mt-3 rounded-2xl border-2 hover:bg-violet-600 border-dashed border-black bg-white font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+						<label for="chk" className="label1" aria-hidden="true" >Login</label>
+							<input type="text" name="username" height={"20px"} width={"60%"} className="p-5 input1 mx-auto mt-2" placeholder="Username" onChange={(e) => setUsername(e.target.value)} required />
+							<input type="password" name="password" height={"20px"} width={"60%"} className="p-5 input1 mx-auto mt-2" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+							<button onClick={(e) => LoginSubmit(e)} className="mx-auto mt-3 rounded-2xl border-2 button1 hover:bg-violet-600 border-dashed border-black bg-white font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
 								Login
 							</button>
 					</form>
