@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import ToggleButton from "../components/ToggleButton";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 function MenuPage() {
+	const [userData, setUserData] = useState([])
 	async function logout() {
 		try{
 			await axios.post('/api/logout', {username: localStorage.getItem('user')})
@@ -12,10 +14,19 @@ function MenuPage() {
 			console.log(error.response)
 		}
 	}
+	const fetchUserData = async() => {
+		const res = await axios.get(`/api/get_user?username=${localStorage.getItem('user')}`)
+		setUserData(res.data)
+	}
+	useEffect(() => {
+		if (localStorage.getItem('user')) {
+			fetchUserData()
+		}
+	}, [])
 	return (
 		<div className="h-screen bg-gray-100">
 			<div className="flex justify-between">
-				<Link to="/" className="">
+				<Link to="/Latest" className="">
 					{/* <img src="../../public/assets/image/left-arrow.png" className="object-contain" height={"10%"} width={"10%"} alt="" /> */}
 					<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="ml-2 w-10 h-10">
 						<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
@@ -45,7 +56,7 @@ function MenuPage() {
 								{!localStorage.getItem("user") ? (
 									null
 								) : (
-									"coin"
+									userData.coin
 								)}
 							</div>
 						<div className="flex items-center justify-center mx-auto">
@@ -57,13 +68,13 @@ function MenuPage() {
 							<p className="text-3xl">Term Coin </p>
 						</div>
 						<div className="w-full flex justify-center items-center">
-							<button className="w-full text-center p-1 bg-white rounded">
+							<Link to={!localStorage.getItem('user') ? '/login' :'/payment'} className="w-full text-center p-1 bg-white rounded">
 									<p className="text-xl text-black">เติมแคช</p>
-							</button>
+							</Link>
 						</div>
 						<div className="w-full flex justify-between gap-2 items-center">
-							<button className="w-full text-center bg-white rounded"><p className=" text-black">History Coin</p></button>
-							<button className="w-full text-center bg-white rounded"><p className=" text-black">History Chapter</p></button>
+							<Link to={!localStorage.getItem('user') ? '/login' :'/history/coin'} className="w-full text-center bg-white rounded"><p className=" text-black">History Coin</p></Link>
+							<Link to={!localStorage.getItem('user') ? '/login' :'/history/chapter'} className="w-full text-center bg-white rounded"><p className=" text-black">History Chapter</p></Link>
 						</div>
 						<ToggleButton />
 				</div>

@@ -1,10 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import SpringModal from "../components/BuyChapter";
+
 function CartoonPage() {
   const { cartoon } = useParams();
   const [dataCartoon, setDataCartoon] = useState({});
   const [chapter, setChapter] = useState([])
+  const [userData, setUserData] = useState([])
   async function GetData() {
     const res = await axios.get(`/api/get_cartoon?cartoon=${cartoon}`);
     const data = await res.data;
@@ -13,10 +16,24 @@ function CartoonPage() {
 		setChapter(data.all_chapter)
 	}
   }
+
+  const fetchUserData = async() => {
+		const res = await axios.get(`/api/get_user?username=${localStorage.getItem('user')}`)
+		setUserData(res.data)
+	}
   useEffect(() => {
     GetData();
+    if (localStorage.getItem('user')) {
+			fetchUserData()
+		}
   }, []);
-  console.log(chapter)
+  // console.log(chapter)
+  const [isOpen, setIsOpen] = useState(false);
+
+  function check(chapter_number){
+    return userData?.transaction_chapter?.some(val => val?.chapter_number === chapter_number)
+  }
+
   return (
     <div className="h-screen flex items-center justify-center">
       <img
@@ -52,11 +69,11 @@ function CartoonPage() {
           </div>
           <div className="grid grid-flow-col gap-1">
             {
-			chapter.map((value, key) => {
+			chapter?.map((value, key) => {
               return (
                 <div key={key}>
                   {
-                    value.coin === '0' ?
+                    value.coin === 0 ?
                   <Link to={`/cartoon/${cartoon}/${value.number_chapter}_${chapter.length}`}>
                     <img
                       src={`/api/static/${value?.image_chapter[0]}`}
@@ -64,20 +81,49 @@ function CartoonPage() {
                     />
                     <p className="text-center text-white text-1xl mt-2">
                       ตอนที่ {value?.number_chapter}
-                      
                     </p>
                   </Link>
                   : 
-                  <Link to={`/cartoon/${cartoon}/${value.number_chapter}_${chapter.length}`}>
+                  ( !localStorage.getItem('user') ?
+                    <Link to={`/login`}>
                     <img
+                    onCl
                       src={`/api/static/${value?.image_chapter[0]}`}
                       className="object-cover rounded-md w-[118px] h-20"
                     />
                     <p className="text-center text-white text-1xl mt-2">
-                      ตอนที่ {value?.number_chapter} lock
+                      ตอนที่ {value?.number_chapter} LOCK
                       
                     </p>
-                  </Link>
+                  </Link> 
+                 : check(value?.number_chapter) ?
+                //  : userData?.transaction_chapter[key]?.chapter_number === value?.number_chapter ?
+                  <Link to={`/cartoon/${cartoon}/${value.number_chapter}_${chapter.length}`}>
+                  <img
+                    src={`/api/static/${value?.image_chapter[0]}`}
+                    className="object-cover rounded-md w-[118px] h-20"
+                  />
+                  <p className="text-center text-white text-1xl mt-2">
+                    ตอนที่ {value?.number_chapter} 
+                    
+                  </p>
+                </Link>
+                  : 
+                    
+                    <div>
+                       <button  onClick={() => setIsOpen(true)}>
+                        <div className="bg-white opacity-50 w-[118px] absolute rounded-md h-[80px]">
+                          <img src="../../public/assets/image/lock.png" className="absolute overflow-hidden rounded-md text-center ml-7 mt-2" height={"50%"}  width={"50%"}/>
+                        </div>
+                        <img src={`/api/static/${value?.image_chapter[0]}`} className="object-cover rounded-md w-[118px] h-20"/>
+                        <p className="text-center text-white text-1xl mt-2">
+                          ตอนที่ {value?.number_chapter}
+                        </p>
+                      </button>
+                      <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
+                    </div>
+                  
+                  )
                   }
                 </div>
 			)})

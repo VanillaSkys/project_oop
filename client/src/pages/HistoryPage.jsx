@@ -1,6 +1,34 @@
-import { Link } from "react-router-dom";
-function HistoryPage()
-{
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+function HistoryPage() {
+	const {history} = useParams()
+	const [ dataCoin, setDataCoin ] = useState([])
+	const [ dataChapter, setDataChapter ] = useState([])
+	const [allMoney, setAllMoney] = useState(0)
+	const [allCoin, setAllCoin] = useState(0)
+	const fetchUserData = async() => {
+		const res = await axios.get(`/api/get_user?username=${localStorage.getItem('user')}`)
+		const data = await res.data
+		setDataChapter(data.transaction_chapter)
+		setDataCoin(data.transaction_coin)
+		if (data.transaction_coin.length > 0){
+			setAllMoney(data.transaction_coin.reduce((sum , num) => {
+				return (data.transaction_coin.length > 1 ? sum.amount + num.amount : sum.amount)
+			}))
+			
+		}
+		if (data.transaction_coin.length > 0){
+			setAllCoin(data.transaction_coin.reduce((sum , num) => {
+				return (data.transaction_coin.length > 1 ? sum.total_coin + num.total_coin : sum.total_coin)
+			}))
+			
+		}
+	}
+	useEffect(() => {
+		fetchUserData()
+	}, [])
+	// console.log(history === 'coin' ? dataCoin : dataChapter) //ตัวอย่างข้อมูล
 	return (
 		<div className="bg-gray-100 h-screen">
 			<div className="flex justify-between items-between">
@@ -17,10 +45,10 @@ function HistoryPage()
 					<p className="text-lg text-center mt-2">ประวัติแคช</p>
 					<div className="flex flex-row gap-5 mt-5">
 						<div>
-							<Link><p className="border-b-2 border-black">History Coin</p></Link>
+							<Link to='/history/coin'><p className="border-b-2 border-black">History Coin</p></Link>
 						</div>
 						<div>
-							<Link><p className="border-b-2 border-black">History Chapter</p></Link>
+							<Link to='/history/chapter'><p className="border-b-2 border-black">History Chapter</p></Link>
 						</div>
 					</div>
 					<div className="flex flex-row w-[650px] items-center text-center rounded-md bg-white mt-5">
@@ -32,7 +60,7 @@ function HistoryPage()
 							</p>
 						</div>
 						<div>
-							<p className="ml-5 text-4xl">1,000,000</p>
+							<p className="ml-5 text-4xl">{allMoney}</p>
 						</div>
 						<div className="ml-10">
 							<button className="bg-amber-500 text-white rounded-md mr-2 w-[45px]">เติม</button>
@@ -43,11 +71,40 @@ function HistoryPage()
 							<p className="ml-2 text-amber-500">แคชที่เติม </p>
 						</div>
 						<div>
-							<p className="ml-2 text-amber-500">0</p>
+							<p className="ml-2 text-amber-500">{allCoin}</p>
 						</div>
 					</div>
 				</div>
 				<div></div>
+				{
+					history === 'coin' ?
+					(
+						dataCoin.map((value, key) => {
+							return (
+								<div key={key}>
+									<div>{value.transaction_coin_id}</div>
+									<div>{value.amount}</div>
+									<div>{value.time}</div>
+									<div>{value.total_coin}</div>
+								</div>
+							)
+						})
+					) :
+					(
+						dataChapter.map((value, key) => {
+							return (
+								<div key={key}>
+									<div>{value.transaction_chapter_id}</div>
+									<div>{value.chapter_id}</div>
+									<div>{value.time}</div>
+									<div>{value.cartoon_name}</div>
+									<div>{value.chapter_number}</div>
+									<div>{value.chapter_coin}</div>
+								</div>
+							)
+						})
+					)
+				}
 			</div>
 		</div>
 	);

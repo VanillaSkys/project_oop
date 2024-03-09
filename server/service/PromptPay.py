@@ -1,7 +1,7 @@
-from promptpay import qrcode as qr_code
-import qrcode
 from io import BytesIO
-
+import os
+# from PIL import Image
+import base64
 class PromptPay:
     def __init__(self, number) -> None:
         self.__number = number
@@ -13,19 +13,11 @@ class PromptPay:
         self.__number = number
         
     def generate_qrcode(self, amount):
-        payload_with_amount = qr_code.generate_payload(self.__number, amount)
-
-        qr = qrcode.QRCode(
-            version=1,
-            error_correction=qrcode.constants.ERROR_CORRECT_L,
-            box_size=10,
-            border=4,
-        )
-
-        qr.add_data(payload_with_amount)
-        qr.make(fit=True)
-        img = qr.make_image(fill_color="black", back_color="white")
-        qr_image_buffer = BytesIO()
-        img.save(qr_image_buffer)
-        qr_image_buffer.seek(0)
-        return qr_image_buffer
+        imgs_path = os.path.join('public', 'qrcode')
+        imgs_path = os.listdir(imgs_path)
+        for img_path in imgs_path:
+            mime = img_path.split('.')[-1].lower()
+            if img_path == f'{amount}.{mime}':
+                qrcode_path = os.path.join('public', 'qrcode', f'{img_path}')
+                encoded_image = base64.b64encode(open(qrcode_path, 'rb').read()).decode('utf-8')
+                return encoded_image

@@ -7,7 +7,6 @@ class Chapter:
         self.__name_chapter = name_chapter
         self.__coin = coin
         self.__image_chapter = []
-        self.__status = (True if coin == 0 else False)
 
     def add_image_chapter(self, image):
         self.__image_chapter.append(image)
@@ -27,8 +26,5 @@ class Chapter:
     def get_image_chapter(self):
         return self.__image_chapter
     
-    def get_status(self):
-        return self.__status
-    
-    def set_status(self, status):
-        self.__status = status
+        
+        

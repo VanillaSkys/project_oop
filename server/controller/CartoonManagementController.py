@@ -17,11 +17,11 @@ class CartoonManagementController:
 
     def set_category(self, category):
         self.__category = category
-        
-    def set_author(self, author):
-        self.__author = author
 
     def register(self, username, password):
+        for author in self.__author:
+            if author.get_username() == username:
+                return 'Username already exists'
         data = self.__guest.register(username, password, self.__account_list)
         if isinstance(data, str):
             return "Username already exists"
@@ -29,13 +29,34 @@ class CartoonManagementController:
             self.__account_list.append(data)
             return "Register successful"
 
+    def register_author(self, author_name, username, password):
+        for user in self.__account_list:
+            if user.get_username() == username:
+                return 'Username already exists'
+        for author in self.__author:
+            if author.get_username() == username:
+                return "Username already exists"
+            elif author.get_author_name() == author_name:
+                return "Name already exists"
+        author_instance = self.__admin.create_author_account(author_name, username, password)
+        self.__author.append(author_instance)
+        return "Register successful"
+            
     def login(self, username, password):
         if username != 'admin':
-            for account in self.__account_list:
-                data = account.login(username, password)
-                if isinstance(data, dict):
+            for user in self.__account_list:
+                if user.get_username() == username:
+                    data = user.login(username, password)
+                    if isinstance(data, dict):
+                        return data
                     return data
-                return data
+            for author in self.__author:
+                if author.get_username() == username:
+                    data = author.login(username, password)
+                    if isinstance(data, dict):
+                        return data
+                    return data
+            return {'Dont have account'}
         data = self.__admin.login(username, password)
         if isinstance(data, dict):
             return data
@@ -43,10 +64,12 @@ class CartoonManagementController:
 
     def logout(self, username):
         for account in self.__account_list:
-            data = account.logout(username)
-            if isinstance(data, dict):
+            if account.get_username() == username:
+                data = account.logout(username)
+                if isinstance(data, dict):
+                    return data
                 return data
-            return data
+            return 'Dont have account'
 
     def post_cartoon(self, name_cartoon, author, categories, file_cartoon, file_main, file_bg):
         response = self.__admin.post_cartoon(name_cartoon, author, categories, file_cartoon, file_main, file_bg)
@@ -111,23 +134,25 @@ class CartoonManagementController:
         response = []
         for cartoon in self.__cartoon:
             response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
+            print(response)
         return response
     
     def get_all_cartoon_category(self, name_category):
-        response = []
         for category in self.__category:
             if category.get_category_name() == name_category:
-                for cartoon in category.get_cartoon_list():
-                    response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
-        return response
+                return category.show_cartoon_list()
+        return {'error', 'dont have'}
+    
+    def get_all_cartoon_author(self, name_author):
+        for author in self.__author:
+            if author.get_author_name() == name_author:
+                return author.show_cartoon_list()
+        return {'error', 'dont have'}
 
     def get_cartoon(self, name_cartoon):
-        all = []
         for cartoon in self.__cartoon:
             if cartoon.get_name_cartoon() == name_cartoon:
-                for chapter in cartoon.get_all_chapter():
-                    all.append({"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "coin": chapter.get_coin(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()})
-                return {"cartoon_id": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_cartoon": cartoon.get_image_cartoon(), "image_main": cartoon.get_image_main(), "image_background": cartoon.get_image_background(), "author": cartoon.get_author(), "category": cartoon.get_category(), "all_chapter": all}
+                return {"cartoon_id": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_cartoon": cartoon.get_image_cartoon(), "image_main": cartoon.get_image_main(), "image_background": cartoon.get_image_background(), "author": cartoon.get_author(), "category": cartoon.get_category(), "all_chapter": cartoon.show_all_chapter()}
         return {"error": "name_cartoon"}
     
     def get_chapter(self, name_cartoon, number_chapter):
@@ -135,13 +160,19 @@ class CartoonManagementController:
             if cartoon.get_name_cartoon() == name_cartoon:
                 for chapter in cartoon.get_all_chapter():
                     if chapter.get_number_chapter() == number_chapter:
-                        return {"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "id_cartoon": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter(), "status": chapter.get_status()}
+                        return {"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "id_cartoon": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter()}
         return {"error": "name_cartoon"}
     
     def get_user(self, username):
         for user in self.__account_list:
             if user.get_username() == username:
                 return {"username": user.get_username(), "coin": user.get_coin(), "transaction_coin": user.show_transaction_coin(), "transaction_chapter": user.show_transaction_chapter()}
+        return {'error': 'error'}
+    
+    def get_author(self, username):
+        for author in self.__author:
+            if author.get_username() == username:
+                return {"username": author.get_username(), "author_name": author.get_author_name(), "cartoon_list": author.show_cartoon_list(), "transaction_author": author.show_transaction_author()}
         return {'error': 'error'}
     
     def buy_coin(self, username, total_coin, amount):
@@ -156,7 +187,7 @@ class CartoonManagementController:
          
     def buy_chapter(self, username, cartoon_id, chapter_id):
         for user in self.__account_list:
-            if user.get_username() == username:
+            if user.get_username() == username and not(any(chapter_id in t.values() for t in user.show_transaction_chapter())):
                 for cartoon in self.__cartoon:
                     if str(cartoon.get_cartoon_id()) == cartoon_id:
                         for chapter in cartoon.get_all_chapter():

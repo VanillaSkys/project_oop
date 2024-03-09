@@ -1,0 +1,471 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Flask API",
+    "description": "API for My First Flask Project",
+    "version": "1.0"
+  },
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "A welcome message"
+          }
+        },
+        "summary": "Home",
+        "tags": [
+          "Home"
+        ]
+      }
+    },
+    "/register": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Username and password",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Register successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unsuccessful registration"
+          }
+        },
+        "summary": "Register"
+      }
+    },
+    "/register_author": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Author name, username, and password",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "author_name": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Register successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unsuccessful registration"
+          }
+        },
+        "summary": "Register Author"
+      }
+    },
+    "/login": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Username and password",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Login successful"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "summary": "Login"
+      }
+    },
+    "/logout": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Username",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logout successful",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "summary": "Logout"
+      }
+    },
+    "/get_cartoon": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cartoon",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "summary": "Get Cartoon"
+      }
+    },
+    "/all_cartoon": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "summary": "Get All Cartoons"
+      }
+    },
+    "/all_cartoon_category": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "category",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "summary": "Get All Cartoons by Category"
+      }
+    },
+    "/post_cartoon": {
+      "post": {
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name_cartoon",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "author",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "category",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "image_cartoon",
+            "type": "file",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "image_main",
+            "type": "file",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "image_background",
+            "type": "file",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        },
+        "summary": "Post Cartoon"
+      }
+    },
+    "/post_chapter": {
+      "post": {
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "name_cartoon",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "name_chapter",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "coin",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "formData",
+            "name": "files[]",
+            "type": "file",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Post Chapter"
+      }
+    },
+    "/get_category": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "summary": "Get Category"
+      }
+    },
+    "/get_chapter": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "cartoon",
+            "type": "string",
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "chapter",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "summary": "Get Chapter"
+      }
+    },
+    "/get_user": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "username",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "summary": "Get User"
+      }
+    },
+    "/get_author": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "username",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "summary": "Get Author"
+      }
+    },
+    "/buy_coin": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Username, total coin, and amount",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "total_coin": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        },
+        "summary": "Buy Coin"
+      }
+    },
+    "/buy_chapter": {
+      "post": {
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Username, cartoon ID, and chapter ID",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "cartoon_id": {
+                  "type": "string"
+                },
+                "chapter_id": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
+          }
+        },
+        "summary": "Buy Chapter"
+      }
+    }
+  }
+}
