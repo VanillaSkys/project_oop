@@ -1,5 +1,6 @@
 # from selenium import webdriver
 from RegisterAuthor import RegisterAuthor
+from Cartoon import Cartoon
 
 url = "http://localhost:5000"
 # # Initialize the WebDriver
@@ -14,6 +15,8 @@ url = "http://localhost:5000"
 # # Close the browser
 # driver.quit()
 
-register_author = RegisterAuthor(f'{url}/register_author')
-response = register_author.add()
-print(response)
+# register_author = RegisterAuthor(f'{url}/register_author')
+# response = register_author.add()
+cartoon = Cartoon(f'{url}/post_cartoon')
+cartoon.add()
+# print(response)
