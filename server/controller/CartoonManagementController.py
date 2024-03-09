@@ -72,9 +72,9 @@ class CartoonManagementController:
             return 'Dont have account'
 
     def post_cartoon(self, name_cartoon, author, categories, file_cartoon, file_main, file_bg):
-        response = self.__admin.post_cartoon(name_cartoon, author, categories, file_cartoon, file_main, file_bg)
         for author_con in self.__author:
             if author_con.get_author_name() == author:
+                response = self.__admin.post_cartoon(name_cartoon, author, categories, file_cartoon, file_main, file_bg)
                 author_con.add_cartoon_list(response)
         #     author_list.append(author_con)
         # self.__author = author_list
