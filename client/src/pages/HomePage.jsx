@@ -91,8 +91,8 @@ function HomePage() {
                   return (
                     value.category === category ?
                     <div key={key} className="h-[394px] w-full flex items-end">
-                      <div className="rounded-xl h-[380px] w-full bg-contain flex items-end " style={{background: value?.background}}>
-                        <video className='mx-auto  h-[394px]  '  autoPlay muted loop>
+                      <div className="rounded-xl h-[380px]  w-full bg-contain flex items-end " style={{background: value?.background}}>
+                        <video className='mx-auto h-[394px] hover:scale-105 hover:duration-500' autoPlay muted loop>
                           <source style={{background:'none'}} src={value?.video} className="" type={value?.type} />
                         </video>
                       </div>
