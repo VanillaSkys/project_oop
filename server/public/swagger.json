@@ -1,51 +1,52 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Cartoon Management API",
-    "description": "API for managing cartoons",
+    "title": "Flask API",
+    "description": "API for My First Flask Project",
     "version": "1.0"
   },
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": [
+    "http"
+  ],
   "paths": {
     "/": {
       "get": {
-        "summary": "Home",
-        "description": "Home endpoint",
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "A welcome message"
           }
-        }
+        },
+        "summary": "Home",
+        "tags": [
+          "Home"
+        ]
       }
     },
     "/register": {
       "post": {
-        "summary": "Register user",
-        "description": "Endpoint to register a new user",
         "parameters": [
           {
-            "name": "username",
             "in": "body",
-            "description": "Username of the user",
+            "name": "body",
+            "description": "Username and password",
             "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "password",
-            "in": "body",
-            "description": "Password of the user",
-            "required": true,
-            "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful registration",
+            "description": "Register successful",
             "schema": {
               "type": "object",
               "properties": {
@@ -56,47 +57,39 @@
             }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unsuccessful registration"
           }
-        }
+        },
+        "summary": "Register"
       }
     },
     "/register_author": {
       "post": {
-        "summary": "Register author",
-        "description": "Endpoint to register a new author",
         "parameters": [
           {
-            "name": "author_name",
             "in": "body",
-            "description": "Name of the author",
+            "name": "body",
+            "description": "Author name, username, and password",
             "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "username",
-            "in": "body",
-            "description": "Username of the author",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "password",
-            "in": "body",
-            "description": "Password of the author",
-            "required": true,
-            "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "author_name": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful registration",
+            "description": "Register successful",
             "schema": {
               "type": "object",
               "properties": {
@@ -107,57 +100,59 @@
             }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unsuccessful registration"
           }
-        }
+        },
+        "summary": "Register Author"
       }
     },
     "/login": {
       "post": {
-        "summary": "Login user",
-        "description": "Endpoint to login user",
         "parameters": [
           {
-            "name": "username",
             "in": "body",
-            "description": "Username of the user",
+            "name": "body",
+            "description": "Username and password",
             "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "password",
-            "in": "body",
-            "description": "Password of the user",
-            "required": true,
-            "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful login"
+            "description": "Login successful"
           },
           "401": {
             "description": "Unauthorized"
           }
-        }
+        },
+        "summary": "Login"
       }
     },
     "/logout": {
       "post": {
-        "summary": "Logout user",
-        "description": "Endpoint to logout user",
         "parameters": [
           {
-            "name": "username",
             "in": "body",
-            "description": "Username of the user",
+            "name": "body",
+            "description": "Username",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
@@ -176,167 +171,149 @@
           "401": {
             "description": "Unauthorized"
           }
-        }
+        },
+        "summary": "Logout"
       }
     },
     "/get_cartoon": {
       "get": {
-        "summary": "Get cartoon",
-        "description": "Endpoint to get cartoon details",
         "parameters": [
           {
-            "name": "cartoon",
             "in": "query",
-            "description": "Name of the cartoon",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "name": "cartoon",
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success"
           }
-        }
+        },
+        "summary": "Get Cartoon"
       }
     },
     "/all_cartoon": {
       "get": {
-        "summary": "Get all cartoons",
-        "description": "Endpoint to get all cartoons",
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success"
           }
-        }
+        },
+        "summary": "Get All Cartoons"
       }
     },
     "/all_cartoon_category": {
       "get": {
-        "summary": "Get all cartoons by category",
-        "description": "Endpoint to get all cartoons by category",
         "parameters": [
           {
-            "name": "category",
             "in": "query",
-            "description": "Name of the category",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "name": "category",
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success"
           }
-        }
+        },
+        "summary": "Get All Cartoons by Category"
       }
     },
     "/post_cartoon": {
       "post": {
-        "summary": "Post cartoon",
-        "description": "Endpoint to post a new cartoon",
-        "consumes": ["multipart/form-data"],
         "parameters": [
           {
+            "in": "formData",
             "name": "name_cartoon",
-            "in": "formData",
-            "description": "Name of the cartoon",
-            "required": true,
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
+            "in": "formData",
             "name": "author",
-            "in": "formData",
-            "description": "Author of the cartoon",
-            "required": true,
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
-            "name": "category",
             "in": "formData",
-            "description": "Category of the cartoon",
-            "required": true,
+            "name": "category",
             "type": "array",
             "items": {
               "type": "string"
             },
-            "collectionFormat": "multi"
+            "required": true
           },
           {
+            "in": "formData",
             "name": "image_cartoon",
-            "in": "formData",
-            "description": "Image file of the cartoon",
-            "required": true,
-            "type": "file"
+            "type": "file",
+            "required": true
           },
           {
+            "in": "formData",
             "name": "image_main",
-            "in": "formData",
-            "description": "Main image file of the cartoon",
-            "required": true,
-            "type": "file"
+            "type": "file",
+            "required": true
           },
           {
-            "name": "image_background",
             "in": "formData",
-            "description": "Background image file of the cartoon",
-            "required": true,
-            "type": "file"
+            "name": "image_background",
+            "type": "file",
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "401": {
             "description": "Unauthorized"
           }
-        }
+        },
+        "summary": "Post Cartoon"
       }
     },
     "/post_chapter": {
       "post": {
-        "summary": "Post chapter",
-        "description": "Endpoint to post a new chapter",
-        "consumes": ["multipart/form-data"],
         "parameters": [
           {
+            "in": "formData",
             "name": "name_cartoon",
-            "in": "formData",
-            "description": "Name of the cartoon",
-            "required": true,
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
+            "in": "formData",
             "name": "name_chapter",
-            "in": "formData",
-            "description": "Name of the chapter",
-            "required": true,
-            "type": "string"
+            "type": "string",
+            "required": true
           },
           {
+            "in": "formData",
             "name": "coin",
-            "in": "formData",
-            "description": "Coin required for the chapter",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "required": true
           },
           {
-            "name": "files[]",
             "in": "formData",
-            "description": "Chapter image files",
-            "required": true,
+            "name": "files[]",
             "type": "file",
-            "collectionFormat": "multi"
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "description": "Files uploaded successfully",
+            "description": "Success",
             "schema": {
               "type": "object",
               "properties": {
@@ -346,167 +323,148 @@
               }
             }
           }
-        }
+        },
+        "summary": "Post Chapter"
       }
     },
     "/get_category": {
       "get": {
-        "summary": "Get category",
-        "description": "Endpoint to get category",
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success"
           }
-        }
+        },
+        "summary": "Get Category"
       }
     },
     "/get_chapter": {
       "get": {
-        "summary": "Get chapter",
-        "description": "Endpoint to get chapter details",
         "parameters": [
           {
-            "name": "cartoon",
             "in": "query",
-            "description": "Name of the cartoon",
-            "required": true,
-            "type": "string"
+            "name": "cartoon",
+            "type": "string",
+            "required": true
           },
           {
-            "name": "chapter",
             "in": "query",
-            "description": "Chapter number",
-            "required": true,
-            "type": "string"
+            "name": "chapter",
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success"
           }
-        }
+        },
+        "summary": "Get Chapter"
       }
     },
     "/get_user": {
       "get": {
-        "summary": "Get user",
-        "description": "Endpoint to get user details",
         "parameters": [
           {
-            "name": "username",
             "in": "query",
-            "description": "Username of the user",
-            "required": true,
-            "type": "string"
+            "name": "username",
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success"
           }
-        }
+        },
+        "summary": "Get User"
       }
     },
     "/get_author": {
       "get": {
-        "summary": "Get author",
-        "description": "Endpoint to get author details",
         "parameters": [
           {
-            "name": "username",
             "in": "query",
-            "description": "Username of the author",
-            "required": true,
-            "type": "string"
+            "name": "username",
+            "type": "string",
+            "required": true
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success"
           }
-        }
+        },
+        "summary": "Get Author"
       }
     },
     "/buy_coin": {
       "post": {
-        "summary": "Buy coin",
-        "description": "Endpoint to buy coins",
         "parameters": [
           {
-            "name": "username",
             "in": "body",
-            "description": "Username of the user",
+            "name": "body",
+            "description": "Username, total coin, and amount",
             "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "total_coin",
-            "in": "body",
-            "description": "Total coins of the user",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          },
-          {
-            "name": "amount",
-            "in": "body",
-            "description": "Amount of coins to buy",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "total_coin": {
+                  "type": "string"
+                },
+                "amount": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
           }
-        }
+        },
+        "summary": "Buy Coin"
       }
     },
     "/buy_chapter": {
       "post": {
-        "summary": "Buy chapter",
-        "description": "Endpoint to buy chapter",
         "parameters": [
           {
-            "name": "username",
             "in": "body",
-            "description": "Username of the user",
+            "name": "body",
+            "description": "Username, cartoon ID, and chapter ID",
             "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "cartoon_id",
-            "in": "body",
-            "description": "ID of the cartoon",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "chapter_id",
-            "in": "body",
-            "description": "ID of the chapter",
-            "required": true,
-            "schema": {
-              "type": "string"
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string"
+                },
+                "cartoon_id": {
+                  "type": "string"
+                },
+                "chapter_id": {
+                  "type": "string"
+                }
+              }
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful operation"
+            "description": "Success"
+          },
+          "default": {
+            "description": "Error"
           }
-        }
+        },
+        "summary": "Buy Chapter"
       }
     }
   }
