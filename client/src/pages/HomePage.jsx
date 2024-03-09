@@ -9,7 +9,48 @@ import axios from "axios";
 function HomePage() {
   const { category } = useParams()
   const [allCartoon, setAllCartoon] = useState([]);
-  const dataBanner = [{category: "Action",background: 'url(../../public/assets/image/bg-re.jpg)', video: "https://th-a.kakaopagecdn.com/P/C/769/c1a/b7b52d87-e241-4172-8e64-0e2f90c54abb.webm", type: "video/webm" }]
+  const dataBanner = [{
+                        category: "Romance",
+                        background: 'url(../../public/assets/image/bg-re.jpg)', 
+                        video: "../../public/assets/banners/b-romance.webm", 
+                        type: "video/webm" },
+                      {
+                        category: "Action",
+                        background: 'url(../../public/assets/banners/bg-banner-action.jpg)', 
+                        video: "../../public/assets/banners/b-action.webm", 
+                        type: "video/webm"
+                      },
+                      {
+                        category: "Romance Fantasy",
+                        background: 'url(../../public/assets/banners/bg-banner-fantacy.jpg)', 
+                        video: "../../public/assets/banners/b-fantacy.webm", 
+                        type: "video/webm"
+                      },
+                      {
+                        category: "Drama",
+                        background: 'url(../../public/assets/banners/bg-banner-drama.jpg)', 
+                        video: "../../public/assets/banners/b-drama.webm", 
+                        type: "video/webm"
+                      },
+                      {
+                        category: "Latest",
+                        background: 'url(../../public/assets/banners/bg-banner-fantacy.jpg)', 
+                        video: "../../public/assets/banners/b-fantacy.webm", 
+                        type: "video/webm"
+                      },
+                      {
+                        category: "Thriller",
+                        background: 'url(../../public/assets/banners/bg-banner-Thriller.jpg)', 
+                        video: "../../public/assets/banners/b-Thriller.webm", 
+                        type: "video/webm"
+                      },
+                      {
+                        category: "Y",
+                        background: 'url(../../public/assets/banners/bg-Y.jpg)', 
+                        video: "../../public/assets/banners/b-Y.webm", 
+                        type: "video/webm"
+                      },
+                    ]
   // const {theme} = useContext(ThemeContext)
   const theme = localStorage.getItem("theme")
   
