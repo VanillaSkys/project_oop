@@ -1,6 +1,7 @@
 # from selenium import webdriver
 from RegisterAuthor import RegisterAuthor
 from Cartoon import Cartoon
+from Chapter import Chapter
 
 url = "http://localhost:5000"
 # # Initialize the WebDriver
@@ -15,8 +16,11 @@ url = "http://localhost:5000"
 # # Close the browser
 # driver.quit()
 
-register_author = RegisterAuthor(f'{url}/register_author')
-response = register_author.add()
-print(response)
-cartoon = Cartoon(f'{url}/post_cartoon')
-cartoon.add()
+# register_author = RegisterAuthor(f'{url}/register_author')
+# response = register_author.add()
+# print(response)
+# cartoon = Cartoon(f'{url}/post_cartoon')
+# cartoon.add()
+
+chapter = Chapter(f'{url}')
+chapter.add()

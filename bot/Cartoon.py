@@ -10,7 +10,7 @@ class Cartoon:
     def add(self):
         # for cartoon_dir in os.listdir('cartoon'):
             # for img_dir in os.listdir(os.path.join('cartoon', cartoon_dir)):
-        for data in cartoon_data:
+        for data in self.__data:
             image_cartoon = open(os.path.join(data['image_cartoon'].split('/')[-3], data['image_cartoon'].split('/')[-2], data['image_cartoon'].split('/')[-1]), "rb")
             image_background = open(os.path.join(data['image_bg'].split('/')[-3], data['image_bg'].split('/')[-2], data['image_bg'].split('/')[-1]), "rb")
             image_main = open(os.path.join(data['image_main'].split('/')[-3], data['image_main'].split('/')[-2], data['image_main'].split('/')[-1]), "rb")

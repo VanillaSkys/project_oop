@@ -1,20 +1,9 @@
 import requests
-
+from data.author import athor_adta
 class RegisterAuthor:
     def __init__(self, url) -> None:
         self.__url = url
-        self.__data = [
-            {
-                "author_name": "vanilla",
-                "username": "fill",
-                "password": "fill"
-            },
-            {
-                "author_name": "boaty",
-                "username": "boat",
-                "password": "boat"
-            },
-        ]
+        self.__data = athor_adta
     
     def add(self):
         for data in self.__data:
