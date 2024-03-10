@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./pages/HomePage"
 // import Error_404 from "./pages/_error/Error_404"
-import { createContext, useState } from "react"
+// import { createContext, useState } from "react"
 import Landing from "./pages/LandingPage"
 import MenuPage from "./pages/MenuPage"
 import SearchPage from "./pages/SearchPage"
@@ -13,12 +13,13 @@ import ChapterPage from "./pages/ChapterPage"
 import AdminChapterPage from "./pages/AdminChapterPage"
 import PaymentPage from "./pages/PaymentPage"
 import HistoryPages from "./pages/HistoryPage"
-const ThemeContext = createContext()
+// const ThemeContext = createContext()
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "system")
+  // const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "system")
+  localStorage.getItem("theme") ? localStorage.getItem("theme") : localStorage.setItem("theme", "dark")
   return (
     <main>
-      <ThemeContext.Provider value={{theme, setTheme}}>
+      {/* <ThemeContext.Provider value={{theme, setTheme}}> */}
         <Routes>
           {/* public routes */}
             <Route index element={<Landing />}/>
@@ -37,9 +38,9 @@ function App() {
             <Route path="/admin" element={<AdminPage/>} />
             <Route path="/admin/cartoon/:cartoon" element={<AdminChapterPage />} />
         </Routes>
-      </ThemeContext.Provider>
+      {/* </ThemeContext.Provider> */}
     </main>
   )
 }
-export {ThemeContext}
+// export {ThemeContext}
 export default App

@@ -1,8 +1,10 @@
-import { useContext, useEffect } from "react";
-import { ThemeContext } from "../App";
+import { useEffect, useState } from "react";
+// import { ThemeContext } from "../App";
 
 function ToggleButton() {
-  const { theme, setTheme } = useContext(ThemeContext);
+  // const { theme, setTheme } = useContext(ThemeContext);
+  // const element = document.documentElement
+  const [theme, setTheme] = useState(localStorage.getItem("theme"))
   const options = [
     {
       text: "light",
@@ -14,11 +16,11 @@ function ToggleButton() {
   useEffect(() => {
     switch (theme) {
       case "dark":
-        //   element.classList.add('dark')
+          // element.classList.add('dark')
         localStorage.setItem("theme", "dark");
         break;
-      case "light":
-        //   element.classList.remove('dark')
+        case "light":
+          // element.classList.remove('dark')
         localStorage.setItem("theme", "light");
         break;
       default:
@@ -34,7 +36,7 @@ function ToggleButton() {
           <button
             className="w-full rounded bg-indigo-500"
             key={opt.text}
-            onClick={() => setTheme(opt.text)}
+            onClick={() => {setTheme(opt.text);window.location.reload()}}
           >
             {opt.text}
           </button>
@@ -42,7 +44,7 @@ function ToggleButton() {
           <button
             className="w-full rounded bg-white"
             key={opt.text}
-            onClick={() => setTheme(opt.text)}
+            onClick={() => {setTheme(opt.text);window.location.reload()}}
           >
             {opt.text}
           </button>
