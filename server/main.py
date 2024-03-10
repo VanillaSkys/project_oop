@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, abort, send_file
+from flask import Flask, request, jsonify, abort
 from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
 from controller.CartoonManagementController import CartoonManagementController
