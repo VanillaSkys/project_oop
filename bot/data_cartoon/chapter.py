@@ -142,6 +142,18 @@ chapter_data = [
         "name_chapter" : "1",   
         "coin": "0",
         "files": "/cartoon/Baby Squirrel Is Good at Everything/chapter/1"
+    },
+    {
+        "name_cartoon": "Marriage Instead of Death",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Marriage Instead of Death/chapter/1"
+    },
+    {
+        "name_cartoon": "Marriage Instead of Death",
+        "name_chapter" : "2",   
+        "coin": "400",
+        "files": "/cartoon/Marriage Instead of Death/chapter/1"
     }
     
 
