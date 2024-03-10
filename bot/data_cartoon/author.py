@@ -1,4 +1,4 @@
-athor_adta = [
+author_data = [
     {
         "author_name": "Chugong",
         "username": "chugong",
