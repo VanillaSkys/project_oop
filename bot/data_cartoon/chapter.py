@@ -264,6 +264,54 @@ chapter_data = [
         "name_chapter" : "5",   
         "coin": "400",
         "files": "/cartoon/Untouchable Lady/chapter/5"
+    },
+    {
+        "name_cartoon": "Swordmaster's Youngest Son",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Swordmaster's Youngest Son/chapter/1"
+    },
+    {
+        "name_cartoon": "Swordmaster's Youngest Son",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Swordmaster's Youngest Son/chapter/2"
+    },
+    {
+        "name_cartoon": "Swordmaster's Youngest Son",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Swordmaster's Youngest Son/chapter/3"
+    },
+    {
+        "name_cartoon": "Swordmaster's Youngest Son",
+        "name_chapter" : "4",   
+        "coin": "0",
+        "files": "/cartoon/Swordmaster's Youngest Son/chapter/4"
+    },
+    {
+        "name_cartoon": "Swordmaster's Youngest Son",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Swordmaster's Youngest Son/chapter/5"
+    },
+    {
+        "name_cartoon": "Swordmaster's Youngest Son",
+        "name_chapter" : "6",   
+        "coin": "400",
+        "files": "/cartoon/Swordmaster's Youngest Son/chapter/6"
+    },
+    {
+        "name_cartoon": "Swordmaster's Youngest Son",
+        "name_chapter" : "7",   
+        "coin": "400",
+        "files": "/cartoon/Swordmaster's Youngest Son/chapter/7"
+    },
+    {
+        "name_cartoon": "Swordmaster's Youngest Son",
+        "name_chapter" : "8",   
+        "coin": "400",
+        "files": "/cartoon/Swordmaster's Youngest Son/chapter/8"
     }
     
 ]
