@@ -126,7 +126,7 @@ function HomePage() {
               .slice()
               .reverse()
               .map((value, key) => {
-                return <button key={key}><Link   to={`/cartoon/${value.name}`} className=""><div className=" overflow-hidden w-full h-full rounded-xl" style={{ backgroundImage: `url(/api/static/${encodeURIComponent(value.image_background)})` }}><img src={`/api/static/${value.image_main}`} className="object-cover scale-100  hover:scale-105 duration-300" /></div></Link></button>
+                return <button key={key}><Link to={`/cartoon/${value.name}`} className=""><div className=" overflow-hidden w-full h-full rounded-xl" style={{ backgroundImage: `url(/api/static/${encodeURIComponent(value.image_background)})` }}><img src={`/api/static/${value.image_main}`} className="object-cover scale-100  hover:scale-105 duration-300" /></div></Link></button>
               })
             }
           </motion.div>

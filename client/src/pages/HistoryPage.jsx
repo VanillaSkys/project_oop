@@ -33,7 +33,7 @@ function HistoryPage() {
 		<div className="bg-gray-100 h-screen">
 			<div className="flex justify-between items-between">
 				<div>
-					<Link to="/Latest" className="text-center">
+					<Link to="/menu" className="text-center">
 						{/* <img src="../../public/assets/image/left-arrow.png" className="object-contain" height={"10%"} width={"10%"} alt="" /> */}
 						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="stroke-violet-600 ml-4 mt-2 w-10 h-10">
 							<path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
@@ -63,7 +63,7 @@ function HistoryPage() {
 							<p className="ml-5 text-4xl">{allMoney}</p>
 						</div>
 						<div className="ml-10">
-							<button className="bg-amber-500 text-white rounded-md mr-2 w-[45px]">เติม</button>
+							<Link to="/payment"><button className="bg-amber-500 text-white rounded-md mr-2 w-[45px]">เติม</button></Link>
 						</div>
 					</div>
 					<div className="flex flex-row mt-2 rounded-md bg-white items-center ">
