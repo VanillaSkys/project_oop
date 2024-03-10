@@ -87,7 +87,7 @@ chapter_data = [
         "name_cartoon": "Honey Blood",
         "name_chapter" : "2",   
         "coin": "400",
-        "files": "/cartoon/Honey Blood/chapter/1"
+        "files": "/cartoon/Honey Blood/chapter/2"
     },
     {
         "name_cartoon": "King the land",
@@ -99,37 +99,37 @@ chapter_data = [
         "name_cartoon": "King the land",
         "name_chapter" : "2",   
         "coin": "0",
-        "files": "/cartoon/King the land/chapter/1"
+        "files": "/cartoon/King the land/chapter/2"
     },
     {
         "name_cartoon": "King the land",
         "name_chapter" : "3",   
         "coin": "0",
-        "files": "/cartoon/King the land/chapter/1"
+        "files": "/cartoon/King the land/chapter/3"
     },
     {
         "name_cartoon": "King the land",
         "name_chapter" : "4",   
         "coin": "400",
-        "files": "/cartoon/King the land/chapter/1"
+        "files": "/cartoon/King the land/chapter/4"
     },
     {
         "name_cartoon": "King the land",
         "name_chapter" : "5",   
         "coin": "400",
-        "files": "/cartoon/King the land/chapter/1"
+        "files": "/cartoon/King the land/chapter/5"
     },
     {
         "name_cartoon": "King the land",
         "name_chapter" : "6",   
         "coin": "400",
-        "files": "/cartoon/King the land/chapter/1"
+        "files": "/cartoon/King the land/chapter/6"
     },
     {
         "name_cartoon": "King the land",
         "name_chapter" : "7",   
         "coin": "400",
-        "files": "/cartoon/King the land/chapter/1"
+        "files": "/cartoon/King the land/chapter/7"
     },
     {
         "name_cartoon": "I Won't Pick Up The Trash I Threw Away Again",
@@ -153,7 +153,67 @@ chapter_data = [
         "name_cartoon": "Marriage Instead of Death",
         "name_chapter" : "2",   
         "coin": "400",
-        "files": "/cartoon/Marriage Instead of Death/chapter/1"
+        "files": "/cartoon/Marriage Instead of Death/chapter/2"
+    },
+    {
+        "name_cartoon": "Actually I Was the Real One",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Actually I Was the Real One/chapter/1"
+    },
+    {
+        "name_cartoon": "Actually I Was the Real One",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Actually I Was the Real One/chapter/2"
+    },
+    {
+        "name_cartoon": "Actually I Was the Real One",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Actually I Was the Real One/chapter/3"
+    },
+    {
+        "name_cartoon": "Actually I Was the Real One",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Actually I Was the Real One/chapter/4"
+    },
+    {
+        "name_cartoon": "Actually I Was the Real One",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Actually I Was the Real One/chapter/5"
+    },
+    {
+        "name_cartoon": "Of all things, I Became a Crow",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Of all things, I Became a Crow/chapter/1"
+    },
+    {
+        "name_cartoon": "Of all things, I Became a Crow",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Of all things, I Became a Crow/chapter/2"
+    },
+    {
+        "name_cartoon": "Of all things, I Became a Crow",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Of all things, I Became a Crow/chapter/3"
+    },
+    {
+        "name_cartoon": "Of all things, I Became a Crow",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Of all things, I Became a Crow/chapter/4"
+    },
+    {
+        "name_cartoon": "Of all things, I Became a Crow",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Of all things, I Became a Crow/chapter/5"
     }
     
 
