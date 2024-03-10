@@ -51,7 +51,7 @@ function HistoryPage() {
 							<Link to='/history/chapter'><p className="border-b-2 border-black">History Chapter</p></Link>
 						</div>
 					</div>
-					<div className="flex flex-row w-[650px] items-center text-center rounded-md bg-white mt-5">
+					<div className="flex flex-row w-[700px] items-center text-center rounded-md bg-white mt-5">
 						<div className="">
 							<p>
 								<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="stroke-gray-100 fill-yellow-500 w-14 h-14">
@@ -74,37 +74,69 @@ function HistoryPage() {
 							<p className="ml-2 text-amber-500">{allCoin}</p>
 						</div>
 					</div>
+					<div className="mt-2">
+					{
+						history === 'coin' ?
+						(
+							dataCoin.map((value, key) => {
+								return (
+									<div>
+										<p className="text-xl ml-4 mb-2">ประวัติการซื้อเหรียญ</p>
+										<table className="bg-amber-100 mx-auto">
+											<thead>
+												<th className="border border-slate-600 p-2">รหัสการซื้อ</th>
+												<th className="border border-slate-600 p-2">ราคา</th>
+												<th className="border border-slate-600 p-2">วัน / เวลา</th>
+												<th className="border border-slate-600 p-2">เหรียญ</th>
+											</thead>
+											<tbody className="text-center" key={key}>
+												<tr className="bg-white hover:bg-gray-200">
+													<td class="border border-slate-700 p-2 ">{value.transaction_coin_id}</td>
+													<td class="border border-slate-700 p-2">{value.amount}</td>
+													<td class="border border-slate-700 p-2">{value.time}</td>
+													<td class="border border-slate-700 p-2">{value.total_coin}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								)
+							})
+						) :
+						(
+							dataChapter.map((value, key) => {
+								return (
+								<div>
+									<p className="text-xl ml-4 mb-2">ประวัติการซื้อเหรียญ</p>
+									<table className="bg-amber-100 mx-auto">
+										<thead>
+											<th className="border border-slate-600 p-2">รหัสการซื้อ</th>
+											<th className="border border-slate-600 p-2">รหัสตอน</th>
+											<th className="border border-slate-600 p-2">วัน / เวลา</th>
+											<th className="border border-slate-600 p-2">ชื่อการ์ตูน</th>
+											<th className="border border-slate-600 p-2">ตอน</th>
+											<th className="border border-slate-600 p-2">เหรียญ</th>
+										</thead>
+										<tbody className="text-center" key={key}>
+											<tr className="bg-white hover:bg-gray-200">
+												<td class="border border-slate-700 p-2 ">{value.transaction_chapter_id}</td>
+												<td class="border border-slate-700 p-2 ">{value.chapter_id}</td>
+												<td class="border border-slate-700 p-2">{value.time}</td>
+												<td class="border border-slate-700 p-2 ">{value.cartoon_name}</td>
+												<td class="border border-slate-700 p-2 ">{value.chapter_number}</td>
+												<td class="border border-slate-700 p-2 ">{value.chapter_coin}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								)
+							})
+						)
+					}
+					</div>
 				</div>
+				
 				<div></div>
-				{
-					history === 'coin' ?
-					(
-						dataCoin.map((value, key) => {
-							return (
-								<div key={key}>
-									<div>{value.transaction_coin_id}</div>
-									<div>{value.amount}</div>
-									<div>{value.time}</div>
-									<div>{value.total_coin}</div>
-								</div>
-							)
-						})
-					) :
-					(
-						dataChapter.map((value, key) => {
-							return (
-								<div key={key}>
-									<div>{value.transaction_chapter_id}</div>
-									<div>{value.chapter_id}</div>
-									<div>{value.time}</div>
-									<div>{value.cartoon_name}</div>
-									<div>{value.chapter_number}</div>
-									<div>{value.chapter_coin}</div>
-								</div>
-							)
-						})
-					)
-				}
+					
 			</div>
 		</div>
 	);
