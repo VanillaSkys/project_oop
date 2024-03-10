@@ -38,31 +38,31 @@ chapter_data = [
     {
         "name_cartoon": "Solo Leveling",
         "name_chapter" : "6",   
-        "coin": "0",
+        "coin": "400",
         "files": "/cartoon/Solo Leveling/chapter/6"
     },
     {
         "name_cartoon": "Solo Leveling",
         "name_chapter" : "7",   
-        "coin": "0",
+        "coin": "400",
         "files": "/cartoon/Solo Leveling/chapter/7"
     },
     {
         "name_cartoon": "Solo Leveling",
         "name_chapter" : "8",   
-        "coin": "0",
+        "coin": "400",
         "files": "/cartoon/Solo Leveling/chapter/8"
     },
     {
         "name_cartoon": "Solo Leveling",
         "name_chapter" : "9",   
-        "coin": "0",
+        "coin": "400",
         "files": "/cartoon/Solo Leveling/chapter/9"
     },
     {
         "name_cartoon": "Solo Leveling",
         "name_chapter" : "10",   
-        "coin": "0",
+        "coin": "400",
         "files": "/cartoon/Solo Leveling/chapter/10"
     },
     {
