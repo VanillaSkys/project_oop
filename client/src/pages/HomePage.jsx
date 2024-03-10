@@ -86,8 +86,8 @@ function HomePage() {
 	// }
 	return (
 		<div className="w-full pb-20 "
-		 style={{backgroundColor: theme === "dark" ? "#020617" : "#F8FAFC"}}
-		 >
+		style={{backgroundColor: theme === "dark" ? "#020617" : "#F8FAFC"}}
+		>
 			<NavBar/>
 				<div>
 					<motion.div className="w-[630px] mx-auto pt-24 px-2 grid grid-cols-4 gap-1" 

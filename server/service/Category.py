@@ -19,4 +19,4 @@ class Category:
         return self.__cartoon_list
     
     def show_cartoon_list(self): 
-        return [{"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()} for cartoon in self.__cartoon_list]
+        return [{"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main(), "image_background": cartoon.get_image_background()} for cartoon in self.__cartoon_list]
