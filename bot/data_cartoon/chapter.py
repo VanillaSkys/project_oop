@@ -348,6 +348,120 @@ chapter_data = [
         "name_chapter" : "1",   
         "coin": "0",
         "files": "/cartoon/Return of the SSS-Class Ranker/chapter/1"
+    },
+    {
+        "name_cartoon": "Return of the SSS-Class Ranker",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/2"
+    },
+    {
+        "name_cartoon": "Return of the SSS-Class Ranker",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/3"
+    },
+    {
+        "name_cartoon": "Return of the SSS-Class Ranker",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/4"
+    },
+    {
+        "name_cartoon": "Return of the SSS-Class Ranker",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/5"
+    },
+    {
+        "name_cartoon": "Maxed Out Leveling",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Maxed Out Leveling/chapter/1"
+    },
+    {
+        "name_cartoon": "Maxed Out Leveling",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Maxed Out Leveling/chapter/2"
+    },
+    {
+        "name_cartoon": "Maxed Out Leveling",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Maxed Out Leveling/chapter/3"
+    },
+    {
+        "name_cartoon": "Maxed Out Leveling",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Maxed Out Leveling/chapter/4"
+    },
+    {
+        "name_cartoon": "Maxed Out Leveling",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Maxed Out Leveling/chapter/5"
+    },
+    {
+        "name_cartoon": "magic academy survival guide",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/magic academy survival guide/chapter/1"
+    },
+    {
+        "name_cartoon": "magic academy survival guide",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/magic academy survival guide/chapter/2"
+    },
+    {
+        "name_cartoon": "magic academy survival guide",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/magic academy survival guide/chapter/3"
+    },
+    {
+        "name_cartoon": "magic academy survival guide",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/magic academy survival guide/chapter/4"
+    },
+    {
+        "name_cartoon": "magic academy survival guide",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/magic academy survival guide/chapter/5"
+    },
+    {
+        "name_cartoon": "Arcane Sniper",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Arcane Sniper/chapter/1"
+    },
+    {
+        "name_cartoon": "Arcane Sniper",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Arcane Sniper/chapter/2"
+    },
+    {
+        "name_cartoon": "Arcane Sniper",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Arcane Sniper/chapter/3"
+    },
+    {
+        "name_cartoon": "Arcane Sniper",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Arcane Sniper/chapter/4"
+    },
+    {
+        "name_cartoon": "Arcane Sniper",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Arcane Sniper/chapter/5"
     }
     
 ]
