@@ -5,6 +5,8 @@ function Footer()
 	const {chapter, cartoon} = useParams()
 	const startChapter = chapter.split('_')[0]
 	const endChapter = chapter.split('_')[1]
+	
+
 	return (
 		<div className="w-full">
 			<div className="bg-gray-100	p-2 flex justify-center gap-4">
@@ -23,7 +25,7 @@ function Footer()
 				<div>
 					{
 						startChapter === endChapter ?
-						null:
+						null: 
 					<Link to={`/cartoon/${cartoon}/${Number(startChapter) + 1}_${endChapter}`} className="rounded-full drop-shadow-md active:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-300 bg-white hover:bg-grat-700">
 						<img className="w-[51px] ml-1" src="../../public/assets/image/next.png" alt="" />
 					</Link>
