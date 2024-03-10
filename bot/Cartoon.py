@@ -1,7 +1,7 @@
 import os
 import requests
 import re
-from data.Cartoon import cartoon_data
+from data_cartoon.cartoon import cartoon_data
 
 class Cartoon:
     def __init__(self, url) -> None:

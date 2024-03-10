@@ -1,6 +1,6 @@
 import os
 import requests
-from data.chapter import chapter_data
+from data_cartoon.chapter import chapter_data
 
 class Chapter:
     def __init__(self, url) -> None:
@@ -16,8 +16,8 @@ class Chapter:
             files = files,
             data = {
                 "name_cartoon": data['name_cartoon'],
-                "name_chapter" : data['name_chapters'],   
+                "name_chapter" : data['name_chapter'],   
                 "coin": data['coin']
             }
             )
-            print("Post Chapter =>", data['name_cartoon'] ,"=>", data['name_chapters'])
+            print("Post Chapter =>", data['name_cartoon'] ,"=>", data['name_chapter'])

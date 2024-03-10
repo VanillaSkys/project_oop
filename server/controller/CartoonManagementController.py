@@ -133,6 +133,7 @@ class CartoonManagementController:
     def get_all_cartoon(self):
         response = []
         for cartoon in self.__cartoon:
+            print({"image_background": cartoon.get_image_background()})
             response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
             print(response)
         return response
