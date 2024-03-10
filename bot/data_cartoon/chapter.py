@@ -235,7 +235,35 @@ chapter_data = [
         "coin": "400",
         "files": "/cartoon/Perfect Surgeon/chapter/5"
     },
+    {
+        "name_cartoon": "Untouchable Lady",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Untouchable Lady/chapter/1"
+    },
+    {
+        "name_cartoon": "Untouchable Lady",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Untouchable Lady/chapter/2"
+    },
+    {
+        "name_cartoon": "Untouchable Lady",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Untouchable Lady/chapter/3"
+    },
+    {
+        "name_cartoon": "Untouchable Lady",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Untouchable Lady/chapter/4"
+    },
+    {
+        "name_cartoon": "Untouchable Lady",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Untouchable Lady/chapter/5"
+    }
     
-
-
 ]
