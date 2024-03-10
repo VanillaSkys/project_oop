@@ -5,10 +5,12 @@ function Qrcode() {
     const {setPopup, qrcode} = useContext(QrcodeContext)
     
   return (
-    <div>
-        
-        <img src={`data:image/jpeg;base64,${qrcode}`} />
-        <button onClick={() => setPopup(false)}>ปิด</button>
+    <div className="fixed bg-white h-screen w-screen flex justify-center items-center">
+       <div className="">
+        <div className=" w-[300px]">
+            <img src={`data:image/jpeg;base64,${qrcode}`} className=""/>
+          </div>
+       </div>
     </div>
   )
 }

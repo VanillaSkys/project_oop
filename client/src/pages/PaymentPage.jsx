@@ -30,7 +30,7 @@ function PaymentPage() {
           <p className="text-xl">เติมแคช</p>
         </div>
         <div className="">
-          <Link to="/Latest">
+          <Link to="/menu">
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ function PaymentPage() {
                 เติม<b className="text-white">แคช</b>
               </p>
             </div> */}
-            <div className="text-center">
+            <div className="text-center" style={{marginTop:'120px'}}>
                 {
                     money_lis.map((val, key) => {
                         return <p key={key} className="text-amber-500 text-base mt-5">฿ {val}</p>
@@ -100,12 +100,13 @@ function PaymentPage() {
           </div>
         </div>
         <div></div>
-        {
-            popup ?
-            <Qrcode />
-            :
-            null
-        }
+          {
+              popup ?
+              <Qrcode />
+              :
+              null
+          }
+
       </div>
     </QrcodeContext.Provider>
   );
@@ -148,14 +149,3 @@ export default PaymentPage;
 //                     </div>
 //                     <div>
 
-//                     </div>
-//                     <div  className="mt-5">
-//                         <p className="text-amber-500 text-base">฿ 59</p>
-//                         <p className="text-amber-500 text-base mt-5">฿ 119</p>
-//                         <p className="text-amber-500 text-base mt-5">฿ 199</p>
-//                         <p className="text-amber-500 text-base mt-5">฿ 329</p>
-//                         <p className="text-amber-500 text-base mt-5">฿ 499</p>
-//                         <p className="text-amber-500 text-base mt-5">฿ 1,000</p>
-//                         <p className="text-amber-500 text-base mt-5">฿ 2,100</p>
-//                     </div>
-//                 </div>

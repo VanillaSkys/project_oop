@@ -117,7 +117,7 @@ function CartoonPage() {
                   : 
                     
                     <div>
-                       <button  onClick={() => setIsOpen(true)}>
+                      <button  onClick={() => setIsOpen(true)}>
                         <div className="bg-white opacity-50 w-[118px] absolute rounded-md h-[80px]">
                           <img src="../../public/assets/image/lock.png" className="absolute overflow-hidden rounded-md text-center ml-7 mt-2" height={"50%"}  width={"50%"}/>
                         </div>
