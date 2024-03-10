@@ -14,14 +14,14 @@ function HistoryPage() {
 		setDataCoin(data.transaction_coin)
 		if (data.transaction_coin.length > 0){
 			setAllMoney(data.transaction_coin.reduce((sum , num) => {
-				return (data.transaction_coin.length > 1 ? sum.amount + num.amount : sum.amount)
-			}))
+				return ( sum + num.amount )
+			}, 0))
 			
 		}
 		if (data.transaction_coin.length > 0){
 			setAllCoin(data.transaction_coin.reduce((sum , num) => {
-				return (data.transaction_coin.length > 1 ? sum.total_coin + num.total_coin : sum.total_coin)
-			}))
+				return (sum + num.total_coin)
+			}, 0))
 			
 		}
 	}
