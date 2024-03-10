@@ -161,9 +161,9 @@ def buy_chapter():
     username, cartoon_id, chapter_id = request.json.get('username'), request.json.get('cartoon_id'), request.json.get('chapter_id')
     response = cartoon_controller.buy_chapter(username, cartoon_id, chapter_id)
     if isinstance(response, dict):
-        return response
+        return response, 417
     else:
-        return response
+        return {'message': response}, 200
 
 if __name__ == '__main__':
     app.run(debug=True)

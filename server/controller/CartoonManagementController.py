@@ -135,7 +135,6 @@ class CartoonManagementController:
         for cartoon in self.__cartoon:
             # print({"image_background": cartoon.get_image_background()})
             response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main(), "image_background": cartoon.get_image_background()})
-            print(response)
         return response
     
     def get_all_cartoon_category(self, name_category):
@@ -161,7 +160,7 @@ class CartoonManagementController:
             if cartoon.get_name_cartoon() == name_cartoon:
                 for chapter in cartoon.get_all_chapter():
                     if chapter.get_number_chapter() == number_chapter:
-                        return {"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "id_cartoon": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter()}
+                        return {"chapter_id": chapter.get_chapter_id(), "number_chapter": chapter.get_number_chapter(), "name_chapter": chapter.get_name_chapter(), "cartoon_id": cartoon.get_cartoon_id(), "name_cartoon": cartoon.get_name_cartoon(), "image_chapter": chapter.get_image_chapter()}
         return {"error": "name_cartoon"}
     
     def get_user(self, username):
@@ -203,5 +202,5 @@ class CartoonManagementController:
                                         if cartoon.get_author() == author.get_author_name():
                                             author.add_transaction_author(transaction_author)
                                             return 'success'
-                                return 'More coin'
-        return {'error': "error"}        
+                                return {'error': 'coin'}
+        return {'error': "login"}        

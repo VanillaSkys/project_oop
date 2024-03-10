@@ -3,7 +3,36 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiAlertCircle } from "react-icons/fi";
 import { useState } from "react";
 
-function SpringModal({ isOpen, setIsOpen }) {
+function SpringModal({ isOpen, setIsOpen, cartoon_id, chapter_id }) {
+  async function Buy() {
+    try {
+
+      await axios.post('/api/buy_chapter', {
+        username: localStorage.getItem('user'),
+        cartoon_id: cartoon_id,
+        chapter_id: chapter_id
+      })
+      setIsOpen(false)
+      location.reload(false)
+    } catch (error) {
+      if (error.response && error.response.status === 417) {
+        if (error.response.data.error === 'coin') {
+          alert("Term Cash")
+          setIsOpen(false)
+          location.href = '/payment'
+        } else {
+          alert("Login")
+          setIsOpen(false)
+          location.href = '/login'
+        }
+      } else {
+        console.log("Error.");
+      }
+      }
+  // setQrcode(res.data.image)
+  
+  }
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -39,13 +68,13 @@ function SpringModal({ isOpen, setIsOpen }) {
                   onClick={() => setIsOpen(false)}
                   className="bg-transparent hover:bg-white/10 transition-colors text-white font-semibold w-full py-2 rounded"
                 >
-                  Nah, go back
+                  ไม่ซื้อ
                 </button>
                 <button
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => Buy()}
                   className="bg-white hover:opacity-90 transition-opacity text-indigo-600 font-semibold w-full py-2 rounded"
                 >
-                  Understood!
+                  ซื้อ
                 </button>
               </div>
             </div>
