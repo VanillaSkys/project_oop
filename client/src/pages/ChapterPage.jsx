@@ -18,8 +18,10 @@ function ChapterPage() {
 		window.scrollTo(0, 0);
 		GetData();
 	}, [chapter]);
+	const theme = localStorage.getItem("theme")
+
 	return(
-		<div className="bg-white w-full flex flex-col items-center justify-center">
+		<div className="w-full flex flex-col items-center justify-center"  style={{backgroundColor: theme === "dark" ? "#020617" : "#F8FAFC"}}>
 			<div className="w-[630px]">
 				{
 					dataChapter?.map((value, key) => {
