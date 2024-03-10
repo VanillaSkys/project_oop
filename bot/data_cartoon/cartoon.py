@@ -34,7 +34,7 @@ cartoon_data = [
     {
         "name" : "Doctor Player",
         "author" : "Yuin",
-        "category"  : ["Darma"],
+        "category"  : ["Drama"],
         "image_cartoon" : "/cartoon/Doctor Player/cartoon.png",
         "image_bg" : "/cartoon/Doctor Player/bg.png",
         "image_main" : "/cartoon/Doctor Player/main.png"

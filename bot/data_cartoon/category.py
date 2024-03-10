@@ -2,7 +2,7 @@ category_data =[
     "Action",
     "Romance Fantasy",
     "Romance",
-    "Darma",
+    "Drama",
     "Thriller",
     "Y"
 ]
