@@ -12,7 +12,7 @@
     height: 500px;
     background:red;
     overflow: hidden;
-    background: url('../public/assets/image/bg-login.jpg') no-repeat center / cover;
+    background: url('../public/assets/image/solo/bg-1.jpg') left;
     /* background-color: #020617 no-repeat center / cover; */
     border-radius: 10px;
     box-shadow: 5px 20px 50px #000;

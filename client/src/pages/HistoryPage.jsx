@@ -33,9 +33,9 @@ function HistoryPage() {
 		<div className="bg-gray-100 h-screen">
 			<div className="flex justify-between items-between">
 				<div>
-					<Link to="/" className="text-center">
+					<Link to="/Latest" className="text-center">
 						{/* <img src="../../public/assets/image/left-arrow.png" className="object-contain" height={"10%"} width={"10%"} alt="" /> */}
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="ml-2 w-10 h-10">
+						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="stroke-violet-600 ml-4 mt-2 w-10 h-10">
 							<path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
 						</svg>
 
