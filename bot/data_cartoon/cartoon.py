@@ -184,28 +184,85 @@ cartoon_data = [
         "image_main" : "/cartoon/The Tutorial Is Too Hard/main.png"
     },
     {
-        "name" : "magic academy survival guide",
-        "author" : "Writingmachine",
-        "category"  : ["Action"],
-        "image_cartoon" : "/cartoon/magic academy survival guide/cartoon.png",
-        "image_bg" : "/cartoon/magic academy survival guide/bg.png",
-        "image_main" : "/cartoon/magic academy survival guide/main.png"
+        "name" : "Omega Complex",
+        "author" : "Oneulbom",
+        "category"  : ["Y"],
+        "image_cartoon" : "/cartoon/Omega Complex/cartoon.png",
+        "image_bg" : "/cartoon/Omega Complex/bg.png",
+        "image_main" : "/cartoon/Omega Complex/main.png"
     },
     {
-        "name" : "magic academy survival guide",
-        "author" : "Writingmachine",
-        "category"  : ["Action"],
-        "image_cartoon" : "/cartoon/magic academy survival guide/cartoon.png",
-        "image_bg" : "/cartoon/magic academy survival guide/bg.png",
-        "image_main" : "/cartoon/magic academy survival guide/main.png"
+        "name" : "Don't Touch Me",
+        "author" : "leenong",
+        "category"  : ["Y"],
+        "image_cartoon" : "/cartoon/Don't Touch Me/cartoon.png",
+        "image_bg" : "/cartoon/Don't Touch Me/bg.png",
+        "image_main" : "/cartoon/Don't Touch Me/main.png"
     },
     {
-        "name" : "magic academy survival guide",
-        "author" : "Writingmachine",
-        "category"  : ["Action"],
-        "image_cartoon" : "/cartoon/magic academy survival guide/cartoon.png",
-        "image_bg" : "/cartoon/magic academy survival guide/bg.png",
-        "image_main" : "/cartoon/magic academy survival guide/main.png"
+        "name" : "Who Can Define Popularity",
+        "author" : "Tak bon",
+        "category"  : ["Y"],
+        "image_cartoon" : "/cartoon/Who Can Define Popularity/cartoon.png",
+        "image_bg" : "/cartoon/Who Can Define Popularity/bg.png",
+        "image_main" : "/cartoon/Who Can Define Popularity/main.png"
+    },
+    {
+        "name" : "Tales of Seol Gongchan",
+        "author" : "Yse",
+        "category"  : ["Y"],
+        "image_cartoon" : "/cartoon/Tales of Seol Gongchan/cartoon.png",
+        "image_bg" : "/cartoon/Tales of Seol Gongchan/bg.png",
+        "image_main" : "/cartoon/Tales of Seol Gongchan/main.png"
+    },
+    {
+        "name" : "Secretary to Stage",
+        "author" : "ACHIM",
+        "category"  : ["Y"],
+        "image_cartoon" : "/cartoon/Secretary to Stage/cartoon.png",
+        "image_bg" : "/cartoon/Secretary to Stage/bg.png",
+        "image_main" : "/cartoon/Secretary to Stage/main.png"
+    },
+    {
+        "name" : "Just Contract Lovers",
+        "author" : "Mola",
+        "category"  : ["Y"],
+        "image_cartoon" : "/cartoon/Just Contract Lovers/cartoon.png",
+        "image_bg" : "/cartoon/Just Contract Lovers/bg.png",
+        "image_main" : "/cartoon/Just Contract Lovers/main.png"
+    },
+    {
+        "name" : "Placebo Memory",
+        "author" : "Dokyoung",
+        "category"  : ["Y"],
+        "image_cartoon" : "/cartoon/Placebo Memory/cartoon.png",
+        "image_bg" : "/cartoon/Placebo Memory/bg.png",
+        "image_main" : "/cartoon/Placebo Memory/main.png"
+    },
+    # {
+    #     "name" : "Placebo Memory",
+    #     "author" : "Dokyoung",
+    #     "category"  : ["Y"],
+    #     "image_cartoon" : "/cartoon/Placebo Memory/cartoon.png",
+    #     "image_bg" : "/cartoon/Placebo Memory/bg.png",
+    #     "image_main" : "/cartoon/Placebo Memory/main.png"
+    # },
+    # {
+    #     "name" : "Placebo Memory",
+    #     "author" : "Dokyoung",
+    #     "category"  : ["Y"],
+    #     "image_cartoon" : "/cartoon/Placebo Memory/cartoon.png",
+    #     "image_bg" : "/cartoon/Placebo Memory/bg.png",
+    #     "image_main" : "/cartoon/Placebo Memory/main.png"
+    # },
+    {
+        "name" : "The Bequeathed",
+        "author" : "JONOON",
+        "category"  : ["Thriller"],
+        "image_cartoon" : "/cartoon/The Bequeathed/cartoon.png",
+        "image_bg" : "/cartoon/The Bequeathed/bg.png",
+        "image_main" : "/cartoon/The Bequeathed/main.png"
     }
+
     
 ]

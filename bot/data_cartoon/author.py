@@ -115,18 +115,38 @@ author_data = [
         "password": "gandara"    
     },
     {
-        "author_name": "Writingmachine",
-        "username": "writingmachine",
-        "password": "writingmachine"    
+        "author_name": "Oneulbom",
+        "username": "oneulbom",
+        "password": "oneulbom"    
     },
     {
-        "author_name": "Writingmachine",
-        "username": "writingmachine",
-        "password": "writingmachine"    
+        "author_name": "Leenong",
+        "username": "leenong",
+        "password": "leenong"    
     },
     {
-        "author_name": "Writingmachine",
-        "username": "writingmachine",
-        "password": "writingmachine"    
+        "author_name": "Yse",
+        "username": "yse",
+        "password": "yse"      
+    },
+    {
+        "author_name": "ACHIM",
+        "username": "achim",
+        "password": "achim"       
+    },
+    {
+        "author_name": "Mola",
+        "username": "mola",
+        "password": "mola"        
+    },
+    {
+        "author_name": "Dokyoung",
+        "username": "dokyoung",
+        "password": "dokyoung"        
+    },
+    {
+        "author_name": "JONOON",
+        "username": "jonoon",
+        "password": "jonoon"         
     }
 ]
