@@ -13,7 +13,7 @@ function DrawOutlineButton ({ children, ...rest }) {
         right: 50,
         bottom: 50,
         }}
-      className="group mx-auto mt-80 relative px-4 py-2 font-medium text-slate-100 transition-colors duration-[400ms] hover:text-indigo-300"
+      className="group mx-auto mt-80 relative w-48  px-4 py-2 font-medium text-slate-100 transition-colors duration-[400ms] hover:text-indigo-300"
     >
       <span>{children}</span>
 
