@@ -1,10 +1,10 @@
 import requests
-from data.author import athor_adta
+from data import author
 
 class Author:
     def __init__(self, url) -> None:
         self.__url = url
-        self.__data = athor_adta
+        self.__data = author.athor_adta
     
     def add(self):
         for data in self.__data:
