@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion"
 import "../login.css";
 function LoginPage() {
 	const [username, setUsername] = useState("");
@@ -47,7 +48,11 @@ function LoginPage() {
 	// background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
 	return (
 		<div className="flex justify-center items-center h-screen	" style={{background: 'linear-gradient(to bottom, #020617, #7c3aed, #302b63)'}}>
-				<div className="main">
+				<motion.div
+				 animate={{ opacity: 1, x: 0 }}
+				 initial={{ opacity: 0, x: "-10%" }}
+				 transition={{duration:0.25}}
+				 className="main">
 				<input type="checkbox" aria-hidden="true" id="chk" />
 
 				<div className="Signup">
@@ -73,7 +78,7 @@ function LoginPage() {
 							</button>
 					</form>
 				</div>
-			</div>
+			</motion.div>
 		</div>
 	);
 }
