@@ -462,6 +462,160 @@ chapter_data = [
         "name_chapter" : "5",   
         "coin": "400",
         "files": "/cartoon/Arcane Sniper/chapter/5"
+    },
+    {
+        "name_cartoon": "Leveling Up, By Only Eating",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Leveling Up, By Only Eating/chapter/1"
+    },
+    {
+        "name_cartoon": "Leveling Up, By Only Eating",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Leveling Up, By Only Eating/chapter/2"
+    },
+    {
+        "name_cartoon": "Leveling Up, By Only Eating",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Leveling Up, By Only Eating/chapter/3"
+    },
+    {
+        "name_cartoon": "Leveling Up, By Only Eating",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Leveling Up, By Only Eating/chapter/4"
+    },
+    {
+        "name_cartoon": "Leveling Up, By Only Eating",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Leveling Up, By Only Eating/chapter/5"
+    },
+    {
+        "name_cartoon": "Overgeared",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Overgeared/chapter/1"
+    },
+    {
+        "name_cartoon": "Overgeared",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Overgeared/chapter/2"
+    },
+    {
+        "name_cartoon": "Overgeared",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Overgeared/chapter/3"
+    },
+    {
+        "name_cartoon": "Overgeared",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Overgeared/chapter/4"
+    },
+    {
+        "name_cartoon": "Overgeared",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Overgeared/chapter/5"
+    },
+    {
+        "name_cartoon": "The Tutorial Is Too Hard",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/The Tutorial Is Too Hard/chapter/1"
+    },
+    {
+        "name_cartoon": "The Tutorial Is Too Hard",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/The Tutorial Is Too Hard/chapter/2"
+    },
+    {
+        "name_cartoon": "The Tutorial Is Too Hard",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/The Tutorial Is Too Hard/chapter/3"
+    },
+    {
+        "name_cartoon": "The Tutorial Is Too Hard",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/The Tutorial Is Too Hard/chapter/4"
+    },
+    {
+        "name_cartoon": "The Tutorial Is Too Hard",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/The Tutorial Is Too Hard/chapter/5"
+    },
+    {
+        "name_cartoon": "Omega Complex",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Omega Complex/chapter/1"
+    },
+    {
+        "name_cartoon": "Omega Complex",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Omega Complex/chapter/2"
+    },
+    {
+        "name_cartoon": "Omega Complex",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Omega Complex/chapter/3"
+    },
+    {
+        "name_cartoon": "Omega Complex",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Omega Complex/chapter/4"
+    },
+    {
+        "name_cartoon": "Omega Complex",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Omega Complex/chapter/5"
+    },
+    {
+        "name_cartoon": "Don't Touch Me",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Don't Touch Me/chapter/1"
+    },
+    {
+        "name_cartoon": "Don't Touch Me",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Don't Touch Me/chapter/2"
+    },
+    {
+        "name_cartoon": "Don't Touch Me",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Don't Touch Me/chapter/3"
+    },
+    {
+        "name_cartoon": "Don't Touch Me",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Don't Touch Me/chapter/4"
+    },
+    {
+        "name_cartoon": "Don't Touch Me",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Don't Touch Me/chapter/5"
     }
+    
+    
+    
+    
     
 ]
