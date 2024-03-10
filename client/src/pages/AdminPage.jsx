@@ -1,27 +1,37 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 function AdminPage() {
   const [nameCartoon, setNameCartoon] = useState("");
   const [author, setAuthor] = useState("");
-  let category = [];
+  const [category, setCategory] = useState([]);
   const [imageCartoon, setImageCartoon] = useState(null);
   const [imageMain, setImageMain] = useState(null);
   const [imageBG, setImageBG] = useState(null);
 
-//   const handleFileChange = (e) => {
-//     setImageCartoon(e.target.files[0]);
-//   };
-const handleSubmit = async (e) => {
-  e.preventDefault();
-  const formData = new FormData();
-  formData.append("name_cartoon", nameCartoon);
-  formData.append("author", author);
-  // formData.append("category", category);
-  formData.append("category", ['action']);
-  formData.append("image_cartoon", imageCartoon);
-  formData.append("image_main", imageMain);
-  formData.append("image_background", imageBG);
+  const [allCategory, setAllCategory] = useState([]);
+  async function getAllCategory() {
+    const res = await axios.get("/api/get_category");
+    const data = await res.data;
+    setAllCategory(data);
+  }
+  useEffect(() => {
+    getAllCategory();
+  }, []);
+
+  //   const handleFileChange = (e) => {
+  //     setImageCartoon(e.target.files[0]);
+  //   };
+  const handleSubmit = async () => {
+    // e.preventDefault();
+    const formData = new FormData();
+    formData.append("name_cartoon", nameCartoon);
+    formData.append("author", author);
+    formData.append("category", category);
+    // formData.append("category", ['action']);
+    formData.append("image_cartoon", imageCartoon);
+    formData.append("image_main", imageMain);
+    formData.append("image_background", imageBG);
 
     try {
       await axios.post("/api/post_cartoon", formData, {
@@ -29,21 +39,41 @@ const handleSubmit = async (e) => {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log("Image uploaded successfully");
+      alert("Image uploaded successfully");
     } catch (error) {
       console.error("Error uploading image: ", error);
     }
   };
+  function PushCategory(name) {
+    if (!category.find(val => val === name)) {
+      setCategory([...category, name])
+    }
+    else {
+      setCategory(category.filter(val => val !== name))
+    }
+  }
+  
   return (
     <div className="h-screen bg-gray-100">
       <div>
-					<Link to="/" className="text-center">
-						{/* <img src="../../public/assets/image/left-arrow.png" className="object-contain" height={"10%"} width={"10%"} alt="" /> */}
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="ml-2 w-10 h-10">
-							<path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
-						</svg>
-					</Link>
-				</div>
+        <Link to="/" className="text-center">
+          {/* <img src="../../public/assets/image/left-arrow.png" className="object-contain" height={"10%"} width={"10%"} alt="" /> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="ml-2 w-10 h-10"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+            />
+          </svg>
+        </Link>
+      </div>
       <div className="flex justify-center items-center ">
         <div className="w-[650px] bg-white p-2 rounded-md">
           <div className="text-center">
@@ -52,7 +82,9 @@ const handleSubmit = async (e) => {
           <form onSubmit={handleSubmit}>
             <div className="mt-5">
               <label className="label">
-                <span className="text-1xl text-black label-text">Cartoon Name</span>
+                <span className="text-1xl text-black label-text">
+                  Cartoon Name
+                </span>
               </label>
               <input
                 type="text"
@@ -63,7 +95,9 @@ const handleSubmit = async (e) => {
             </div>
             <div className="mt-5">
               <label className="label">
-                <span className="text-1xl text-black label-text">Author Name</span>
+                <span className="text-1xl text-black label-text">
+                  Author Name
+                </span>
               </label>
               <input
                 type="text"
@@ -76,15 +110,28 @@ const handleSubmit = async (e) => {
               <label className="label">
                 <span className="text-1xl text-black label-text">Category</span>
               </label>
-              <button
-                type="button"
-                placeholder="catefory"
-                onClick={() => category.push('action')}
-                className="rounded-md w-full mt-4 pl-5 input input-bordered p-1 bg-orange-300">action</button>
+              <div className="flex flex-col justify-between items-center text-center gap-1">
+              {allCategory.map((value, key) => {
+                return (
+                  <button
+                  key={key}
+                  type="button"
+                  placeholder="category"
+                  onClick={() => PushCategory(value.name)}
+                  className="rounded-md w-full input input-bordered p-1"
+                  style={{backgroundColor: category.find(val => val === value.name) ? 'green' : 'red'}}
+                  >
+                    {value.name}
+                  </button>
+                );
+              })}
+              </div>
             </div>
             <div className="mt-5">
               <label className="label">
-                <span className="text-1xl text-black label-text">image cartoon</span>
+                <span className="text-1xl text-black label-text">
+                  image cartoon
+                </span>
               </label>
               <input
                 className="w-full mt-4 pl-5 input h-12"
@@ -93,7 +140,9 @@ const handleSubmit = async (e) => {
                 onChange={(e) => setImageCartoon(e.target.files[0])}
               />
               <label className="label">
-                <span className="text-1xl text-black label-text">image main</span>
+                <span className="text-1xl text-black label-text">
+                  image main
+                </span>
               </label>
               <input
                 className="w-full mt-4 pl-5 input h-12"
@@ -110,7 +159,10 @@ const handleSubmit = async (e) => {
                 // onChange={handleFileChange}
                 onChange={(e) => setImageBG(e.target.files[0])}
               />
-              <button type="submit" className="mt-2 bg-green-400 mx-2 rounded-md p-2 w-full">
+              <button
+                type="submit"
+                className="mt-2 bg-green-400 mx-2 rounded-md p-2 w-full"
+              >
                 Upload
               </button>
             </div>
