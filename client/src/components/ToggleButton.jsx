@@ -33,19 +33,11 @@ function ToggleButton() {
     <div className="flex items-center justify-center gap-2 w-full">
       {options.map((opt) => {
         return theme === opt.text ? (
-          <button
-            className="w-full rounded bg-indigo-500"
-            key={opt.text}
-            onClick={() => {setTheme(opt.text);window.location.reload()}}
-          >
+          <button key={opt.text} onClick={() => {setTheme(opt.text);window.location.reload()}} className="rounded-2xl border-2 border-dashed border-black bg-indigo-500 px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
             {opt.text}
           </button>
         ) : (
-          <button
-            className="w-full rounded bg-white"
-            key={opt.text}
-            onClick={() => {setTheme(opt.text);window.location.reload()}}
-          >
+          <button key={opt.text} onClick={() => {setTheme(opt.text);window.location.reload()}} className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
             {opt.text}
           </button>
         );
