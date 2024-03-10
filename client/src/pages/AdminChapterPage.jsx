@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 function AdminChapterPage() {
 	const { cartoon } = useParams()
+	const [nameChapter, setNameChapter] = useState('')
+	const [coin, setCoin] = useState('')
 	const [selectedFiles, setSelectedFiles] = useState([]);
 
 	const handleFileChange = (event) => {
@@ -16,8 +18,8 @@ function AdminChapterPage() {
 		selectedFiles.forEach(file => {
 			formData.append('files[]', file);
 			formData.append('name_cartoon', cartoon);
-			formData.append('name_chapter', 'jong');
-			formData.append('coin', 1);
+			formData.append('name_chapter', nameChapter);
+			formData.append('coin', coin);
 		});
 
 		try {
@@ -51,6 +53,12 @@ function AdminChapterPage() {
 					<label className="label">
 						<span className="text-1xl text-black label-text">All Chapters</span>
 					</label>
+				</div>
+				<div className="mb-5">
+					<input onChange={(e) => setNameChapter(e.target.value)} />
+				</div>
+				<div className="mb-5">
+					<input onChange={(e) => setCoin(e.target.value)} />
 				</div>
 				<div className="mb-5">
 					<input type="file" multiple onChange={handleFileChange} />
