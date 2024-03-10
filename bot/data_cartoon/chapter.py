@@ -1,10 +1,4 @@
 chapter_data = [
-    # {
-    #     "name_cartoon": "Solo Leveling",
-    #     "name_chapters" : "0",   
-    #     "coin": "0",
-    #     "files": "/cartoon/Solo Leveling/chapter/0"
-    # },
     {
         "name_cartoon": "Solo Leveling",
         "name_chapter" : "1",   
@@ -149,12 +143,7 @@ chapter_data = [
         "coin": "0",
         "files": "/cartoon/Marriage Instead of Death/chapter/1"
     },
-    {
-        "name_cartoon": "Marriage Instead of Death",
-        "name_chapter" : "2",   
-        "coin": "400",
-        "files": "/cartoon/Marriage Instead of Death/chapter/2"
-    },
+
     {
         "name_cartoon": "Actually I Was the Real One",
         "name_chapter" : "1",   
