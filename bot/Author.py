@@ -1,5 +1,6 @@
 import requests
 from data.author import athor_adta
+
 class Author:
     def __init__(self, url) -> None:
         self.__url = url
