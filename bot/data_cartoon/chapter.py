@@ -1,10 +1,4 @@
 chapter_data = [
-    # {
-    #     "name_cartoon": "Solo Leveling",
-    #     "name_chapters" : "0",   
-    #     "coin": "0",
-    #     "files": "/cartoon/Solo Leveling/chapter/0"
-    # },
     {
         "name_cartoon": "Solo Leveling",
         "name_chapter" : "1",   
