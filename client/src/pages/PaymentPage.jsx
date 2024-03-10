@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import Qrcode from "../components/Qrcode";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const QrcodeContext = createContext()
 
@@ -29,22 +30,24 @@ function PaymentPage() {
           <p className="text-xl">เติมแคช</p>
         </div>
         <div className="">
-          <button>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              className="mr-2 w-10 h-10"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18 18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
+          <Link to="/Latest">
+            <button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                className="mr-2 w-10 h-10"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </Link>
         </div>
       </div>
       {/* second */}
@@ -52,9 +55,6 @@ function PaymentPage() {
         <div></div>
         <div className="w-[650px] flex justify-between items-between">
           <div className="">
-            {/* <div>
-              <p className="text-base mt-5">แคชที่มี</p>
-            </div> */}
             <div>
               <p className="text-5xl mt-14 text-gray-500">
                 เติม<b className="text-amber-500">แคช</b>
