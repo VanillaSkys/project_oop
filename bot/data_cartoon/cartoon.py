@@ -86,6 +86,126 @@ cartoon_data = [
         "image_cartoon" : "/cartoon/Perfect Surgeon/cartoon.png",
         "image_bg" : "/cartoon/Perfect Surgeon/bg.png",
         "image_main" : "/cartoon/Perfect Surgeon/main.png"
+    },
+    {
+        "name" : "Untouchable Lady",
+        "author" : "archaeopteryx",
+        "category"  : ["Romance Fantasy"],
+        "image_cartoon" : "/cartoon/Untouchable Lady/cartoon.png",
+        "image_bg" : "/cartoon/Untouchable Lady/bg.png",
+        "image_main" : "/cartoon/Untouchable Lady/main.png"
+    },
+    {
+        "name" : "Secret Relationship",
+        "author" : "McQueen STUDIO",
+        "category"  : ["Y"],
+        "image_cartoon" : "/cartoon/Secret Relationship/cartoon.png",
+        "image_bg" : "/cartoon/Secret Relationship/bg.png",
+        "image_main" : "/cartoon/Secret Relationship/main.png"
+    },
+    {
+        "name" : "Destiny",
+        "author" : "Antstudio",
+        "category"  : ["Romance"],
+        "image_cartoon" : "/cartoon/Destiny/cartoon.png",
+        "image_bg" : "/cartoon/Destiny/bg.png",
+        "image_main" : "/cartoon/Destiny/main.png"
+    },
+    {
+        "name" : "Swordmaster's Youngest Son",
+        "author" : "HWANGZE PENGUIN",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/Swordmaster's Youngest Son/cartoon.png",
+        "image_bg" : "/cartoon/Swordmaster's Youngest Son/bg.png",
+        "image_main" : "/cartoon/Swordmaster's Youngest Son/main.png"
+    },
+    {
+        "name" : "Infinite Mage",
+        "author" : "Kim chi woo",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/Infinite Mage/cartoon.png",
+        "image_bg" : "/cartoon/Infinite Mage/bg.png",
+        "image_main" : "/cartoon/Infinite Mage/main.png"
+    },
+    {
+        "name" : "Return of the SSS-Class Ranker",
+        "author" : "Pinball",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/Return of the SSS-Class Ranker/cartoon.png",
+        "image_bg" : "/cartoon/Return of the SSS-Class Ranker/bg.png",
+        "image_main" : "/cartoon/Return of the SSS-Class Ranker/main.png"
+    },
+    {
+        "name" : "Maxed Out Leveling",
+        "author" : "Endlessea",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/Maxed Out Leveling/cartoon.png",
+        "image_bg" : "/cartoon/Maxed Out Leveling/bg.png",
+        "image_main" : "/cartoon/Maxed Out Leveling/main.png"
+    },
+    {
+        "name" : "magic academy survival guide",
+        "author" : "Writingmachine",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/magic academy survival guide/cartoon.png",
+        "image_bg" : "/cartoon/magic academy survival guide/bg.png",
+        "image_main" : "/cartoon/magic academy survival guide/main.png"
+    },
+    {
+        "name" : "Arcane Sniper",
+        "author" : "Respect",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/Arcane Sniper/cartoon.png",
+        "image_bg" : "/cartoon/Arcane Sniper/bg.png",
+        "image_main" : "/cartoon/Arcane Sniper/main.png"
+    },
+    {
+        "name" : "Leveling Up, By Only Eating",
+        "author" : "Park Mingyu",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/Leveling Up, By Only Eating/cartoon.png",
+        "image_bg" : "/cartoon/Leveling Up, By Only Eating/bg.png",
+        "image_main" : "/cartoon/Leveling Up, By Only Eating/main.png"
+    },
+    {
+        "name" : "Overgeared",
+        "author" : "Saenal",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/Overgeared/cartoon.png",
+        "image_bg" : "/cartoon/Overgeared/bg.png",
+        "image_main" : "/cartoon/Overgeared/main.png"
+    },
+    {
+        "name" : "The Tutorial Is Too Hard",
+        "author" : "Gandara",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/The Tutorial Is Too Hard/cartoon.png",
+        "image_bg" : "/cartoon/The Tutorial Is Too Hard/bg.png",
+        "image_main" : "/cartoon/The Tutorial Is Too Hard/main.png"
+    },
+    {
+        "name" : "magic academy survival guide",
+        "author" : "Writingmachine",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/magic academy survival guide/cartoon.png",
+        "image_bg" : "/cartoon/magic academy survival guide/bg.png",
+        "image_main" : "/cartoon/magic academy survival guide/main.png"
+    },
+    {
+        "name" : "magic academy survival guide",
+        "author" : "Writingmachine",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/magic academy survival guide/cartoon.png",
+        "image_bg" : "/cartoon/magic academy survival guide/bg.png",
+        "image_main" : "/cartoon/magic academy survival guide/main.png"
+    },
+    {
+        "name" : "magic academy survival guide",
+        "author" : "Writingmachine",
+        "category"  : ["Action"],
+        "image_cartoon" : "/cartoon/magic academy survival guide/cartoon.png",
+        "image_bg" : "/cartoon/magic academy survival guide/bg.png",
+        "image_main" : "/cartoon/magic academy survival guide/main.png"
     }
     
 ]
