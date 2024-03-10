@@ -89,15 +89,18 @@ function CartoonPage() {
                   : 
                   ( !localStorage.getItem('user') ?
                     <Link to={`/login`}>
+                    <div className="bg-white opacity-50 w-[118px] absolute rounded-md h-[80px]">
+                        <img src="../../public/assets/image/lock.png" className="absolute overflow-hidden rounded-md text-center ml-7 mt-2" height={"50%"}  width={"50%"}/>
+                      </div>
                     <img
                     // onCl
                       src={`/api/static/${value?.image_chapter[0]}`}
                       className="object-cover rounded-md w-[118px] h-20"
                     />
                     <p className="text-center text-white text-1xl mt-2">
-                      ตอนที่ {value?.number_chapter} LOCK
-                      
+                      ตอนที่ {value?.number_chapter}
                     </p>
+
                   </Link> 
                  : check(value?.number_chapter) ?
                 //  : userData?.transaction_chapter[key]?.chapter_number === value?.number_chapter ?
