@@ -25,7 +25,7 @@ cartoon_data = [
     },
     {
         "name" : "Baby Squirrel Is Good at Everything",
-        "author" : "ultramarinesilk",
+        "author" : "Ultramarinesilk",
         "category"  : ["Romance Fantasy"],
         "image_cartoon" : "/cartoon/Baby Squirrel Is Good at Everything/cartoon.png",
         "image_bg" : "/cartoon/Baby Squirrel Is Good at Everything/bg.png",
@@ -81,7 +81,7 @@ cartoon_data = [
     },
     {
         "name" : "Perfect Surgeon",
-        "author" : "moedal",
+        "author" : "Moedal",
         "category"  : ["Romance"],
         "image_cartoon" : "/cartoon/Perfect Surgeon/cartoon.png",
         "image_bg" : "/cartoon/Perfect Surgeon/bg.png",
@@ -89,7 +89,7 @@ cartoon_data = [
     },
     {
         "name" : "Untouchable Lady",
-        "author" : "archaeopteryx",
+        "author" : "Archaeopteryx",
         "category"  : ["Romance Fantasy"],
         "image_cartoon" : "/cartoon/Untouchable Lady/cartoon.png",
         "image_bg" : "/cartoon/Untouchable Lady/bg.png",
@@ -193,7 +193,7 @@ cartoon_data = [
     },
     {
         "name" : "Don't Touch Me",
-        "author" : "leenong",
+        "author" : "Leenong",
         "category"  : ["Y"],
         "image_cartoon" : "/cartoon/Don't Touch Me/cartoon.png",
         "image_bg" : "/cartoon/Don't Touch Me/bg.png",

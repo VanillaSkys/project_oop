@@ -214,7 +214,38 @@ chapter_data = [
         "name_chapter" : "5",   
         "coin": "400",
         "files": "/cartoon/Of all things, I Became a Crow/chapter/5"
+    },
+    {
+        "name_cartoon": "Perfect Surgeon",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Perfect Surgeon/chapter/1"
     }
+    ,
+    {
+        "name_cartoon": "Perfect Surgeon",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Perfect Surgeon/chapter/2"
+    },
+    {
+        "name_cartoon": "Perfect Surgeon",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Perfect Surgeon/chapter/3"
+    },
+    {
+        "name_cartoon": "Perfect Surgeon",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Perfect Surgeon/chapter/4"
+    },
+    {
+        "name_cartoon": "Perfect Surgeon",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Perfect Surgeon/chapter/5"
+    },
     
 
 
