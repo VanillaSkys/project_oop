@@ -44,7 +44,6 @@ class Admin(Account):
             path_file_cartoon = f'cartoon/{name_cartoon}/{filename_cartoon}'
             path_file_main = f'cartoon/{name_cartoon}/{filename_main}'
             path_file_bg = f'cartoon/{name_cartoon}/{filename_bg}'
-            print(name_cartoon, path_file_cartoon, path_file_main, path_file_bg)
             cartoon = Cartoon(name_cartoon, path_file_cartoon, path_file_main, path_file_bg, author)
             cartoon.set_category(category)
             return cartoon

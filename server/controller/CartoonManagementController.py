@@ -1,5 +1,6 @@
 from service.BuyCoin import BuyCoin
 from service.BuyChapter import BuyChapter
+from service.Search import Search
 class CartoonManagementController:
     def __init__(self, guest, admin) -> None:
         self.__account_list = []
@@ -73,7 +74,7 @@ class CartoonManagementController:
 
     def post_cartoon(self, name_cartoon, author, categories, file_cartoon, file_main, file_bg):
         for author_con in self.__author:
-            if author_con.get_author_name() == author:
+            if author_con.get_author_name() == author and not(any(name_cartoon == cartoon.get_name_cartoon() for cartoon in self.__cartoon)):
                 response = self.__admin.post_cartoon(name_cartoon, author, categories, file_cartoon, file_main, file_bg)
                 author_con.add_cartoon_list(response)
         #     author_list.append(author_con)
@@ -204,3 +205,8 @@ class CartoonManagementController:
                                             return 'success'
                                 return {'error': 'coin'}
         return {'error': "login"}        
+
+    def search_cartoon_by_all(self, search):
+        search_in = Search(search)
+        response = search_in.search_cartoon_by_all(self.__cartoon, self.__author, self.__category)
+        return response

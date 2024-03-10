@@ -77,7 +77,6 @@ def logout_user():
 def get_cartoon():
     name_cartoon = request.args.get('cartoon')
     response = cartoon_controller.get_cartoon(name_cartoon=name_cartoon)
-    print(response)
     return response, 200
 
 # @app.get('/all_cartoon')
@@ -164,6 +163,12 @@ def buy_chapter():
         return response, 417
     else:
         return {'message': response}, 200
+    
+@app.get('/search')
+def get_search():
+    search = request.args.get('search')
+    response = cartoon_controller.search_cartoon_by_all(search)
+    return response, 200
 
 if __name__ == '__main__':
     app.run(debug=True)
