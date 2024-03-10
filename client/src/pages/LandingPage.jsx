@@ -55,7 +55,7 @@ function LandingPage() {
   }
   return (
     <div className="h-screen bg-gray-200">
-      <div className="w-[950px] mx-auto pt-24 px-2 grid grid-cols-4 gap-1">
+      <div className="w-[950px] mx-auto px-2 grid grid-cols-4 gap-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
         <motion.div className={`h-[550px] flex items-between justify-between col-span-4 `} 
         // style={{
         //   scale: isScaled ? 1.5 : 1,
