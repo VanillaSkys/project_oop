@@ -342,6 +342,12 @@ chapter_data = [
         "name_chapter" : "5",   
         "coin": "400",
         "files": "/cartoon/Infinite Mage/chapter/5"
+    },
+    {
+        "name_cartoon": "Return of the SSS-Class Ranker",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/1"
     }
     
 ]
