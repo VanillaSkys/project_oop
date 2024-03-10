@@ -149,12 +149,7 @@ chapter_data = [
         "coin": "0",
         "files": "/cartoon/Marriage Instead of Death/chapter/1"
     },
-    {
-        "name_cartoon": "Marriage Instead of Death",
-        "name_chapter" : "2",   
-        "coin": "400",
-        "files": "/cartoon/Marriage Instead of Death/chapter/2"
-    },
+
     {
         "name_cartoon": "Actually I Was the Real One",
         "name_chapter" : "1",   
