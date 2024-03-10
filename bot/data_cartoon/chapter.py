@@ -312,6 +312,36 @@ chapter_data = [
         "name_chapter" : "8",   
         "coin": "400",
         "files": "/cartoon/Swordmaster's Youngest Son/chapter/8"
+    },
+    {
+        "name_cartoon": "Infinite Mage",
+        "name_chapter" : "1",   
+        "coin": "0",
+        "files": "/cartoon/Infinite Mage/chapter/1"
+    },
+    {
+        "name_cartoon": "Infinite Mage",
+        "name_chapter" : "2",   
+        "coin": "0",
+        "files": "/cartoon/Infinite Mage/chapter/2"
+    },
+    {
+        "name_cartoon": "Infinite Mage",
+        "name_chapter" : "3",   
+        "coin": "0",
+        "files": "/cartoon/Infinite Mage/chapter/3"
+    },
+    {
+        "name_cartoon": "Infinite Mage",
+        "name_chapter" : "4",   
+        "coin": "400",
+        "files": "/cartoon/Infinite Mage/chapter/4"
+    },
+    {
+        "name_cartoon": "Infinite Mage",
+        "name_chapter" : "5",   
+        "coin": "400",
+        "files": "/cartoon/Infinite Mage/chapter/5"
     }
     
 ]
