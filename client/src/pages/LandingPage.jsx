@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import DrawOutlineButton from "../components/DrawOutlineButton";
-
+import BubbleText from "../components/BubbleText";
 
 
 const ROTATION_RANGE = 32.5;
@@ -56,22 +56,24 @@ function LandingPage() {
   return (
     <div className="h-screen bg-gray-200">
       <div className="w-[950px] mx-auto px-2 grid grid-cols-4 gap-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+       
         <motion.div className={`h-[550px] flex items-between justify-between col-span-4 `} 
-        // style={{
-        //   scale: isScaled ? 1.5 : 1,
-        //   transition: { duration: 0.5 }
-        // }}
         variants={variants}
         animate={isScaled ? "zoom" : "normal"}
         transition={{ duration: 0.25 }}
         >
-          <div
-            style={{ backgroundColor: "#020617" }}
-            className=" w-full text-center rounded-l-lg drop-shadow-2xl shadow-lg shadow-violet-500"
-          >
-            <DrawOutlineButton onClick={handleClick}>
-              Web site
-            </DrawOutlineButton>
+          <div style={{ backgroundColor: "#020617" }} className="flex flex-col justify-center gap-12 items-center w-full text-center rounded-l-lg drop-shadow-2xl shadow-lg shadow-violet-500">
+            <div className="">
+              <img src="../../public/assets/icons/infinity.png" className="w-[40px] mx-auto" />
+            </div>
+            <div className="">
+              <BubbleText />
+            </div>
+            <div className="">
+              <DrawOutlineButton onClick={handleClick}>
+                Web site
+              </DrawOutlineButton>
+            </div>
           </div>
           <div className="text-center w-[550px] object-cover rounded-r-lg bg-cover bg-center ">
             <motion.div
