@@ -16,7 +16,7 @@ function SearchPage() {
     useEffect(() => {
         Search()
     }, [search])
-
+    const theme = localStorage.getItem("theme")
     return(
         <div className='flex flex-col items-center justify-center'>
             <div  className='mt-5 flex justify-center'>
