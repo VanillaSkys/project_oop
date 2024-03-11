@@ -67,12 +67,6 @@ function RegistPage() {
                 className="w-full rounded-md pl-5 mt-4 input input-bordered h-10"
               />
             </div>
-            {/* <div className="mt-5">
-					<label className='label'>
-						<span className='text-2xl text-white label-text'>E-mail</span>
-					</label>
-					<input type='email' pattern="[0-9]{10}" placeholder='Enter E-mail' className='w-full rounded-md pl-5 mt-4 input input-bordered h-10'/>
-				</div> */}
             <div>{error}</div>
             <div>
               <button
@@ -94,15 +88,3 @@ function RegistPage() {
 }
 
 export default RegistPage;
-
-{
-  /* <div className="grid grid-rows-7">
-				<div>Login</div>
-				<div>Websiter</div>
-				<div>03</div>
-				<div>04</div>
-				<div>05</div>
-				<div>06</div>
-				<div>07</div>
-			</div> */
-}

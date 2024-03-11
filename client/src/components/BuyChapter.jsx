@@ -30,7 +30,6 @@ function SpringModal({ isOpen, setIsOpen, cartoon_id, chapter_id }) {
         console.log("Error.");
       }
     }
-    // setQrcode(res.data.image)
   }
   return (
     <AnimatePresence>
@@ -113,34 +112,5 @@ function SpringModal({ isOpen, setIsOpen, cartoon_id, chapter_id }) {
     </AnimatePresence>
   );
 }
-// to={
-//   Number(chapter.split("_")[0]) > 1
-//     ? `/cartoon/${cartoon}/${
-//         Number(chapter.split("_")[0]) - 1
-//       }_${chapter.split("_")[1]}`
-//     : `/cartoon/${cartoon}`
-// }
+
 export default SpringModal;
-
-// const ExampleWrapper = () => {
-//   const [isOpen, setIsOpen] = useState(false);
-//   return (
-//     <div className="px-4 py-64 bg-slate-900 grid place-content-center">
-//       <button
-//         onClick={() => setIsOpen(true)}
-//         className="bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium px-4 py-2 rounded hover:opacity-90 transition-opacity"
-//       >
-//         Open Modal
-//       </button>
-//       <SpringModal isOpen={isOpen} setIsOpen={setIsOpen} />
-//     </div>
-//   );
-// };
-
-// async function Buy() {
-//     axios.post('/api/buy_chapter', {
-//         username: localStorage.getItem('user'),
-//         cartoon_id: ,
-//         chapter_id:
-//     })
-// }
