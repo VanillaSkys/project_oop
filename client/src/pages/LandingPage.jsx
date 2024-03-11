@@ -3,13 +3,11 @@ import { useRef, useState } from "react";
 import DrawOutlineButton from "../components/DrawOutlineButton";
 import BubbleText from "../components/BubbleText";
 
-
 const ROTATION_RANGE = 32.5;
 const HALF_ROTATION_RANGE = 32.5 / 2;
 
 function LandingPage() {
   const [isScaled, setIsScaled] = useState(false);
-  // window.location.href = "/Latest"
   const ref = useRef(null);
 
   const [rotateX, setRotateX] = useState(0);
@@ -39,32 +37,36 @@ function LandingPage() {
     setRotateY(0);
   };
 
-
   function handleClick() {
-    // document.body.button.zoom = "500%";
-    setIsScaled(!isScaled)
+    setIsScaled(!isScaled);
     if (!isScaled) {
       setTimeout(() => {
         window.location.href = "/Latest";
-      }, 250)
+      }, 250);
     }
   }
   const variants = {
     zoom: { opacity: 0, x: "60%" },
     normal: { opacity: 1, x: 0 },
-  }
+  };
   return (
     <div className="h-screen bg-gray-200">
       <div className="w-[950px] mx-auto px-2 grid grid-cols-4 gap-1 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-       
-        <motion.div className={`h-[550px] flex items-between justify-between col-span-4 `} 
-        variants={variants}
-        animate={isScaled ? "zoom" : "normal"}
-        transition={{ duration: 0.25 }}
+        <motion.div
+          className={`h-[550px] flex items-between justify-between col-span-4 `}
+          variants={variants}
+          animate={isScaled ? "zoom" : "normal"}
+          transition={{ duration: 0.25 }}
         >
-          <div style={{ backgroundColor: "#020617" }} className="flex flex-col justify-center gap-12 items-center w-full text-center rounded-l-lg drop-shadow-2xl shadow-lg shadow-violet-500">
+          <div
+            style={{ backgroundColor: "#020617" }}
+            className="flex flex-col justify-center gap-12 items-center w-full text-center rounded-l-lg drop-shadow-2xl shadow-lg shadow-violet-500"
+          >
             <div className="">
-              <img src="../../public/assets/icons/infinity.png" className="w-[40px] mx-auto" />
+              <img
+                src="../../public/assets/icons/infinity.png"
+                className="w-[40px] mx-auto"
+              />
             </div>
             <div className="">
               <BubbleText />
@@ -122,51 +124,3 @@ function LandingPage() {
 }
 
 export default LandingPage;
-
-// https://th-a.kakaopagecdn.com/P/C/353/c1a/a124957b-5d43-42b0-ac3c-571844949405.webm
-
-{
-  /* <Swiper spaceBetween={20} slidesPerView={1} autoplay={{ delay: 1000 }} loop>
-	<SwiperSlide className='text-center  object-contain bg-left rounded-r-lg'>
-
-	</SwiperSlide>
-	<SwiperSlide style={{backgroundImage:'url(../../public/assets/image/solo/bg-1.jpg)'}} className='text-center w-[550px] object-contain bg-left rounded-r-lg '>
-		<img src="https://th-a.kakaopagecdn.com/P/C/48/t2/2x/82c39060-e9e6-400b-8d03-3505e552e172.png" className='absolute drop-shadow-2xl' alt="" />
-		<motion.img src="../../public/assets/image/solo/sung-jin-woo.png" className='mt-32 w-[500px] mx-auto' alt="" />
-	</SwiperSlide>
-</Swiper> */
-}
-
-// hover:scale-[1000%] hover:transition hover:duration-1000
-
-// <motion.div animate={{ x: [null, 100, 0] }} style={{height:'500px'}}>
-// <img src="https://th-a.kakaopagecdn.com/P/C/769/bg/2x/ff164223-7e06-4a42-8217-08c175e956e0.jpg" className='absolute rounded-lg object-contain'/>
-// {/* <img src="../../public/assets/image/Solo-Leveling-ep1-2.jpg" className='w-20 h-20' alt="" /> */}
-//   <img src="../../public/assets/image/timeerverse.png" className='absolute' alt="" />
-// <video className='absolute ml-24' style={{width:'450px' ,height:'650px'}} controls autoPlay>
-//   <source src="https://th-a.kakaopagecdn.com/P/C/769/c1a/b7b52d87-e241-4172-8e64-0e2f90c54abb.webm" type="video/webm" />
-// </video>
-// <div className=''>
-//   <Link to="/Lastest"><button className='absolute w-34 p-2 text-3xl rounded-md mt-28 ml-a outline hover:bg-amber-200 text-white '>Web site</button></Link>
-// </div>
-
-// </motion.div >
-
-{
-  /* <Swiper spaceBetween={50} slidesPerView={1} autoplay={{ delay: 1000 }} loop={true}>
-<SwiperSlide>
-	<img src="../../public/assets/image/landingPage-1.png" class="absolute object-cover w-[1920px] h-[737px]" />
-</SwiperSlide>
-<SwiperSlide>
-	<img src="../../public/assets/image/landingPage-2.jpg" class="object-cover w-[1920px] h-[737px] ..." />
-</SwiperSlide>
-</Swiper>	 */
-}
-
-{
-  /* <div className="flex flex-col itmes-center justify-center">
-	<div style={{marginLeft:'68%', marginTop:'30%'}}>
-		<Link to="/Lastest"><button className='absolute text-white w-72	 outline p-3'>Web Site</button></Link>
-	</div>
-</div> */
-}

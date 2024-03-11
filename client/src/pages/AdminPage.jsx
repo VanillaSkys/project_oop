@@ -19,16 +19,11 @@ function AdminPage() {
     getAllCategory();
   }, []);
 
-  //   const handleFileChange = (e) => {
-  //     setImageCartoon(e.target.files[0]);
-  //   };
   const handleSubmit = async () => {
-    // e.preventDefault();
     const formData = new FormData();
     formData.append("name_cartoon", nameCartoon);
     formData.append("author", author);
     formData.append("category", category);
-    // formData.append("category", ['action']);
     formData.append("image_cartoon", imageCartoon);
     formData.append("image_main", imageMain);
     formData.append("image_background", imageBG);
@@ -45,19 +40,17 @@ function AdminPage() {
     }
   };
   function PushCategory(name) {
-    if (!category.find(val => val === name)) {
-      setCategory([...category, name])
-    }
-    else {
-      setCategory(category.filter(val => val !== name))
+    if (!category.find((val) => val === name)) {
+      setCategory([...category, name]);
+    } else {
+      setCategory(category.filter((val) => val !== name));
     }
   }
-  
+
   return (
     <div className="h-screen bg-gray-100">
       <div>
         <Link to="/" className="text-center">
-          {/* <img src="../../public/assets/image/left-arrow.png" className="object-contain" height={"10%"} width={"10%"} alt="" /> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -111,20 +104,26 @@ function AdminPage() {
                 <span className="text-1xl text-black label-text">Category</span>
               </label>
               <div className="flex flex-col justify-between items-center text-center gap-1">
-              {allCategory.map((value, key) => {
-                return (
-                  <button
-                  key={key}
-                  type="button"
-                  placeholder="category"
-                  onClick={() => PushCategory(value.name)}
-                  className="rounded-md w-full input input-bordered p-1"
-                  style={{backgroundColor: category.find(val => val === value.name) ? 'green' : 'red'}}
-                  >
-                    {value.name}
-                  </button>
-                );
-              })}
+                {allCategory.map((value, key) => {
+                  return (
+                    <button
+                      key={key}
+                      type="button"
+                      placeholder="category"
+                      onClick={() => PushCategory(value.name)}
+                      className="rounded-md w-full input input-bordered p-1"
+                      style={{
+                        backgroundColor: category.find(
+                          (val) => val === value.name
+                        )
+                          ? "green"
+                          : "red",
+                      }}
+                    >
+                      {value.name}
+                    </button>
+                  );
+                })}
               </div>
             </div>
             <div className="mt-5">
@@ -136,7 +135,6 @@ function AdminPage() {
               <input
                 className="w-full mt-4 pl-5 input h-12"
                 type="file"
-                // onChange={handleFileChange}
                 onChange={(e) => setImageCartoon(e.target.files[0])}
               />
               <label className="label">
@@ -147,7 +145,6 @@ function AdminPage() {
               <input
                 className="w-full mt-4 pl-5 input h-12"
                 type="file"
-                // onChange={handleFileChange}
                 onChange={(e) => setImageMain(e.target.files[0])}
               />
               <label className="label">
@@ -156,7 +153,6 @@ function AdminPage() {
               <input
                 className="w-full mt-4 pl-5 input h-12"
                 type="file"
-                // onChange={handleFileChange}
                 onChange={(e) => setImageBG(e.target.files[0])}
               />
               <button

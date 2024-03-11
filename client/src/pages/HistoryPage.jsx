@@ -32,13 +32,11 @@ function HistoryPage() {
   useEffect(() => {
     fetchUserData();
   }, []);
-  // console.log(history === 'coin' ? dataCoin : dataChapter) //ตัวอย่างข้อมูล
   return (
     <div className="bg-gray-100 h-screen">
       <div className="flex justify-between items-between">
         <div>
           <Link to="/menu" className="text-center">
-            {/* <img src="../../public/assets/image/left-arrow.png" className="object-contain" height={"10%"} width={"10%"} alt="" /> */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
