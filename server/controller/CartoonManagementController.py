@@ -18,7 +18,7 @@ class CartoonManagementController:
 
     def set_category(self, category):
         self.__category = category
-
+ 
     def register(self, username, password):
         for author in self.__author:
             if author.get_username() == username:

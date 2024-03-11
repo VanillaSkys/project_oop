@@ -466,6 +466,24 @@
         },
         "summary": "Buy Chapter"
       }
+    },
+    "/search": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "search",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "summary": "Search"
+      }
     }
   }
 }
