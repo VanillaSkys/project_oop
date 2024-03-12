@@ -159,6 +159,12 @@ function MenuPage() {
             <ToggleButton />
           </div>
         </div>
+        {
+          localStorage.getItem('user') === 'admin' && localStorage.getItem('role') === 'admin' ?
+        <button>ADMIN</button>
+        : null
+        }
+          
       </motion.div>
     </div>
   );
