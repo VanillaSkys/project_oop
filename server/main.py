@@ -59,6 +59,7 @@ def add_register_author():
 def add_login():
     username, password = request.json.get('username'), request.json.get('password')
     response = cartoon_controller.login(username, password)
+    print(response)
     if isinstance(response, dict):
         return response
     else:

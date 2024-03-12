@@ -44,7 +44,10 @@ class CartoonManagementController:
         return "Register successful"
             
     def login(self, username, password):
-        if username != 'admin':
+        if username == 'admin':
+            data = self.__admin.login(username, password)
+            return data
+        else:
             for user in self.__account_list:
                 if user.get_username() == username:
                     data = user.login(username, password)
@@ -58,10 +61,10 @@ class CartoonManagementController:
                         return data
                     return data
             return {'Dont have account'}
-        data = self.__admin.login(username, password)
-        if isinstance(data, dict):
-            return data
-        return data
+        
+        # if isinstance(data, dict):
+        #     return data
+        # return data
 
     def logout(self, username):
         for account in self.__account_list:

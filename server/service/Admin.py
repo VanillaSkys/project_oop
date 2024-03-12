@@ -10,8 +10,8 @@ class Admin(Account):
         super().__init__(username, password, status)
 
     def login(self, username, password):
-        if username == self.__username and password == self.__password:
-            return {'user': username}
+        if username == self.get_username() and password == self.get_password():
+            return {'user': username, 'role': 'admin'}
         elif self.__username == username and self.__password != password: 
             return "invalid username or password"
         return 'Dont have user'

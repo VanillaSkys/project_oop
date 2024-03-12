@@ -9,6 +9,9 @@ class Account:
     def get_username(self):
         return self.__username
     
+    def get_password(self):
+        return self.__password
+    
     def login(self, username, password):
         if self.__username == username and self.__password == password and username != 'admin':
             self.__status = True
