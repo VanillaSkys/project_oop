@@ -67,9 +67,12 @@ class CartoonManagementController:
         # return data
 
     def logout(self, username):
-        for account in self.__account_list:
-            if account.get_username() == username:
-                data = account.logout(username)
+        if username == 'admin':
+            data = self.__admin.logout(username)
+            return data
+        for user in self.__account_list:
+            if user.get_username() == username:
+                data = user.logout(username)
                 if isinstance(data, dict):
                     return data
                 return data

@@ -12,6 +12,12 @@ class Account:
     def get_password(self):
         return self.__password
     
+    def get_status(self):
+        return self.__status
+    
+    def set_status(self, status):
+        self.__status = status
+    
     def login(self, username, password):
         if self.__username == username and self.__password == password and username != 'admin':
             self.__status = True
@@ -23,7 +29,7 @@ class Account:
         
     def logout(self, username):
         if self.__username == username:
-            self.__status = False
+            self.set_status(False)
             return "Logout success"
         return None
         

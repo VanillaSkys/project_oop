@@ -159,9 +159,8 @@ function MenuPage() {
             <ToggleButton />
           
         {
-          localStorage.getItem('user') === 'admin' && localStorage.getItem('role') === 'admin' ?
-        <button>ADMIN</button>
-        : (
+          localStorage.getItem('user') === 'admin' ?
+        (
          <div className="flex justify-between gap-5 items-between">
             <div className="w-[305px]">
               <Link
@@ -182,6 +181,8 @@ function MenuPage() {
             </div>
          </div>
         )
+        : 
+        <button>ADMIN</button>
         }
           </div>
         </div>

@@ -11,6 +11,7 @@ class Admin(Account):
 
     def login(self, username, password):
         if username == self.get_username() and password == self.get_password():
+            self.set_status(True)
             return {'user': username, 'role': 'admin'}
         elif self.__username == username and self.__password != password: 
             return "invalid username or password"
