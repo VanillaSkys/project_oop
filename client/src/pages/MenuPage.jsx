@@ -126,63 +126,65 @@ function MenuPage() {
               </p>
               <p className="text-3xl ml-8 text-violet-600">Term Coin </p>
             </div>
-            <div className="w-full flex justify-center items-center">
-              <Link
-                to={!localStorage.getItem("user") ? "/login" : "/payment"}
-                className="w-full text-center rounded"
-              >
-                <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-                  <p className="text-2xl">เติมแคช</p>
-                </button>
-              </Link>
-            </div>
-            <div className="w-full flex justify-between gap-2 items-center">
-              <Link
-                to={!localStorage.getItem("user") ? "/login" : "/history/coin"}
-                className="w-full text-center"
-              >
-                <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-                  <p className="text-base">History Coin</p>
-                </button>
-              </Link>
-              <Link
-                to={
-                  !localStorage.getItem("user") ? "/login" : "/history/chapter"
-                }
-                className="w-full text-center"
-              >
-                <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-                  <p className="text-base">History Chapter</p>
-                </button>
-              </Link>
-            </div>
+          {
+           localStorage.getItem('user') !== 'admin'?
+            (
+              <div className="w-full flex justify-center items-center">
+                <Link
+                  to={!localStorage.getItem("user") ? "/login" : "/payment"}
+                  className="w-full text-center rounded"
+                >
+                  <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                    <p className="text-2xl">เติมแคช</p>
+                  </button>
+                </Link>
+              </div>
+            ):
+            null
+          }
+          {
+            localStorage.getItem("user") !== "admin" ?
+            (
+              <div className="w-full flex justify-between gap-2 items-center">
+                <Link
+                  to={!localStorage.getItem("user") ? "/login" : "/history/coin"}
+                  className="w-full text-center"
+                >
+                  <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                    <p className="text-base">History Coin</p>
+                  </button>
+                </Link>
+                <Link
+                  to={
+                    !localStorage.getItem("user") ? "/login" : "/history/chapter"
+                  }
+                  className="w-full text-center"
+                >
+                  <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                    <p className="text-base">History Chapter</p>
+                  </button>
+                </Link>
+              </div>
+            )
+            :
+            null
+          }
+            
             <ToggleButton />
           
         {
-          localStorage.getItem('user') === 'admin' ?
-        (
-         <div className="flex justify-between gap-5 items-between">
-            <div className="w-[305px]">
-              <Link
-                to={
-                  !localStorage.getItem("user") ? "/login" : "/history/chapter"
-                }
-                className="text-center"
-              >
-               <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-                  <p className="text-base">Add Cartoon</p>
-                </button>
-                </Link>
-            </div>
-            <div className="w-[305px]">
-               <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
-                  <p className="text-base">Add Cartoon</p>
-                </button>
-            </div>
-         </div>
-        )
+            localStorage.getItem('user') === 'admin' ?
+              <div className="flex justify-between gap-5 items-between">
+                  <div className="w-[630px]">
+                    <Link to="/admin" className="text-center">
+                      <button className="rounded-2xl border-2 border-dashed border-black bg-white px-6 w-full py-2 font-semibold uppercase text-black transition-all duration-300 hover:translate-x-[-4px] hover:translate-y-[-4px] hover:rounded-md hover:shadow-[4px_4px_0px_black] active:translate-x-[0px] active:translate-y-[0px] active:rounded-2xl active:shadow-none">
+                        <p className="text-base">Add Cartoon</p>
+                      </button>
+                      </Link>
+                  </div>
+              </div>
         : 
-        <button>ADMIN</button>
+        <button></button>
         }
           </div>
         </div>
