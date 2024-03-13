@@ -23,11 +23,9 @@ app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
 def create_instance():
     category_type = ["Action","Romance Fantasy","Romance","Drama","Thriller","Y"]
-    # author_name = ['fill', 'boat']
     guest = Guest()
     admin = Admin()
     category_all = [Category(category)for category in category_type]
-    # author_all = [Author(author)for author in author_name]
     return guest, admin, category_all
 
 guest, admin, category_all = create_instance()
@@ -80,11 +78,6 @@ def get_cartoon():
     response = cartoon_controller.get_cartoon(name_cartoon=name_cartoon)
     return response, 200
 
-# @app.get('/all_cartoon')
-# def get_all_cartoon():
-#     name_category = request.args.get('category')
-#     response = cartoon_controller.get_all_cartoon(name_category)
-#     return response, 200
 @app.get('/all_cartoon')
 def get_all_cartoon():
     response = cartoon_controller.get_all_cartoon()
@@ -102,7 +95,6 @@ def upload_image():
     if 'image_cartoon' not in request.files:
         return jsonify({'error': 'No file part'})
     name_cartoon, author, category = request.form.get('name_cartoon'),request.form.get('author'),request.form.getlist('category')
-    # print(name_cartoon, author, category)
     file_cartoon, file_main, file_bg = request.files['image_cartoon'],request.files['image_main'], request.files['image_background']
     response = cartoon_controller.post_cartoon(name_cartoon, author, category, file_cartoon, file_main, file_bg)
     
@@ -150,7 +142,6 @@ def get_author():
 def buy_coin():
     username, total_coin, amount = request.json.get('username'), request.json.get('total_coin'), request.json.get('amount')
     response = cartoon_controller.buy_coin(username, total_coin, amount)
-    # Return the QR code image to the client
     if isinstance(response, dict):
         return response
     else:

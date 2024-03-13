@@ -2,7 +2,7 @@ from service.BuyCoin import BuyCoin
 from service.BuyChapter import BuyChapter
 from service.Search import Search
 class CartoonManagementController:
-    def __init__(self, guest, admin) -> None:
+    def __init__(self, guest, admin):
         self.__account_list = []
         self.__cartoon = []
         self.__category = []
@@ -54,17 +54,7 @@ class CartoonManagementController:
                     if isinstance(data, dict):
                         return data
                     return data
-            for author in self.__author:
-                if author.get_username() == username:
-                    data = author.login(username, password)
-                    if isinstance(data, dict):
-                        return data
-                    return data
             return {'Dont have account'}
-        
-        # if isinstance(data, dict):
-        #     return data
-        # return data
 
     def logout(self, username):
         if username == 'admin':
@@ -83,28 +73,16 @@ class CartoonManagementController:
             if author_con.get_author_name() == author and not(any(name_cartoon == cartoon.get_name_cartoon() for cartoon in self.__cartoon)):
                 response = self.__admin.post_cartoon(name_cartoon, author, categories, file_cartoon, file_main, file_bg)
                 author_con.add_cartoon_list(response)
-        #     author_list.append(author_con)
-        # self.__author = author_list
         
         for category_con in self.__category:
             for category in categories:
                 if category_con.get_category_name() == category:
                     category_con.add_cartoon_list(response)
-        #     category_list.append(category_con)
-        # self.__category = category_list
         if isinstance(response, dict):
             return response
         else:
             self.__cartoon.append(response)
             return "Success"
-
-    def put_cartoon(self, cartoon_id, updated_data):
-        # Implementation of updating an existing cartoon
-        pass
-
-    def delete_cartoon(self, cartoon_id):
-        # Implementation of deleting a cartoon
-        pass
 
     def post_chapter(self, name_cartoon, name_chapter, coin, files):
         for cartoon in self.__cartoon:
@@ -113,34 +91,9 @@ class CartoonManagementController:
                 cartoon.add_all_chapter(response)
                 return "Success"
 
-    def put_chapter(self, chapter_id, updated_data):
-        # Implementation of updating an existing chapter
-        pass
-
-    def delete_chapter(self, chapter_id):
-        # Implementation of deleting a chapter
-        pass
-
-    def show_transaction(self):
-        # Implementation of show a transaction
-        pass
-
-    # def get_all_cartoon(self, name_category):
-    #     response = []
-    #     if name_category == None:
-    #         for cartoon in self.__cartoon:
-    #             response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
-    #     else:
-    #         for category in self.__category:
-    #             if category.get_category_name() == name_category:
-    #                 print(category.get_cartoon_list())
-    #                 for cartoon in category.get_cartoon_list():
-    #                     response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()})
-    #     return response
     def get_all_cartoon(self):
         response = []
         for cartoon in self.__cartoon:
-            # print({"image_background": cartoon.get_image_background()})
             response.append({"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main(), "image_background": cartoon.get_image_background()})
         return response
     
