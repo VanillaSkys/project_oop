@@ -11,7 +11,7 @@ def download_image(url, folder_name='Chapter'):
     # Set initial image counter
     global image_counter
     # Construct the image name with the current value of the image counter
-    image_name = os.path.join(folder_name, f"{image_counter}.webp")
+    image_name = os.path.join(folder_name, f"{image_counter}.jpg")
 
     # Send a GET request to the image URL
     response = requests.get(url)
