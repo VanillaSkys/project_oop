@@ -13,6 +13,7 @@ function AdminChapterPage() {
   };
 
   const handleUpload = async () => {
+    console.log("YES")
     const formData = new FormData();
 
     selectedFiles.forEach((file) => {
@@ -69,10 +70,10 @@ function AdminChapterPage() {
             </label>
           </div>
           <div className="mb-5">
-            <input onChange={(e) => setNameChapter(e.target.value)} />
+            <input onChange={(e) => setNameChapter(e.target.value)} placeholder="Name Chapter"/>
           </div>
           <div className="mb-5">
-            <input onChange={(e) => setCoin(e.target.value)} />
+            <input onChange={(e) => setCoin(e.target.value)} placeholder="Coin"/>
           </div>
           <div className="mb-5">
             <input type="file" multiple onChange={handleFileChange} />
