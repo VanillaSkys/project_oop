@@ -1,6 +1,3 @@
-#RUN SERVER
-- python main.py
-#SAVE ALL ENV LIBRALY
-- pip freeze > requirements.txt
-#LOAD ALL ENV LIBRALY
-- pip install -r requirements.txt
+ทำการcd server เพื่อเข้ามายังDirectory serverจากนั้น 
+ทำการพิมพ์คำสั่ง pip install -r requirements.txt ในTerminal เพื่อติดตั้งLibrary
+หลังจากนั้นสามารถ พิมพ์ python main.py เพื่อRun Backend
