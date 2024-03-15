@@ -91,18 +91,7 @@ chapter_data = [
         "coin": "0",
         "files": "/cartoon/I Won't Pick Up The Trash I Threw Away Again/chapter/1"
     },
-    {
-        "name_cartoon": "Baby Squirrel Is Good at Everything",
-        "name_chapter" : "1",   
-        "coin": "0",
-        "files": "/cartoon/Baby Squirrel Is Good at Everything/chapter/1"
-    },
-    {
-        "name_cartoon": "Marriage Instead of Death",
-        "name_chapter" : "1",   
-        "coin": "0",
-        "files": "/cartoon/Marriage Instead of Death/chapter/1"
-    },
+
 
     {
         "name_cartoon": "Actually I Was the Real One",
@@ -130,20 +119,6 @@ chapter_data = [
         "files": "/cartoon/Of all things, I Became a Crow/chapter/2"
     },
 
-    {
-        "name_cartoon": "Perfect Surgeon",
-        "name_chapter" : "1",   
-        "coin": "0",
-        "files": "/cartoon/Perfect Surgeon/chapter/1"
-    }
-    ,
-    {
-        "name_cartoon": "Perfect Surgeon",
-        "name_chapter" : "2",   
-        "coin": "400",
-        "files": "/cartoon/Perfect Surgeon/chapter/2"
-    },
-  
     {
         "name_cartoon": "Untouchable Lady",
         "name_chapter" : "1",   
@@ -175,66 +150,7 @@ chapter_data = [
         "coin": "400",
         "files": "/cartoon/Swordmaster's Youngest Son/chapter/3"
     },
-    {
-        "name_cartoon": "Infinite Mage",
-        "name_chapter" : "1",   
-        "coin": "0",
-        "files": "/cartoon/Infinite Mage/chapter/1"
-    },
-    {
-        "name_cartoon": "Infinite Mage",
-        "name_chapter" : "2",   
-        "coin": "0",
-        "files": "/cartoon/Infinite Mage/chapter/2"
-    },
-    {
-        "name_cartoon": "Infinite Mage",
-        "name_chapter" : "3",   
-        "coin": "0",
-        "files": "/cartoon/Infinite Mage/chapter/3"
-    },
-    {
-        "name_cartoon": "Infinite Mage",
-        "name_chapter" : "4",   
-        "coin": "400",
-        "files": "/cartoon/Infinite Mage/chapter/4"
-    },
-    {
-        "name_cartoon": "Infinite Mage",
-        "name_chapter" : "5",   
-        "coin": "400",
-        "files": "/cartoon/Infinite Mage/chapter/5"
-    },
-    {
-        "name_cartoon": "Return of the SSS-Class Ranker",
-        "name_chapter" : "1",   
-        "coin": "0",
-        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/1"
-    },
-    {
-        "name_cartoon": "Return of the SSS-Class Ranker",
-        "name_chapter" : "2",   
-        "coin": "0",
-        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/2"
-    },
-    {
-        "name_cartoon": "Return of the SSS-Class Ranker",
-        "name_chapter" : "3",   
-        "coin": "0",
-        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/3"
-    },
-    {
-        "name_cartoon": "Return of the SSS-Class Ranker",
-        "name_chapter" : "4",   
-        "coin": "400",
-        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/4"
-    },
-    {
-        "name_cartoon": "Return of the SSS-Class Ranker",
-        "name_chapter" : "5",   
-        "coin": "400",
-        "files": "/cartoon/Return of the SSS-Class Ranker/chapter/5"
-    },
+ 
     {
         "name_cartoon": "Maxed Out Leveling",
         "name_chapter" : "1",   
@@ -260,59 +176,7 @@ chapter_data = [
         "coin": "400",
         "files": "/cartoon/magic academy survival guide/chapter/2"
     },
-
-    {
-        "name_cartoon": "Arcane Sniper",
-        "name_chapter" : "1",   
-        "coin": "0",
-        "files": "/cartoon/Arcane Sniper/chapter/1"
-    },
-    {
-        "name_cartoon": "Arcane Sniper",
-        "name_chapter" : "2",   
-        "coin": "400",
-        "files": "/cartoon/Arcane Sniper/chapter/2"
-    },
-   
-    {
-        "name_cartoon": "Leveling Up, By Only Eating",
-        "name_chapter" : "1",   
-        "coin": "0",
-        "files": "/cartoon/Leveling Up, By Only Eating/chapter/1"
-    },
-    {
-        "name_cartoon": "Leveling Up, By Only Eating",
-        "name_chapter" : "2",   
-        "coin": "400",
-        "files": "/cartoon/Leveling Up, By Only Eating/chapter/2"
-    },
-  
-    {
-        "name_cartoon": "Overgeared",
-        "name_chapter" : "1",   
-        "coin": "0",
-        "files": "/cartoon/Overgeared/chapter/1"
-    },
-    {
-        "name_cartoon": "Overgeared",
-        "name_chapter" : "2",   
-        "coin": "400",
-        "files": "/cartoon/Overgeared/chapter/2"
-    },
  
-    {
-        "name_cartoon": "The Tutorial Is Too Hard",
-        "name_chapter" : "1",   
-        "coin": "0",
-        "files": "/cartoon/The Tutorial Is Too Hard/chapter/1"
-    },
-    {
-        "name_cartoon": "The Tutorial Is Too Hard",
-        "name_chapter" : "2",   
-        "coin": "400",
-        "files": "/cartoon/The Tutorial Is Too Hard/chapter/2"
-    },
-   
     {
         "name_cartoon": "Omega Complex",
         "name_chapter" : "1",   

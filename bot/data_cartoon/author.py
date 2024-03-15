@@ -14,11 +14,7 @@ author_data = [
         "username": "march",
         "password": "march"   
     },
-    {
-        "author_name": "Ultramarinesilk",
-        "username": "ultramarinesilk",
-        "password": "ultramarinesilk"   
-    },
+  
     {
         "author_name": "Yuin",
         "username": "yuin",
@@ -39,21 +35,13 @@ author_data = [
         "username": "spoon",
         "password": "spoon"   
     },
-    {
-        "author_name": "DoGaeBi",
-        "username": "dogaebi",
-        "password": "dogaebi"   
-    },
+
     {
         "author_name": "GLEE",
         "username": "glee",
         "password": "glee"   
     },
-    {
-        "author_name": "MoeDal",
-        "username": "moedal",
-        "password": "moedal"   
-    },
+
     {
         "author_name": "Archaeopteryx",
         "username": "archaeopteryx",
@@ -74,16 +62,7 @@ author_data = [
         "username": "hwangzepenguin",
         "password": "hwangzepenguin"   
     },
-    {
-        "author_name": "Kim chi woo",
-        "username": "kimchiwoo",
-        "password": "kimchiwoo"   
-    },
-    {
-        "author_name": "Pinball",
-        "username": "pinball",
-        "password": "pinball"    
-    },
+ 
     {
         "author_name": "Endlessea",
         "username": "endlessea",
@@ -93,26 +72,6 @@ author_data = [
         "author_name": "Writingmachine",
         "username": "writingmachine",
         "password": "writingmachine"    
-    },
-    {
-        "author_name": "Respect",
-        "username": "respect",
-        "password": "respect"    
-    },
-    {
-        "author_name": "Park Mingyu",
-        "username": "parkmingyu",
-        "password": "parkmingyu"     
-    },
-    {
-        "author_name": "Saenal",
-        "username": "saenal",
-        "password": "saenal"     
-    },
-    {
-        "author_name": "Gandara",
-        "username": "gandara",
-        "password": "gandara"    
     },
     {
         "author_name": "Oneulbom",
@@ -129,24 +88,12 @@ author_data = [
         "username": "yse",
         "password": "yse"      
     },
-    {
-        "author_name": "ACHIM",
-        "username": "achim",
-        "password": "achim"       
-    },
+
     {
         "author_name": "Mola",
         "username": "mola",
         "password": "mola"        
     },
-    {
-        "author_name": "Dokyoung",
-        "username": "dokyoung",
-        "password": "dokyoung"        
-    },
-    {
-        "author_name": "JONOON",
-        "username": "jonoon",
-        "password": "jonoon"         
-    }
+
+
 ]
