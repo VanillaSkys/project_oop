@@ -200,14 +200,6 @@ cartoon_data = [
         "image_main" : "/cartoon/Don't Touch Me/main.png"
     },
     {
-        "name" : "Who Can Define Popularity",
-        "author" : "Tak bon",
-        "category"  : ["Y"],
-        "image_cartoon" : "/cartoon/Who Can Define Popularity/cartoon.png",
-        "image_bg" : "/cartoon/Who Can Define Popularity/bg.png",
-        "image_main" : "/cartoon/Who Can Define Popularity/main.png"
-    },
-    {
         "name" : "Tales of Seol Gongchan",
         "author" : "Yse",
         "category"  : ["Y"],
@@ -239,22 +231,6 @@ cartoon_data = [
         "image_bg" : "/cartoon/Placebo Memory/bg.png",
         "image_main" : "/cartoon/Placebo Memory/main.png"
     },
-    # {
-    #     "name" : "Placebo Memory",
-    #     "author" : "Dokyoung",
-    #     "category"  : ["Y"],
-    #     "image_cartoon" : "/cartoon/Placebo Memory/cartoon.png",
-    #     "image_bg" : "/cartoon/Placebo Memory/bg.png",
-    #     "image_main" : "/cartoon/Placebo Memory/main.png"
-    # },
-    # {
-    #     "name" : "Placebo Memory",
-    #     "author" : "Dokyoung",
-    #     "category"  : ["Y"],
-    #     "image_cartoon" : "/cartoon/Placebo Memory/cartoon.png",
-    #     "image_bg" : "/cartoon/Placebo Memory/bg.png",
-    #     "image_main" : "/cartoon/Placebo Memory/main.png"
-    # },
     {
         "name" : "The Bequeathed",
         "author" : "JONOON",
