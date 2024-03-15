@@ -38,5 +38,5 @@ class Author(Account):
         return [{"name": cartoon.get_name_cartoon(), "image_main": cartoon.get_image_main()} for cartoon in self.__cartoon_list ]
         
     def show_transaction_author(self):
-        return [{"transaction_chapter_id": transaction.get_transaction_chaptere_id(), "chapter_id": transaction.get_chapter_id(), "time": transaction.get_time(), "cartoon_name": transaction.get_cartoon_name(), "chapter_number": transaction.get_chapter_number(), "total_coin": transaction.get_total_coin()} for transaction in self.__transaction_author]
+        return [{"transaction_chapter_id": transaction.get_transaction_chapter_id(), "chapter_id": transaction.get_chapter_id(), "time": transaction.get_time(), "cartoon_name": transaction.get_cartoon_name(), "chapter_number": transaction.get_chapter_number(), "total_coin": transaction.get_total_coin()} for transaction in self.__transaction_author]
     
